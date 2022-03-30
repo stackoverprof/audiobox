@@ -4,7 +4,6 @@ import TrackCard from "./components/TrackCard";
 import axios from "axios";
 import randomBytesJs from "random-bytes-js";
 import "./styles.css";
-import tracks_data from "./data/tracks";
 
 class App extends Component {
   constructor(props) {
@@ -60,7 +59,7 @@ class App extends Component {
 
   handleAuth = () => {
     const client_id = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
-    const redirect_uri = "http://localhost:3000";
+    const redirect_uri = window.location.origin;
     const state = randomBytesJs.randHex(8);
 
     localStorage.setItem("spotify-client", state);
