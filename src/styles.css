@@ -5,8 +5,17 @@
   color: white;
   background: #150032;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.app-control {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 960px;
 }
 
 .table {
@@ -43,8 +52,7 @@
   margin-bottom: 12px;
 }
 
-.input-group input,
-.input-group textarea {
+.input-group input {
   background: #ffffff22;
   border-radius: 4px;
   border: none;
@@ -65,7 +73,7 @@
   font-size: 18px;
 }
 
-section.music {
+.music {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -121,4 +129,43 @@ section.music {
   border-radius: 4px;
   font-size: 12px;
   margin-top: 20px;
+}
+
+.search-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 0;
+}
+
+.search-input {
+  background: #fff2;
+  border: 1px solid #fff;
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-size: 24px;
+  width: 400px;
+  color: white;
+}
+
+.search-btn {
+  height: 52px;
+  background: white;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 14px;
+  margin-left: 12px;
+  font-weight: bold;
+  font-size: 16px;
+}
+.login-btn {
+  height: 52px;
+  background: #0000;
+  border: 2px solid white;
+  border-radius: 6px;
+  padding: 10px 14px;
+  margin-left: 12px;
+  font-weight: bold;
+  font-size: 16px;
+  color: white;
 }
