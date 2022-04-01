@@ -1,9 +1,7 @@
 import React, { Component } from "react";
-import SearchBox from "./components/SearchBox";
-import TrackCard from "./components/TrackCard";
-import axios from "axios";
 import randomBytesJs from "random-bytes-js";
 import "./styles.css";
+import Home from "./pages/Home";
 
 class App extends Component {
   constructor(props) {
@@ -11,8 +9,6 @@ class App extends Component {
 
     this.state = {
       token: "",
-      searchResult: [],
-      searchQuery: "",
     };
   }
 
@@ -32,30 +28,6 @@ class App extends Component {
       this.setState({ token: params.access_token });
     }
   }
-
-  onChange = (e) => {
-    this.setState({ searchQuery: e.target.value });
-  };
-
-  handleSearch = async (e) => {
-    e.preventDefault();
-
-    let config = {
-      headers: {
-        Authorization: "Bearer " + this.state.token,
-      },
-      params: {
-        type: "track",
-        q: this.state.searchQuery,
-      },
-    };
-
-    const result = await axios
-      .get("https://api.spotify.com/v1/search", config)
-      .then((res) => res.data.tracks.items);
-
-    this.setState({ searchResult: result });
-  };
 
   handleAuth = () => {
     const client_id = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
@@ -78,27 +50,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="app-control">
-          <button className="login-btn" onClick={this.handleAuth}>
-            LOGIN
-          </button>
-          <SearchBox
-            value={this.state.searchQuery}
-            onChange={this.onChange}
-            onSubmit={this.handleSearch}
-          />
-        </div>
-        <div className="table">
-          {this.state.searchResult.map((data, i) => (
-            <TrackCard
-              img={data.album.images[0].url}
-              name={data.name}
-              artists={data.artists}
-              album_name={data.album.name}
-              key={i}
-            />
-          ))}
-        </div>
+        <button className="login-btn" onClick={this.handleAuth}>
+          LOGIN
+        </button>
+        <Home token={this.state.token} />
       </div>
     );
   }
