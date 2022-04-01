@@ -4,6 +4,7 @@ import SearchBox from "../../components/SearchBox";
 import TrackCard from "../../components/TrackCard";
 
 const Home = ({ token }) => {
+  const [selectedTrack, setSelectedTrack] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResult, setSearchResult] = useState([]);
 
@@ -31,6 +32,17 @@ const Home = ({ token }) => {
     setSearchResult(result);
   };
 
+  const handleSelect = (id) => {
+    if (selectedTrack.find((x) => x === id)) return;
+    setSelectedTrack([...selectedTrack, id]);
+  };
+
+  const handleUnSelect = (id) => {
+    if (!selectedTrack.find((x) => x === id)) return;
+    const deleted = [...selectedTrack].filter((x) => x !== id);
+    setSelectedTrack(deleted);
+  };
+
   return (
     <>
       <div className="app-control">
@@ -47,6 +59,9 @@ const Home = ({ token }) => {
             name={data.name}
             artists={data.artists}
             album_name={data.album.name}
+            selected={selectedTrack.includes(data.album.images[0].url)}
+            handleSelect={() => handleSelect(data.album.images[0].url)}
+            handleUnSelect={() => handleUnSelect(data.album.images[0].url)}
             key={i}
           />
         ))}

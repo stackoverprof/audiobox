@@ -50,9 +50,11 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <button className="login-btn" onClick={this.handleAuth}>
-          LOGIN
-        </button>
+        <div className="login-area">
+          <button className="login-btn" onClick={this.handleAuth}>
+            LOGIN
+          </button>
+        </div>
         <Home token={this.state.token} />
       </div>
     );

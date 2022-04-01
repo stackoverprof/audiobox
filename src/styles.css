@@ -13,7 +13,7 @@
 
 .app-control {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   width: 960px;
 }
@@ -123,12 +123,18 @@
 }
 
 .card-music button.play {
-  padding: 6px 10px;
+  padding: 12px 10px;
   background: white;
   border: none;
   border-radius: 4px;
-  font-size: 12px;
+  font-size: 16px;
   margin-top: 20px;
+  width: 80%;
+}
+
+.card-music button.selected {
+  background: #6940a3;
+  color: #fff;
 }
 
 .search-form {
@@ -136,6 +142,16 @@
   justify-content: center;
   align-items: center;
   padding: 60px 0;
+  width: 100%;
+}
+
+.login-area {
+  padding-left: 80px;
+  margin-top: 60px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .search-input {
@@ -144,7 +160,7 @@
   padding: 10px 14px;
   border-radius: 6px;
   font-size: 24px;
-  width: 400px;
+  width: 81%;
   color: white;
 }
 

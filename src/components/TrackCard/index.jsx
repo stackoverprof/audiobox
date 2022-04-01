@@ -1,6 +1,14 @@
 import React from "react";
 
-const TrackCard = ({ img, name, artists, album_name }) => {
+const TrackCard = ({
+  img,
+  name,
+  artists,
+  album_name,
+  selected,
+  handleSelect,
+  handleUnSelect,
+}) => {
   return (
     <div className="music">
       <div className="card-music">
@@ -17,7 +25,12 @@ const TrackCard = ({ img, name, artists, album_name }) => {
           </p>
           <p className="album">{album_name}</p>
         </div>
-        <button className="play">&#9658; Select</button>
+        <button
+          className={`play ${selected && "selected"}`}
+          onClick={selected ? handleUnSelect : handleSelect}
+        >
+          {selected ? "Selected" : "Select"}
+        </button>
       </div>
     </div>
   );
