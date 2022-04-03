@@ -155,7 +155,7 @@ nav.navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1400px;
+  max-width: 1200px;
 }
 
 .search-input {
@@ -216,7 +216,18 @@ nav.navbar {
 }
 .login-btn {
   height: 52px;
-  background: #0000;
+  background: #1dbc60;
+  border: 2px solid white;
+  border-radius: 6px;
+  padding: 10px 14px;
+  margin-left: 12px;
+  font-weight: bold;
+  font-size: 16px;
+  color: white;
+}
+.logout-btn {
+  height: 52px;
+  background: #e74c3c;
   border: 2px solid white;
   border-radius: 6px;
   padding: 10px 14px;

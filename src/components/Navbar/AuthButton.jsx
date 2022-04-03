@@ -32,7 +32,7 @@ const AuthButton = ({ token }) => {
     );
   else
     return (
-      <button className="login-btn" onClick={handleLogout}>
+      <button className="logout-btn" onClick={handleLogout}>
         Logout
       </button>
     );
