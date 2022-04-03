@@ -1,11 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 
-const SearchBox = ({ onSubmit, value, onChange }) => {
+const SearchBox = ({ setSearchResult, token }) => {
+  const [searchQuery, setSearchQuery] = useState("");
+  const handleSearch = async (e) => {
+    e.preventDefault();
+
+    let config = {
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+      params: {
+        type: "track",
+        q: searchQuery,
+      },
+    };
+
+    const result = await axios
+      .get("https://api.spotify.com/v1/search", config)
+      .then((res) => res.data.tracks.items);
+
+    setSearchResult(result);
+  };
+
   return (
-    <form onSubmit={onSubmit} className="search-form">
+    <form onSubmit={handleSearch} className="search-form">
       <input
-        value={value}
-        onChange={onChange}
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
         type="text"
         className="search-input"
         placeholder="Search something..."
