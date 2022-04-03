@@ -1,16 +1,13 @@
 import axios from "axios";
 import React, { useState } from "react";
+import CreatePlaylist from "../../components/CreatePlaylist";
 import SearchBox from "../../components/SearchBox";
-import TrackCard from "../../components/TrackCard";
+import TracksGrid from "../../components/TracksGrid";
 
 const Home = ({ token }) => {
-  const [selectedTrack, setSelectedTrack] = useState([]);
+  const [selectedTracks, setSelectedTracks] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResult, setSearchResult] = useState([]);
-
-  const onChange = (e) => {
-    setSearchQuery(e.target.value);
-  };
 
   const handleSearch = async (e) => {
     e.preventDefault();
@@ -32,40 +29,19 @@ const Home = ({ token }) => {
     setSearchResult(result);
   };
 
-  const handleSelect = (id) => {
-    if (selectedTrack.find((x) => x === id)) return;
-    setSelectedTrack([...selectedTrack, id]);
-  };
-
-  const handleUnSelect = (id) => {
-    if (!selectedTrack.find((x) => x === id)) return;
-    const deleted = [...selectedTrack].filter((x) => x !== id);
-    setSelectedTrack(deleted);
-  };
-
   return (
     <>
-      <div className="app-control">
-        <SearchBox
-          value={searchQuery}
-          onChange={onChange}
-          onSubmit={handleSearch}
-        />
-      </div>
-      <div className="table">
-        {searchResult.map((data, i) => (
-          <TrackCard
-            img={data.album.images[0].url}
-            name={data.name}
-            artists={data.artists}
-            album_name={data.album.name}
-            selected={selectedTrack.includes(data.album.images[0].url)}
-            handleSelect={() => handleSelect(data.album.images[0].url)}
-            handleUnSelect={() => handleUnSelect(data.album.images[0].url)}
-            key={i}
-          />
-        ))}
-      </div>
+      <SearchBox
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
+        onSubmit={handleSearch}
+      />
+      <CreatePlaylist selectedTracks={selectedTracks} />
+      <TracksGrid
+        selectedTracks={selectedTracks}
+        searchResult={searchResult}
+        setSelectedTracks={setSelectedTracks}
+      />
     </>
   );
 };

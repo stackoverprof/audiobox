@@ -11,13 +11,6 @@
   min-height: 100vh;
 }
 
-.app-control {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 960px;
-}
-
 .table {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -141,17 +134,28 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 60px 0;
-  width: 100%;
+  margin: 60px 0 20px 0;
+  width: 972px;
 }
 
-.login-area {
-  padding-left: 80px;
+.cp-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 0 20px 0;
+  width: 972px;
+}
+button {
+  cursor: pointer;
+}
+
+nav.navbar {
   margin-top: 60px;
   width: 100%;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
+  max-width: 1400px;
 }
 
 .search-input {
@@ -160,8 +164,30 @@
   padding: 10px 14px;
   border-radius: 6px;
   font-size: 24px;
-  width: 81%;
+  flex: 6;
   color: white;
+}
+
+.cp-title-input {
+  background: #fff2;
+  border: 1px solid #fff;
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-size: 24px;
+  flex: 2;
+  color: white;
+  height: 32px;
+  margin-right: 10px;
+}
+.cp-description-input {
+  background: #fff2;
+  border: 1px solid #fff;
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-size: 24px;
+  flex: 4;
+  color: white;
+  height: 32px;
 }
 
 .search-btn {
@@ -173,8 +199,34 @@
   margin-left: 12px;
   font-weight: bold;
   font-size: 16px;
+  flex: 1;
+}
+.cp-btn {
+  height: 56px;
+  background: none;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 14px;
+  margin-left: 12px;
+  font-weight: bold;
+  font-size: 16px;
+  flex: 1.5;
+  color: white;
+  border: 1px solid white;
 }
 .login-btn {
+  height: 52px;
+  background: #0000;
+  border: 2px solid white;
+  border-radius: 6px;
+  padding: 10px 14px;
+  margin-left: 12px;
+  font-weight: bold;
+  font-size: 16px;
+  color: white;
+}
+
+.btn {
   height: 52px;
   background: #0000;
   border: 2px solid white;

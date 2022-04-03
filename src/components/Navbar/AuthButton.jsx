@@ -1,7 +1,7 @@
 import randomBytesJs from "random-bytes-js";
 import React from "react";
 
-const AuthButton = () => {
+const AuthButton = ({ token }) => {
   const handleAuth = () => {
     const client_id = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
     const redirect_uri = window.location.origin;
@@ -19,13 +19,23 @@ const AuthButton = () => {
 
     window.location = targetURL.href;
   };
-  return (
-    <div className="login-area">
+
+  const handleLogout = () => {
+    window.location = "/";
+  };
+
+  if (!token)
+    return (
       <button className="login-btn" onClick={handleAuth}>
-        LOGIN
+        Login
       </button>
-    </div>
-  );
+    );
+  else
+    return (
+      <button className="login-btn" onClick={handleLogout}>
+        Logout
+      </button>
+    );
 };
 
 export default AuthButton;
