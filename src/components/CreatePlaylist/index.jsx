@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
+import useForm from "../../hooks/useForm";
 import axiosSpotify from "../../utils/axios-spotify";
 
 const CreatePlaylist = ({ selectedTracks, user }) => {
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
+  const { form, mutateForm } = useForm({
+    title: "",
+    description: "",
+  });
 
   const handleCreatePlaylist = async (e) => {
     e.preventDefault();
@@ -13,8 +16,8 @@ const CreatePlaylist = ({ selectedTracks, user }) => {
     // create a new playlist
     const playlist_id = await axiosSpotify
       .post(`/users/${user.id}/playlists`, {
-        name: title,
-        description: description,
+        name: form.title,
+        description: form.description,
         public: false,
         collaborative: false,
       })
@@ -43,17 +46,19 @@ const CreatePlaylist = ({ selectedTracks, user }) => {
       }}
     >
       <input
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
+        value={form.title}
+        name="title"
+        onChange={mutateForm}
         type="text"
         className="cp-title-input"
         placeholder="Title"
       />
       <textarea
         className="cp-description-input"
-        value={description}
+        value={form.description}
+        name="description"
         placeholder="Description"
-        onChange={(e) => setDescription(e.target.value)}
+        onChange={mutateForm}
       ></textarea>
       <button type="submit" className="cp-btn">
         Create Playlist ({selectedTracks.length})
