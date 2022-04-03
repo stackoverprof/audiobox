@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from "axios";
+import axiosSpotify from "../../utils/axios-spotify";
 
 const SearchBox = ({ setSearchResult, token }) => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -7,24 +7,28 @@ const SearchBox = ({ setSearchResult, token }) => {
     e.preventDefault();
 
     let config = {
-      headers: {
-        Authorization: "Bearer " + token,
-      },
       params: {
         type: "track",
         q: searchQuery,
       },
     };
 
-    const result = await axios
-      .get("https://api.spotify.com/v1/search", config)
+    const result = await axiosSpotify
+      .get("/search", config)
       .then((res) => res.data.tracks.items);
 
     setSearchResult(result);
   };
 
   return (
-    <form onSubmit={handleSearch} className="search-form">
+    <form
+      onSubmit={handleSearch}
+      className="search-form"
+      style={{
+        opacity: token ? 1 : 0.5,
+        pointerEvents: token ? "auto" : "none",
+      }}
+    >
       <input
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}

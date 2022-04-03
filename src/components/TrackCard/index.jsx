@@ -1,29 +1,35 @@
 import React from "react";
 
-const TrackCard = ({
-  img,
-  name,
-  artists,
-  album_name,
-  selected,
-  handleSelect,
-  handleUnSelect,
-}) => {
+const TrackCard = ({ data, selectedTracks, setSelectedTracks }) => {
+  const id = data.uri;
+  const selected = selectedTracks.includes(id);
+
+  const handleSelect = () => {
+    if (selectedTracks.find((x) => x === id)) return;
+    setSelectedTracks([...selectedTracks, id]);
+  };
+
+  const handleUnSelect = () => {
+    if (!selectedTracks.find((x) => x === id)) return;
+    const deleted = [...selectedTracks].filter((x) => x !== id);
+    setSelectedTracks(deleted);
+  };
+
   return (
     <div className="music">
       <div className="card-music">
         <div className="upper">
-          <img src={img} alt="" />
-          <h3 className="title">{name}</h3>
+          <img src={data.album.images[0].url} alt="" />
+          <h3 className="title">{data.name}</h3>
           <p className="artist">
-            {artists.map((artist, i, arr) => (
+            {data.artists.map((artist, i, arr) => (
               <span key={i}>
                 {artist.name}
                 {i + 1 < arr.length && ", "}
               </span>
             ))}
           </p>
-          <p className="album">{album_name}</p>
+          <p className="album">{data.album_name}</p>
         </div>
         <button
           className={`play ${selected && "selected"}`}
