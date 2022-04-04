@@ -22,6 +22,15 @@
   background: orange;
 }
 
+.nav-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nav-greeting {
+  margin-right: 10px;
+}
+
 .form {
   display: flex;
   justify-content: center;

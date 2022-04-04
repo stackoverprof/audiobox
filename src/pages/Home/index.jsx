@@ -7,8 +7,6 @@ const Home = ({ token, user }) => {
   const [selectedTracks, setSelectedTracks] = useState([]);
   const [searchResult, setSearchResult] = useState([]);
 
-  console.log(selectedTracks);
-
   return (
     <>
       <SearchBox setSearchResult={setSearchResult} token={token} />

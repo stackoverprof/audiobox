@@ -29,7 +29,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <Navbar token={token} />
+      <Navbar token={token} user={user} />
       <Home token={token} user={user} />
     </div>
   );
