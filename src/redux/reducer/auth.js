@@ -4,7 +4,6 @@ import { useSelector } from "react-redux";
 const initialState = {
   authenticated: "",
   token: "",
-  user: {},
 };
 
 const ReduxSlice = createSlice({
@@ -19,12 +18,9 @@ const ReduxSlice = createSlice({
       state.token = "";
       state.authenticated = false;
     },
-    setUser: (state, action) => {
-      state.user = action.payload;
-    },
   },
 });
 
-export const { setToken, removeToken, setUser } = ReduxSlice.actions;
+export const { setToken, removeToken } = ReduxSlice.actions;
 export const useAuth = () => useSelector((RootState) => RootState.auth);
 export default ReduxSlice.reducer;

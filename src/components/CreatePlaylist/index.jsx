@@ -1,10 +1,10 @@
 import React from "react";
 import useForm from "../../hooks/useForm";
-import { useAuth } from "../../redux/reducer/auth";
+import useUser from "../../swr/user";
 import axiosSpotify from "../../utils/axios-spotify";
 
 const CreatePlaylist = ({ selectedTracks }) => {
-  const { user } = useAuth();
+  const { user } = useUser();
 
   const { form, mutateForm } = useForm({
     title: "",
@@ -13,6 +13,7 @@ const CreatePlaylist = ({ selectedTracks }) => {
 
   const handleCreatePlaylist = async (e) => {
     e.preventDefault();
+    if (!user.id) return;
     if (!selectedTracks.length) return;
     if (form.title.length < 10)
       return alert("Title is too short, Required 10 characters!");
