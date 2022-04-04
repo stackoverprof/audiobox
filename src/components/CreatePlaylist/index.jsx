@@ -11,6 +11,9 @@ const CreatePlaylist = ({ selectedTracks, user }) => {
   const handleCreatePlaylist = async (e) => {
     e.preventDefault();
     if (!selectedTracks.length) return;
+    if (form.title.length < 10)
+      return alert("Title is too short, Required 10 characters!");
+
     const uris = selectedTracks;
 
     // create a new playlist
