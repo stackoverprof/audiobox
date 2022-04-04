@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import { useAuth } from "../../redux/reducer/auth";
 import axiosSpotify from "../../utils/axios-spotify";
 
-const SearchBox = ({ setSearchResult, token }) => {
+const SearchBox = ({ setSearchResult }) => {
   const [searchQuery, setSearchQuery] = useState("");
   const handleSearch = async (e) => {
     e.preventDefault();
@@ -20,13 +21,15 @@ const SearchBox = ({ setSearchResult, token }) => {
     setSearchResult(result);
   };
 
+  const { authenticated } = useAuth();
+
   return (
     <form
       onSubmit={handleSearch}
       className="search-form"
       style={{
-        opacity: token ? 1 : 0.5,
-        pointerEvents: token ? "auto" : "none",
+        opacity: authenticated ? 1 : 0.5,
+        pointerEvents: authenticated ? "auto" : "none",
       }}
     >
       <input

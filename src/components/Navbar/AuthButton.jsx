@@ -1,7 +1,9 @@
 import randomBytesJs from "random-bytes-js";
 import React from "react";
+import { useAuth } from "../../redux/reducer/auth";
 
-const AuthButton = ({ token }) => {
+const AuthButton = () => {
+  const { authenticated } = useAuth();
   const handleAuth = () => {
     const client_id = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
     const redirect_uri = window.location.origin;
@@ -24,7 +26,7 @@ const AuthButton = ({ token }) => {
     window.location = "/";
   };
 
-  if (!token)
+  if (!authenticated)
     return (
       <button className="login-btn" onClick={handleAuth}>
         Login

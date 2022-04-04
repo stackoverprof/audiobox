@@ -1,7 +1,9 @@
 import React from "react";
+import { useAuth } from "../../redux/reducer/auth";
 import AuthButton from "./AuthButton";
 
-const Navbar = ({ token, user }) => {
+const Navbar = () => {
+  const { user } = useAuth();
   return (
     <nav className="navbar">
       <h1>Gigih Homework</h1>
@@ -10,7 +12,7 @@ const Navbar = ({ token, user }) => {
           <p className="nav-greeting">Hello, {user.display_name}</p>
         )}
         <button className="btn">Home</button>
-        <AuthButton token={token} />
+        <AuthButton />
       </div>
     </nav>
   );

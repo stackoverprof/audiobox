@@ -1,38 +1,30 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import "./styles.css";
 import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
-import getParams from "./utils/get-params";
-import axiosSpotify from "./utils/axios-spotify";
+import store from "./redux/store";
+import { Provider, useDispatch } from "react-redux";
+import { syncToken } from "./redux/actions/auth";
 
 const App = () => {
-  const [token, setToken] = useState("");
-  const [user, setUser] = useState({});
-
-  const populateUserData = async () => {
-    const userData = await axiosSpotify.get("/me").then((res) => res.data);
-    setUser(userData);
-  };
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    if (window.location.hash) {
-      const params = getParams(window.location.hash);
-      if (!params.access_token) return;
-      localStorage.setItem("access_token", params.access_token);
-      setToken(params.access_token);
-      populateUserData();
-    } else {
-      setToken("");
-      localStorage.removeItem("access_token");
-    }
-  }, []);
+    dispatch(syncToken());
+  }, [dispatch]);
 
   return (
     <div className="App">
-      <Navbar token={token} user={user} />
-      <Home token={token} user={user} />
+      <Navbar />
+      <Home />
     </div>
   );
 };
 
-export default App;
+const ReduxApp = () => (
+  <Provider store={store}>
+    <App />
+  </Provider>
+);
+
+export default ReduxApp;

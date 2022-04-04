@@ -1,8 +1,11 @@
 import React from "react";
 import useForm from "../../hooks/useForm";
+import { useAuth } from "../../redux/reducer/auth";
 import axiosSpotify from "../../utils/axios-spotify";
 
-const CreatePlaylist = ({ selectedTracks, user }) => {
+const CreatePlaylist = ({ selectedTracks }) => {
+  const { user } = useAuth();
+
   const { form, mutateForm } = useForm({
     title: "",
     description: "",
