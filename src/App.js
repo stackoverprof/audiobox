@@ -4,6 +4,7 @@ import CreatePlaylist from "./pages/create-playlist";
 import { useAuth } from "./core/redux/reducer/auth";
 import useSession from "./core/hooks/useSession";
 import "./core/style/tailwind.css";
+import "./core/style/typefaces.css";
 import {
   BrowserRouter as Router,
   Route,
@@ -19,7 +20,7 @@ const App = () => {
   useSession();
 
   return (
-    <div className="App">
+    <div className="flex-sc col">
       <Router>
         <Switch>
           <Route path="/" exact>
