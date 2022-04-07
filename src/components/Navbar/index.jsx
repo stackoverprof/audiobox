@@ -9,7 +9,7 @@ const Navbar = () => {
 	const { authenticated } = useAuth();
 
 	return (
-		<nav className="container flex-bc py-6 w-full">
+		<div className="container flex-bc py-6 w-full">
 			<div className="flex-cc">
 				<h1 className="text-2xl font-semibold">Gigih Homework</h1>
 				<div className="w-0.5 mx-4 h-8 bg-white opacity-30"></div>
@@ -37,7 +37,7 @@ const Navbar = () => {
 				</Link>
 				<AuthButton />
 			</div>
-		</nav>
+		</div>
 	);
 };
 
