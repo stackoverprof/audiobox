@@ -1,6 +1,6 @@
 import React from 'react';
-import Home from './pages/home';
-import CreatePlaylist from './pages/create-playlist';
+import Home from './pages/Home';
+import CreatePlaylist from './pages/CreatePlaylist';
 import { useAuth } from './core/redux/reducer/auth';
 import useSession from './core/hooks/useSession';
 import './core/style/tailwind.css';
