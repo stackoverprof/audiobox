@@ -1,6 +1,6 @@
 import React from 'react';
-import { useAuth } from '../../core/redux/reducer/auth';
-import spotifyLogin from '../../core/utils/spotify-login';
+import { useAuth } from 'src/core/redux/reducer/auth';
+import spotifyLogin from 'src/core/utils/spotify-login';
 
 const AuthButton = () => {
 	const { authenticated } = useAuth();

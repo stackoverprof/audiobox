@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import useUser from '../../core/swr/user';
-import { syncToken } from '../../core/redux/actions/auth';
+import useUser from 'src/core/swr/user';
+import { syncToken } from 'src/core/redux/actions/auth';
 
 const useSession = () => {
 	const dispatch = useDispatch();

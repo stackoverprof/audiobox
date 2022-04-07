@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useAuth } from '../../core/redux/reducer/auth';
-import useUser from '../../core/swr/user';
+import { useAuth } from 'src/core/redux/reducer/auth';
+import useUser from 'src/core/swr/user';
 import AuthButton from './AuthButton';
 
 const Navbar = () => {
