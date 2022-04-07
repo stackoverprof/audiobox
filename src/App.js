@@ -14,6 +14,7 @@ const App = () => {
 	// CUSTOM HOOK FOR AUTHENTICATION WITH TOKEN
 	useSession();
 
+	// HOMEWORK MODULE 4 SESSION 2 BELOW
 	return (
 		<div className="flex-sc col w-full">
 			<Router>
