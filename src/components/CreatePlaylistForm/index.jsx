@@ -4,10 +4,10 @@ import useForm from 'src/core/hooks/useForm';
 import useUser from 'src/core/swr/user';
 import axiosSpotify from 'src/core/utils/axios-spotify';
 
-const CreatePlaylistForm = ({ selectedTracks }) => {
+const CreatePlaylistForm = ({ selectedTracks, resetTracks }) => {
 	const { user } = useUser();
 
-	const { form, mutateForm } = useForm({
+	const { form, mutateForm, resetForm } = useForm({
 		title: '',
 		description: '',
 	});
@@ -40,42 +40,55 @@ const CreatePlaylistForm = ({ selectedTracks }) => {
 			.catch((err) => console.error(err.response.data));
 
 		// confirm success
-		alert('playlist created: ' + result);
+		if (result) {
+			resetForm();
+			resetTracks();
+			alert('playlist created: ' + result);
+		}
 	};
 
 	return (
-		<form
-			onSubmit={handleCreatePlaylist}
-			className="cp-form"
-			style={{
-				opacity: selectedTracks.length ? 1 : 0.5,
-				pointerEvents: selectedTracks.length ? 'auto' : 'none',
-			}}
-		>
-			<input
-				value={form.title}
-				name="title"
-				onChange={mutateForm}
-				type="text"
-				className="cp-title-input"
-				placeholder="Title"
-			/>
-			<textarea
-				className="cp-description-input"
-				value={form.description}
-				name="description"
-				placeholder="Description"
-				onChange={mutateForm}
-			></textarea>
-			<button type="submit" className="cp-btn">
-				Create Playlist ({selectedTracks.length})
-			</button>
-		</form>
+		<div className="flex-sc col w-full">
+			<div className="flex-bc px-4 py-3 mb-4 w-full bg-white rounded-md">
+				<p className="text-base text-lg font-semibold">New Playlist</p>
+				<p className="text-base text-lg">{selectedTracks.length} Tracks</p>
+			</div>
+			<form onSubmit={handleCreatePlaylist} className="flex-sc col w-full">
+				<input
+					value={form.title}
+					name="title"
+					onChange={mutateForm}
+					type="text"
+					className="px-4 py-3 mb-4 w-full bg-white bg-opacity-10 rounded-md"
+					placeholder="Title"
+					minLength={10}
+				/>
+				<textarea
+					className="px-4 py-3 mb-4 w-full h-32 bg-white bg-opacity-10 rounded-md"
+					value={form.description}
+					name="description"
+					placeholder="Description"
+					onChange={mutateForm}
+				></textarea>
+				<button
+					type="submit"
+					disabled={!selectedTracks.length}
+					className={[
+						'flex-bc px-4 py-3 w-full text-base font-semibold bg-green-300 rounded-md',
+						selectedTracks.length ? 'opacity-100' : 'opacity-30 cursor-not-allowed',
+					].join(' ')}
+				>
+					<p className="text-lg">Create Playlist </p>
+					<p className="pb-1 text-3xl">+</p>
+				</button>
+			</form>
+		</div>
 	);
 };
 
 CreatePlaylistForm.propTypes = {
 	selectedTracks: PropTypes.any,
+	resetTracks: PropTypes.func.isRequired,
 };
 
 export default CreatePlaylistForm;

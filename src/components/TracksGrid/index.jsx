@@ -4,15 +4,18 @@ import TrackCard from '../TrackCard';
 
 const TracksGrid = ({ searchResult, selectedTracks, setSelectedTracks }) => {
 	return (
-		<div className="grid grid-cols-3 gap-8">
-			{searchResult.map((data, i) => (
-				<TrackCard
-					data={data}
-					selectedTracks={selectedTracks}
-					setSelectedTracks={setSelectedTracks}
-					key={i}
-				/>
-			))}
+		<div className="flex-cc w-full">
+			<div className="grid grid-cols-3 gap-8">
+				{searchResult.map((data, i) => (
+					<TrackCard
+						data={data}
+						selectedTracks={selectedTracks}
+						setSelectedTracks={setSelectedTracks}
+						key={i}
+					/>
+				))}
+			</div>
+			{!searchResult.length && <p className="">Search and select some tracks first!</p>}
 		</div>
 	);
 };

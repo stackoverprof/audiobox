@@ -18,9 +18,13 @@ const TrackCard = ({ data, selectedTracks, setSelectedTracks }) => {
 
 	return (
 		<div className="flex-bc p-4 bg-white bg-opacity-10 rounded-lg border">
-			<div className="flex-bc col">
+			<div className="flex-bc col h-full">
 				<div className="flex-cs col mb-4">
-					<img src={data.album.images[0].url} alt="" className="mb-4 rounded-md" />
+					<img
+						src={data.album.images[0].url}
+						alt=""
+						className="object-cover mb-4 w-52 h-52 rounded-md"
+					/>
 					<h3 className="mb-2 font-semibold">{data.name}</h3>
 					<p className="text-sm">
 						{data.artists.map((artist, i, arr) => (
@@ -33,9 +37,10 @@ const TrackCard = ({ data, selectedTracks, setSelectedTracks }) => {
 					<p className="text-sm">{data.album.name}</p>
 				</div>
 				<button
-					className={`w-full rounded-md py-2 font-semibold ${
-						selected ? 'bg-green-300 text-base' : 'bg-white text-base'
-					}`}
+					className={[
+						'w-full rounded-md py-2 font-semibold',
+						selected ? 'bg-green-300 text-base' : 'bg-white text-base',
+					].join(' ')}
 					onClick={selected ? handleUnSelect : handleSelect}
 				>
 					{selected ? 'Selected' : 'Select'}

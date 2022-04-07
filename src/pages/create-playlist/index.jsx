@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-// import CreatePlaylistForm from 'src/components/CreatePlaylistForm';
+import CreatePlaylistForm from 'src/components/CreatePlaylistForm';
 import MainLayout from 'src/components/Layouts/MainLayout';
 import SearchBox from 'src/components/SearchBox';
 import TracksGrid from 'src/components/TracksGrid';
@@ -7,6 +7,11 @@ import TracksGrid from 'src/components/TracksGrid';
 const CreatePlaylist = () => {
 	const [selectedTracks, setSelectedTracks] = useState([]);
 	const [searchResult, setSearchResult] = useState([]);
+
+	const resetTracks = () => {
+		setSelectedTracks([]);
+		setSearchResult([]);
+	};
 
 	return (
 		<MainLayout className="container flex-bs gap-16 pt-8 w-full">
@@ -18,7 +23,9 @@ const CreatePlaylist = () => {
 					setSelectedTracks={setSelectedTracks}
 				/>
 			</div>
-			<div className="w-1/3">efwef</div>
+			<div className="w-1/3">
+				<CreatePlaylistForm selectedTracks={selectedTracks} resetTracks={resetTracks} />
+			</div>
 		</MainLayout>
 	);
 };
