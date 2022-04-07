@@ -1,4 +1,4 @@
-import getParams from "../../utils/get-params";
+import getParams from "src/core/utils/get-params";
 import { removeToken, setToken } from "../reducer/auth";
 
 export const syncToken = () => async (dispatch) => {

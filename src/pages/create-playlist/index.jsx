@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import CreatePlaylistForm from "../../components/CreatePlaylistForm";
-import MainLayout from "../../components/Layouts/MainLayout";
-import SearchBox from "../../components/SearchBox";
-import TracksGrid from "../../components/TracksGrid";
+import CreatePlaylistForm from "src/components/CreatePlaylistForm";
+import MainLayout from "src/components/Layouts/MainLayout";
+import SearchBox from "src/components/SearchBox";
+import TracksGrid from "src/components/TracksGrid";
 
 const CreatePlaylist = () => {
   const [selectedTracks, setSelectedTracks] = useState([]);

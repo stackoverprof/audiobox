@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { useAuth } from "../../redux/reducer/auth";
-import axiosSpotify from "../../utils/axios-spotify";
+import { useAuth } from "src/core/redux/reducer/auth";
+import axiosSpotify from "src/core/utils/axios-spotify";
 
 const SearchBox = ({ setSearchResult }) => {
   const [searchQuery, setSearchQuery] = useState("");

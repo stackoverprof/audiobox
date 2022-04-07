@@ -1,7 +1,7 @@
 import React from "react";
-import useForm from "../../hooks/useForm";
-import useUser from "../../swr/user";
-import axiosSpotify from "../../utils/axios-spotify";
+import useForm from "src/core/hooks/useForm";
+import useUser from "src/core/swr/user";
+import axiosSpotify from "src/core/utils/axios-spotify";
 
 const CreatePlaylistForm = ({ selectedTracks }) => {
   const { user } = useUser();

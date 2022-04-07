@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import useUser from "../../swr/user";
+import useUser from "src/core/swr/user";
 import AuthButton from "./AuthButton";
 
 const Navbar = () => {

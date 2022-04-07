@@ -1,6 +1,6 @@
 import randomBytesJs from "random-bytes-js";
 import React from "react";
-import { useAuth } from "../../redux/reducer/auth";
+import { useAuth } from "src/core/redux/reducer/auth";
 
 const AuthButton = () => {
   const { authenticated } = useAuth();

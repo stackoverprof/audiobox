@@ -1,5 +1,5 @@
 import useSWR from "swr";
-import axiosSpotify from "../utils/axios-spotify";
+import axiosSpotify from "src/core/utils/axios-spotify";
 
 const userFetcher = async () => {
   const result = await axiosSpotify.get("/me").then((res) => res.data);
