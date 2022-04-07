@@ -14,6 +14,9 @@ const Navbar = () => {
         <Link to="/" className="btn">
           Home
         </Link>
+        <Link to="/create-playlist" className="btn">
+          Create Playlist
+        </Link>
         <AuthButton />
       </div>
     </nav>

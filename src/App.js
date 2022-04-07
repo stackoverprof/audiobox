@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import "./styles.css";
 import { useDispatch } from "react-redux";
 import { syncToken } from "./redux/actions/auth";
 import Home from "./pages/home";
@@ -11,6 +10,7 @@ import {
   Switch,
   Redirect,
 } from "react-router-dom";
+import "./style/tailwind.css";
 
 const App = () => {
   const dispatch = useDispatch();

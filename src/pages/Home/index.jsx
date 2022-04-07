@@ -4,7 +4,7 @@ import MainLayout from "../../components/Layouts/MainLayout";
 const Home = () => {
   return (
     <MainLayout>
-      <div>HOME</div>
+      <h1 className="text-3xl font-bold underline">HOME</h1>
     </MainLayout>
   );
 };
