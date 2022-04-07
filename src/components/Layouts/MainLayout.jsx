@@ -1,6 +1,6 @@
 import { PropTypes } from 'prop-types';
 import React from 'react';
-import useMinHeight from 'src/core/hooks/useMinHeight';
+import useMinHeight from '../../core/hooks/useMinHeight';
 import Footer from '../Footer';
 import Navbar from '../Navbar';
 

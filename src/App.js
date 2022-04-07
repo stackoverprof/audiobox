@@ -1,10 +1,10 @@
 import React from 'react';
-import Home from 'src/pages/home';
-import CreatePlaylist from 'src/pages/create-playlist';
-import { useAuth } from 'src/core/redux/reducer/auth';
-import useSession from 'src/core/hooks/useSession';
-import 'src/core/style/tailwind.css';
-import 'src/core/style/typefaces.css';
+import Home from './pages/home';
+import CreatePlaylist from './pages/create-playlist';
+import { useAuth } from './core/redux/reducer/auth';
+import useSession from './core/hooks/useSession';
+import './core/style/tailwind.css';
+import './core/style/typefaces.css';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 
 const App = () => {

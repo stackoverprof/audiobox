@@ -1,6 +1,6 @@
 import React from 'react';
-import MainLayout from 'src/components/Layouts/MainLayout';
-import spotifyLogin from 'src/core/utils/spotify-login';
+import MainLayout from '../../components/Layouts/MainLayout';
+import spotifyLogin from '../../core/utils/spotify-login';
 
 const Home = () => {
 	return (

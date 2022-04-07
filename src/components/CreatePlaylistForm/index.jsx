@@ -1,8 +1,8 @@
 import { PropTypes } from 'prop-types';
 import React, { useState } from 'react';
-import useForm from 'src/core/hooks/useForm';
-import useUser from 'src/core/swr/user';
-import axiosSpotify from 'src/core/utils/axios-spotify';
+import useForm from '../../core/hooks/useForm';
+import useUser from '../..//core/swr/user';
+import axiosSpotify from '../..//core/utils/axios-spotify';
 import SuccessCard from './SuccessCard';
 
 const CreatePlaylistForm = ({ selectedTracks, resetTracks }) => {
