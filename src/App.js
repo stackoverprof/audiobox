@@ -5,13 +5,16 @@ import Navbar from "./components/Navbar";
 import store from "./redux/store";
 import { Provider, useDispatch } from "react-redux";
 import { syncToken } from "./redux/actions/auth";
+import useUser from "./swr/user";
 
 const App = () => {
   const dispatch = useDispatch();
+  const { mutate } = useUser();
 
   useEffect(() => {
     dispatch(syncToken());
-  }, [dispatch]);
+    mutate();
+  }, [dispatch, mutate]);
 
   return (
     <div className="App">
