@@ -1,9 +1,12 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { logout } from 'src/core/redux/actions/auth';
 import { useAuth } from 'src/core/redux/reducer/auth';
 import spotifyLogin from 'src/core/utils/spotify-login';
 
 const AuthButton = () => {
 	const { authenticated } = useAuth();
+	const dispatch = useDispatch();
 
 	const handleAuth = () => {
 		const targetURL = spotifyLogin();
@@ -11,7 +14,7 @@ const AuthButton = () => {
 	};
 
 	const handleLogout = () => {
-		window.location = '/';
+		dispatch(logout());
 	};
 
 	if (!authenticated)
