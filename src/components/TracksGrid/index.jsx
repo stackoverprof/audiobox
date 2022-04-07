@@ -4,7 +4,7 @@ import TrackCard from '../TrackCard';
 
 const TracksGrid = ({ searchResult, selectedTracks, setSelectedTracks }) => {
 	return (
-		<div className="table">
+		<div className="grid grid-cols-3 gap-8">
 			{searchResult.map((data, i) => (
 				<TrackCard
 					data={data}

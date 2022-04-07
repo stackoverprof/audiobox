@@ -4,7 +4,7 @@ import spotifyLogin from 'src/core/utils/spotify-login';
 
 const Home = () => {
 	return (
-		<MainLayout>
+		<MainLayout className="flex-sc col w-full">
 			<section className="container flex-bc w-full">
 				<div className="flex-cs col w-[420px] mt-16">
 					<h1 className="text-5xl font-semibold leading-tight text-green-400">
@@ -15,7 +15,7 @@ const Home = () => {
 					</h2>
 					<a
 						href={spotifyLogin()}
-						className="block px-3 py-2 text-base text-xl font-semibold bg-white rounded-md border"
+						className="block px-4 py-2 text-base text-xl font-semibold bg-white rounded-md border hover:bg-green-200"
 					>
 						Login to get started
 					</a>

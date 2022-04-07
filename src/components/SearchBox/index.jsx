@@ -27,7 +27,7 @@ const SearchBox = ({ setSearchResult }) => {
 	return (
 		<form
 			onSubmit={handleSearch}
-			className="search-form"
+			className="flex-bc gap-4 mb-12 w-full"
 			style={{
 				opacity: authenticated ? 1 : 0.5,
 				pointerEvents: authenticated ? 'auto' : 'none',
@@ -37,10 +37,13 @@ const SearchBox = ({ setSearchResult }) => {
 				value={searchQuery}
 				onChange={(e) => setSearchQuery(e.target.value)}
 				type="text"
-				className="search-input"
+				className="px-4 py-3 w-full text-xl bg-white bg-opacity-10 rounded-md"
 				placeholder="Search something..."
 			/>
-			<button type="submit" className="search-btn">
+			<button
+				type="submit"
+				className="block w-32 h-12 text-base font-semibold bg-white rounded-md search-btn"
+			>
 				SEARCH!
 			</button>
 		</form>

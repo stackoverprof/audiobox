@@ -4,7 +4,7 @@ import useMinHeight from 'src/core/hooks/useMinHeight';
 import Footer from '../Footer';
 import Navbar from '../Navbar';
 
-const MainLayout = ({ children, style }) => {
+const MainLayout = ({ children, style, className }) => {
 	const [minHeight, upper, lower] = useMinHeight();
 
 	return (
@@ -12,7 +12,7 @@ const MainLayout = ({ children, style }) => {
 			<nav className="flex-cc w-full" ref={upper}>
 				<Navbar />
 			</nav>
-			<main style={{ minHeight, ...style }} className="flex-sc col w-full">
+			<main style={{ minHeight, ...style }} className={className}>
 				{children}
 			</main>
 			<footer className="flex-cc w-full" ref={lower}>
@@ -27,5 +27,6 @@ export default MainLayout;
 MainLayout.propTypes = {
 	children: PropTypes.any,
 	style: PropTypes.any,
+	className: PropTypes.any,
 };
 
