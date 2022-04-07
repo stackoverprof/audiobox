@@ -1,24 +1,22 @@
-import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { syncToken } from "./redux/actions/auth";
+import React from "react";
 import Home from "./pages/home";
 import CreatePlaylist from "./pages/create-playlist";
 import { useAuth } from "./redux/reducer/auth";
+import useSession from "./hooks/useSession";
+import "./style/tailwind.css";
 import {
   BrowserRouter as Router,
   Route,
   Switch,
   Redirect,
 } from "react-router-dom";
-import "./style/tailwind.css";
 
 const App = () => {
-  const dispatch = useDispatch();
+  // AUTH STATUS
   const { authenticated } = useAuth();
 
-  useEffect(() => {
-    dispatch(syncToken());
-  }, [dispatch]);
+  // CUSTOM HOOK FOR AUTHENTICATION WITH TOKEN
+  useSession();
 
   return (
     <div className="App">
