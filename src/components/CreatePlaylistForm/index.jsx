@@ -100,4 +100,3 @@ CreatePlaylistForm.propTypes = {
 };
 
 export default CreatePlaylistForm;
-

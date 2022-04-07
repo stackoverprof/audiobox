@@ -15,4 +15,3 @@ const useMinHeight = () => {
 };
 
 export default useMinHeight;
-

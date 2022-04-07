@@ -22,4 +22,3 @@ export default SuccessCard;
 SuccessCard.propTypes = {
 	handleClose: PropTypes.func.isRequired,
 };
-

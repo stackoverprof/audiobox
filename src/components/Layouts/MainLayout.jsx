@@ -29,4 +29,3 @@ MainLayout.propTypes = {
 	style: PropTypes.any,
 	className: PropTypes.any,
 };
-

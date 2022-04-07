@@ -17,4 +17,3 @@ export const logout = () => async (dispatch) => {
 	await localStorage.removeItem('access_token');
 	dispatch(removeToken());
 };
-

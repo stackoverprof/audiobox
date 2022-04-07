@@ -57,4 +57,3 @@ TrackCard.propTypes = {
 	selectedTracks: PropTypes.any.isRequired,
 	setSelectedTracks: PropTypes.func.isRequired,
 };
-

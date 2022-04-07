@@ -55,4 +55,3 @@ SearchBox.propTypes = {
 };
 
 export default SearchBox;
-
