@@ -3,7 +3,7 @@ import useForm from "../../hooks/useForm";
 import useUser from "../../swr/user";
 import axiosSpotify from "../../utils/axios-spotify";
 
-const CreatePlaylist = ({ selectedTracks }) => {
+const CreatePlaylistForm = ({ selectedTracks }) => {
   const { user } = useUser();
 
   const { form, mutateForm } = useForm({
@@ -74,4 +74,4 @@ const CreatePlaylist = ({ selectedTracks }) => {
   );
 };
 
-export default CreatePlaylist;
+export default CreatePlaylistForm;

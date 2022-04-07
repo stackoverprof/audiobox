@@ -1,33 +1,39 @@
 import React, { useEffect } from "react";
 import "./styles.css";
-import Home from "./pages/Home";
-import Navbar from "./components/Navbar";
-import store from "./redux/store";
-import { Provider, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { syncToken } from "./redux/actions/auth";
-import useUser from "./swr/user";
+import Home from "./pages/home";
+import CreatePlaylist from "./pages/create-playlist";
+import { useAuth } from "./redux/reducer/auth";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect,
+} from "react-router-dom";
 
 const App = () => {
   const dispatch = useDispatch();
-  const { mutate } = useUser();
+  const { authenticated } = useAuth();
 
   useEffect(() => {
     dispatch(syncToken());
-    mutate();
-  }, [dispatch, mutate]);
+  }, [dispatch]);
 
   return (
     <div className="App">
-      <Navbar />
-      <Home />
+      <Router>
+        <Switch>
+          <Route path="/" exact>
+            {!authenticated ? <Home /> : <Redirect to="/create-playlist" />}
+          </Route>
+          <Route path="/create-playlist" exact>
+            {authenticated ? <CreatePlaylist /> : <Redirect to="/" />}
+          </Route>
+        </Switch>
+      </Router>
     </div>
   );
 };
 
-const ReduxApp = () => (
-  <Provider store={store}>
-    <App />
-  </Provider>
-);
-
-export default ReduxApp;
+export default App;

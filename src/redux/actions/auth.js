@@ -1,7 +1,9 @@
+import useUser from "../../swr/user";
 import getParams from "../../utils/get-params";
 import { removeToken, setToken } from "../reducer/auth";
 
 export const syncToken = () => async (dispatch) => {
+  const { mutate } = useUser();
   if (window.location.hash) {
     const params = getParams(window.location.hash);
     if (!params.access_token) return;
@@ -11,4 +13,5 @@ export const syncToken = () => async (dispatch) => {
     dispatch(removeToken());
     localStorage.removeItem("access_token");
   }
+  mutate();
 };
