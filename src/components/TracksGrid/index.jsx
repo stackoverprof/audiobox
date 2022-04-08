@@ -6,12 +6,12 @@ const TracksGrid = ({ searchResult, selectedTracks, setSelectedTracks }) => {
 	return (
 		<div className="flex-cc w-full">
 			<div className="grid grid-cols-3 gap-8">
-				{searchResult.map((data, i) => (
+				{searchResult.map((data) => (
 					<TrackCard
 						data={data}
 						selectedTracks={selectedTracks}
 						setSelectedTracks={setSelectedTracks}
-						key={i}
+						key={data.uri}
 					/>
 				))}
 			</div>

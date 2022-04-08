@@ -4,7 +4,7 @@ import spotifyLogin from 'src/core/utils/spotify-login';
 
 const Home = () => {
 	return (
-		<MainLayout className="flex-sc col w-full">
+		<MainLayout title="Home" className="flex-sc col w-full">
 			<section className="container flex-bc w-full">
 				<div className="flex-cs col w-[420px] mt-16">
 					<h1 className="text-5xl font-semibold leading-tight text-green-400">
