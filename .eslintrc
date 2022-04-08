@@ -21,5 +21,10 @@
 		"@typescript-eslint/explicit-module-boundary-types": "off",
 		"react-hooks/exhaustive-deps": "off",
 		"react/prop-types": 0
+	},
+	"settings": {
+		"react": {
+			"version": "detect"
+		}
 	}
 }
