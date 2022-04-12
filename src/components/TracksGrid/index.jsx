@@ -2,10 +2,12 @@ import { PropTypes } from 'prop-types';
 import React from 'react';
 import TrackCard from '../TrackCard';
 
+import 'src/core/style/style-gigih.css';
+
 const TracksGrid = ({ searchResult, selectedTracks, setSelectedTracks }) => {
 	return (
 		<div className="flex-cc w-full">
-			<div className="grid grid-cols-3 gap-8">
+			<div className="grid-gigih">
 				{searchResult.map((data) => (
 					<TrackCard
 						data={data}
