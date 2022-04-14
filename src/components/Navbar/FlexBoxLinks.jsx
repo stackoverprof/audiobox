@@ -4,14 +4,12 @@ import { useAuth } from 'src/core/redux/reducer/auth';
 import useUser from 'src/core/swr/user';
 import AuthButton from './AuthButton';
 
-import 'src/core/style/style-gigih.css';
-
 const FlexBoxLinks = () => {
 	const { user } = useUser();
 	const { authenticated } = useAuth();
 
 	return (
-		<div className="flex-box-gigih">
+		<div className="flex-cc gap-4">
 			{user && <p className="nav-greeting">Hello, {user.display_name}</p>}
 			<Link
 				to="/"
