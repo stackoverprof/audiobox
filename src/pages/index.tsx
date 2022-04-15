@@ -1,11 +1,14 @@
 import React from 'react';
-import MainLayout from '@components/Layouts/MainLayout';
+import CleanLayout from '@components/_layouts/CleanLayout';
 
 const Home = () => {
 	return (
-		<MainLayout title="Home" className="flex-sc col w-full">
-			<h1 className="text-5xl font-semibold leading-tight text-green-400">Spotify Client.</h1>
-		</MainLayout>
+		<CleanLayout title="Home" className="flex-bc w-full h-screen">
+			<div
+				className="w-[480px] h-full bg-black bg-opacity-20"
+				style={{ boxShadow: '0 0 24px #fff2' }}
+			></div>
+		</CleanLayout>
 	);
 };
 
