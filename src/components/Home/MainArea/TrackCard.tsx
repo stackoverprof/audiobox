@@ -1,9 +1,10 @@
 import React from 'react';
 interface Props {
 	data: any;
+	index: number;
 }
 
-const TrackCard = ({ data }: Props) => {
+const TrackCard = ({ data, index }: Props) => {
 	console.log(data);
 
 	return (
@@ -16,7 +17,9 @@ const TrackCard = ({ data }: Props) => {
 						className="object-cover mb-4 w-40 h-40 rounded-md"
 					/>
 					<div className="flex-ss col w-40">
-						<h3 className="mb-3 font-semibold">{data.name}</h3>
+						<h3 className="mb-3 font-semibold">
+							<span className="text-theme-pink">#{index + 1}</span>&ensp;{data.name}
+						</h3>
 						<p className="mb-1 w-full text-sm truncate text-ellipsis">
 							{data.artists.map((artist, i, arr) => (
 								<span key={i}>

@@ -2,19 +2,22 @@ import React from 'react';
 import TrackCard from './TrackCard';
 import useFeaturedTracks from '@core/swr/featuredTracks';
 
-const FeaturedTracks = () => {
-	const { featuredTracks } = useFeaturedTracks();
+interface Props {
+	limit: number;
+}
 
-	console.log(featuredTracks);
+const FeaturedTracks = ({ limit }: Props) => {
+	const { featuredTracks } = useFeaturedTracks();
 
 	return (
 		<div className="flex-cs col mt-24 mb-16">
 			<h3 className="mb-8 text-lg">
-				<span className="font-medium text-theme-blue">#Featured</span> today
+				Featured Daily&nbsp;
+				<span className="font-medium text-theme-blue">#TopCharts</span>
 			</h3>
 			<div className="grid grid-cols-3 gap-8 ">
-				{featuredTracks.slice(0, 6).map((data) => (
-					<TrackCard data={data} key={data.uri} />
+				{featuredTracks.slice(0, limit).map((data, i) => (
+					<TrackCard data={data} index={i} key={data.uri} />
 				))}
 			</div>
 		</div>

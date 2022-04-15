@@ -19,7 +19,11 @@ const MainArea = () => {
 				</h2>
 				<h3 className="mb-6">Let&apos;s get started!</h3>
 				<CTAButton />
-				<FeaturedTracks />
+				<FeaturedTracks limit={9} />
+				<div className="flex-sc mb-24">
+					<CTAButton />
+					<p className="ml-6 text-lg">Let&apos;s create your playlist</p>
+				</div>
 				<p className="mb-8">
 					© {new Date().getFullYear()}&ensp; — &ensp;Made with &nbsp;💕 &nbsp;by R.
 					Bintang Bagus Putra Angkasa
