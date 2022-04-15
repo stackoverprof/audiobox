@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-const Spotify = axios.create();
-
-Spotify.defaults.baseURL = 'https://api.spotify.com/v1';
+const Spotify = axios.create({
+	baseURL: 'https://api.spotify.com/v1',
+});
 
 // Request interceptor for API calls
 Spotify.interceptors.request.use(

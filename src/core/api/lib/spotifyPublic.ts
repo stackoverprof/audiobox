@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-const SpotifyPublic = axios.create();
-
-SpotifyPublic.defaults.baseURL = 'https://api.audiobox.errbint.net/api/';
+const SpotifyPublic = axios.create({
+	baseURL: 'https://api.audiobox.errbint.net/api/',
+});
 
 // Request interceptor for API calls
 SpotifyPublic.interceptors.request.use(
