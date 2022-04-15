@@ -7,12 +7,10 @@ export const getUser = async () => {
 };
 
 export const getRecommendations = async () => {
-	const params = new URLSearchParams();
-	params.append('limit', '6');
-	params.append('country', 'ID');
-	const result = await SpotifyPublic.get('/browse/new-releases?' + params.toString()).then(
-		(res) => res.data.albums.items
-	);
+	const result = await SpotifyPublic.get('/playlists/37i9dQZEVXbMDoHDwVN2tF')
+		.then((res) => res.data)
+		.catch((err) => console.log(err.response.data));
+
 	return result;
 };
 
