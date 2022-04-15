@@ -11,10 +11,7 @@ const Footer = () => {
 				<div className="flex-cc gap-1">
 					<FaGithub />
 					<p className="ml-1">See the repository</p>
-					<a
-						className="block underline"
-						href="https://github.com/stackoverprof/gigih-homework"
-					>
+					<a className="block underline" href="https://github.com/stackoverprof/audiobox">
 						here
 					</a>
 				</div>
