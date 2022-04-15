@@ -18,13 +18,10 @@ const BannerWelcome = () => {
 				<Lottie animationData={girlMusicObj} loop className="absolute mb-12 w-full" />
 			</div>
 			<div className="fixed -right-10 -bottom-20">
-				<p className="font-serif text-[156px] opacity-10 font-bold text-[#fffa]">
-					Audiobox
-				</p>
+				<p className="font-serif text-[156px] opacity-10 font-bold text-white">Audiobox</p>
 			</div>
 		</>
 	);
 };
 
 export default BannerWelcome;
-

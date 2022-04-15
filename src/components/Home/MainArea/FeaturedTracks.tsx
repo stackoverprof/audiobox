@@ -38,4 +38,3 @@ const FeaturedTracks = ({ size }: Props) => {
 };
 
 export default FeaturedTracks;
-

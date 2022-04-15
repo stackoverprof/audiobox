@@ -319,4 +319,3 @@ const useLottie = (
 };
 
 export default useLottie;
-

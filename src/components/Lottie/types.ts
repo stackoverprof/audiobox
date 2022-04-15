@@ -77,4 +77,3 @@ export type InteractivityProps = {
 	actions: Action[];
 	mode: 'scroll' | 'cursor';
 };
-

@@ -37,4 +37,3 @@ const TrackCard = ({ data, index }: Props) => {
 };
 
 export default TrackCard;
-

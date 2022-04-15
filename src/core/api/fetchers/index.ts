@@ -15,4 +15,3 @@ export const getRecommendations = async () => {
 
 	return result;
 };
-

@@ -239,4 +239,3 @@ const useLottieInteractivity = ({ actions, mode, lottieObj }: InteractivityProps
 };
 
 export default useLottieInteractivity;
-

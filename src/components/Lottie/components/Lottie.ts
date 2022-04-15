@@ -7,8 +7,8 @@ const Lottie = (props: LottieComponentProps) => {
 	const { style, interactivity, ...lottieProps } = props;
 
 	/**
-   * Initialize the 'useLottie' hook
-   */
+	 * Initialize the 'useLottie' hook
+	 */
 	const {
 		View,
 		play,
@@ -28,8 +28,8 @@ const Lottie = (props: LottieComponentProps) => {
 	} = useLottie(lottieProps, style);
 
 	/**
-   * Make the hook variables/methods available through the provided 'lottieRef'
-   */
+	 * Make the hook variables/methods available through the provided 'lottieRef'
+	 */
 	useEffect(() => {
 		if (props.lottieRef) {
 			props.lottieRef.current = {

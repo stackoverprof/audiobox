@@ -51,4 +51,3 @@ const SEOTags = (props: SEODataType) => {
 };
 
 export default SEOTags;
-
