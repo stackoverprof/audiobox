@@ -13,8 +13,6 @@ export const getRecommendations = async () => {
 	const result = await SpotifyPublic.get('/browse/new-releases?' + params.toString()).then(
 		(res) => res.data.albums.items
 	);
-	console.log(result);
-
 	return result;
 };
 

@@ -1,6 +1,6 @@
 import React from 'react';
+import CTAButton from './CTAButton';
 import FeaturedTracks from './FeaturedTracks';
-import { FaSpotify } from 'react-icons/fa';
 import { MdLibraryMusic } from 'react-icons/md';
 
 const MainArea = () => {
@@ -18,10 +18,7 @@ const MainArea = () => {
 					love.
 				</h2>
 				<h3 className="mb-6">Let&apos;s get started!</h3>
-				<button className="flex-cc px-4 py-3 text-base font-semibold bg-white rounded">
-					<FaSpotify size={24} className="mr-2" />
-					Connect to Spotify
-				</button>
+				<CTAButton />
 				<FeaturedTracks />
 				<p className="mb-8">
 					© {new Date().getFullYear()}&ensp; — &ensp;Made with &nbsp;💕 &nbsp;by R.

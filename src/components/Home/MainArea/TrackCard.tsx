@@ -4,8 +4,6 @@ interface Props {
 }
 
 const TrackCard = ({ data }: Props) => {
-	console.log(data);
-
 	return (
 		<div className="flex-bc p-4 bg-white bg-opacity-10 rounded-lg border">
 			<div className="flex-bc col h-full">
