@@ -25,8 +25,15 @@ const MainArea = () => {
 					<p className="ml-6 text-lg">Let&apos;s create your playlist</p>
 				</div>
 				<p className="mb-8">
-					© {new Date().getFullYear()}&ensp; — &ensp;Made with &nbsp;💕 &nbsp;by R.
-					Bintang Bagus Putra Angkasa
+					Copyright © {new Date().getFullYear()}&ensp; — &ensp;Made with &nbsp;💕 &nbsp;by{' '}
+					<a
+						target="_blank"
+						href="https://github.com/stackoverprof"
+						className="text-theme-blue"
+						rel="norefferer noopener noreferrer"
+					>
+						stackoverprof
+					</a>
 				</p>
 			</div>
 		</div>

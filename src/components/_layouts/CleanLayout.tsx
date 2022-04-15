@@ -12,7 +12,7 @@ const CleanLayout = ({ children, style, className, title }: Props) => {
 	const [minHeight, upper, lower] = useMinHeight();
 
 	useEffect(() => {
-		if (title) document.title = `${title} — Spotifier`;
+		if (title) document.title = `${title} — Audiobox`;
 	}, [title]);
 
 	return (
