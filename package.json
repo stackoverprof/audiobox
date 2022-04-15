@@ -12,6 +12,7 @@
 	},
 	"dependencies": {
 		"@reduxjs/toolkit": "^1.8.1",
+		"@tailwindcss/line-clamp": "^0.3.1",
 		"axios": "^0.26.1",
 		"lottie-web": "^5.9.2",
 		"random-bytes-js": "^1.0.0",

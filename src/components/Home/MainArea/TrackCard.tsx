@@ -17,7 +17,7 @@ const TrackCard = ({ data, index }: Props) => {
 						className="object-cover mb-4 w-40 h-40 rounded-md"
 					/>
 					<div className="flex-ss col w-40">
-						<h3 className="mb-3 font-semibold">
+						<h3 className="overflow-hidden mb-3 w-full font-semibold text-left line-clamp-2 text-ellipsis">
 							<span className="text-theme-pink">#{index + 1}</span>&ensp;{data.name}
 						</h3>
 						<p className="mb-1 w-full text-sm truncate text-ellipsis">
