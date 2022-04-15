@@ -18,10 +18,9 @@
 		"noImplicitAny": false,
 		"baseUrl": ".",
 		"paths": {
-			"@assets/*": ["assets/*"],
-			"@components/*": ["components/*"],
-			"@core/*": ["core/*"],
-			"@screens/*": ["screens/*"]
+			"@components/*": ["src/components/*"],
+			"@core/*": ["src/core/*"],
+			"@pages/*": ["src/pages/*"]
 		}
 	},
 	"include": ["src"],
