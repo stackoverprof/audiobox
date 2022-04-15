@@ -22,7 +22,10 @@ const MainArea = () => {
 				<FeaturedTracks size={6} />
 				<div className="flex-sc mb-24">
 					<CTAButton />
-					<p className="ml-6 text-lg">Let&apos;s create your playlist</p>
+					<div className="flex-cs col">
+						<p className="ml-6 text-sm text-theme-pink">Love these tracks?</p>
+						<p className="ml-6 text-lg">Let&apos;s create your playlist</p>
+					</div>
 				</div>
 				<p className="mb-8">
 					Copyright © {new Date().getFullYear()}&ensp; — &ensp;Made with &nbsp;💕 &nbsp;by{' '}

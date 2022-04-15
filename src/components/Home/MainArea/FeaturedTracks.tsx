@@ -12,7 +12,7 @@ const FeaturedTracks = ({ size }: Props) => {
 	const { featuredTracks } = useFeaturedTracks();
 
 	const loadMore = () => setIndex(index + 1);
-
+	// [TODO] : Skeleton loading
 	return (
 		<div className="flex-cs col mt-24 mb-16">
 			<h3 className="mb-8 text-lg">
