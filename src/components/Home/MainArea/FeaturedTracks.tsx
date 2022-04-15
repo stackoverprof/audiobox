@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import TrackCard from './TrackCard';
 import useFeaturedTracks from '@core/swr/featuredTracks';
+import { MdRefresh } from 'react-icons/md';
 
 interface Props {
 	size: number;
@@ -26,9 +27,10 @@ const FeaturedTracks = ({ size }: Props) => {
 			<div className="flex-cc w-full">
 				<button
 					onClick={loadMore}
-					className="flex-cc mt-6 w-32 h-8 rounded-lg transition-all hover:bg-white hover:bg-opacity-30 hover:border-none"
+					disabled={(index + 1) * size > featuredTracks.length}
+					className="flex-cc mt-6 w-32 h-8 rounded-lg transition-all disabled:opacity-20 hover:bg-white hover:bg-opacity-30 hover:border-none"
 				>
-					Load more
+					<MdRefresh size={18} className="mr-2" /> Load more
 				</button>
 			</div>
 		</div>
