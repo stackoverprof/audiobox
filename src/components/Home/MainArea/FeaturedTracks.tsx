@@ -20,6 +20,11 @@ const FeaturedTracks = ({ limit }: Props) => {
 					<TrackCard data={data} index={i} key={data.uri} />
 				))}
 			</div>
+			<div className="flex-cc w-full">
+				<button className="flex-cc mt-6 w-32 h-8 rounded-lg transition-all hover:bg-white hover:bg-opacity-30 hover:border-none">
+					Load more
+				</button>
+			</div>
 		</div>
 	);
 };
