@@ -19,7 +19,7 @@ const MainArea = () => {
 				</h2>
 				<h3 className="mb-6">Let&apos;s get started!</h3>
 				<CTAButton />
-				<FeaturedTracks limit={9} />
+				<FeaturedTracks size={6} />
 				<div className="flex-sc mb-24">
 					<CTAButton />
 					<p className="ml-6 text-lg">Let&apos;s create your playlist</p>
