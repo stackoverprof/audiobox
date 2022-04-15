@@ -11,7 +11,7 @@ module.exports = {
 			colors: {
 				base: '#0b0324',
 				primary: '#fff',
-				accent: '#FF5B14',
+				theme: { green: '#4ade80', pink: '#fb5aff', blue: '#5be1ff' },
 				info: '#2DA7FB',
 				warning: '#FFCB11',
 				danger: '#ec4141',
@@ -19,6 +19,7 @@ module.exports = {
 			},
 			fontFamily: {
 				main: 'Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif',
+				serif: 'Playfair Display, serif',
 			},
 			screens: {
 				'-2xl': { raw: '(max-width: 1535px)' },

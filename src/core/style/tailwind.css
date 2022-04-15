@@ -12,6 +12,12 @@
 		@apply inline-flex ml-2;
 	}
 
+	.text-grad {
+		background: -webkit-linear-gradient(-45deg, #5be1ff, #fb5aff);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+
 	i.spinner {
 		display: none;
 		width: 16px;

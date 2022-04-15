@@ -18,6 +18,7 @@
 		"noImplicitAny": false,
 		"baseUrl": ".",
 		"paths": {
+			"@public/*": ["public/*"],
 			"@components/*": ["src/components/*"],
 			"@core/*": ["src/core/*"],
 			"@pages/*": ["src/pages/*"]
