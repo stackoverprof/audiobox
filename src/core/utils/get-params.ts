@@ -1,4 +1,4 @@
-const getParams = (url) => {
+const getParams = (url): any => {
 	const queries = url.substring(1).split('&');
 	const params = {};
 	queries.forEach((query) => {

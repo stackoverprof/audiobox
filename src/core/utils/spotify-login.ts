@@ -12,9 +12,9 @@ const spotifyLogin = () => {
 	const targetURL = new URL('https://accounts.spotify.com/authorize');
 	targetURL.searchParams.set('response_type', 'token');
 	targetURL.searchParams.set('client_id', client_id);
-	targetURL.searchParams.set('scope', scope);
 	targetURL.searchParams.set('redirect_uri', redirect_uri);
 	targetURL.searchParams.set('state', state);
+	targetURL.searchParams.set('scope', scope);
 
 	return targetURL.href;
 };
