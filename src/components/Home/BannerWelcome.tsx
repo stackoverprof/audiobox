@@ -8,7 +8,7 @@ const BannerWelcome = () => {
 			className="fixed right-0 w-[480px] flex-cc h-full col bg-black bg-opacity-20"
 			style={{ boxShadow: '0 0 24px #fb5aff44' }}
 		>
-			<Lottie animationData={girlMusic} loop />
+			<Lottie animationData={girlMusic} loop className="w-full" />
 		</div>
 	);
 };
