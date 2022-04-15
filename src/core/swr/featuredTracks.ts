@@ -6,7 +6,7 @@ export default function useFeaturedTracks() {
 	return {
 		loading: !data && !error,
 		error: error && error.status === 403,
-		featuredTracks: data || [],
+		featuredTracks: data ? data.tracks.items.map((item) => item.track) : [],
 		mutate,
 	};
 }

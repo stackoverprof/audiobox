@@ -13,9 +13,9 @@ const FeaturedTracks = () => {
 				<span className="font-medium text-theme-blue">#Featured</span> today
 			</h3>
 			<div className="grid grid-cols-3 gap-8 ">
-				{/* {[].map((data) => (
+				{featuredTracks.slice(0, 6).map((data) => (
 					<TrackCard data={data} key={data.uri} />
-				))} */}
+				))}
 			</div>
 		</div>
 	);
