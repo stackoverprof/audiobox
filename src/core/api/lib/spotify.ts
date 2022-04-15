@@ -8,13 +8,15 @@ Spotify.defaults.baseURL = 'https://api.spotify.com/v1';
 Spotify.interceptors.request.use(
 	async (config) => {
 		const access_token = localStorage.getItem('access_token');
-		config.headers = {
-			...config.headers,
-			Authorization: `Bearer ${access_token}`,
-			Accept: 'application/json',
-			'Content-Type': 'application/x-www-form-urlencoded',
+		return {
+			...config,
+			headers: {
+				...config.headers,
+				Authorization: `Bearer ${access_token}`,
+				Accept: 'application/json',
+				'Content-Type': 'application/x-www-form-urlencoded',
+			},
 		};
-		return config;
 	},
 	(error) => {
 		Promise.reject(error);
