@@ -11,9 +11,9 @@ interface SEODataType {
 }
 
 const DEFAULT: SEODataType = {
-	sitename: 'My Site',
+	sitename: 'Audiobox',
 	domain: 'http://my-site.com/',
-	description: 'Site description that contains some information about what is your site about',
+	description: 'Find Tracks and create the Playlist you love.',
 	image: 'https://images.unsplash.com/photo-1629058622223-93665bf5d046?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
 };
 
