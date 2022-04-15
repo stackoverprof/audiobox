@@ -1,7 +1,7 @@
 import randomBytesJs from 'random-bytes-js';
 
 const spotifyLogin = () => {
-	const client_id = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
+	const client_id = import.meta.env.REACT_APP_SPOTIFY_CLIENT_ID;
 	const redirect_uri = window.location.origin;
 	const state = randomBytesJs.randHex(8);
 

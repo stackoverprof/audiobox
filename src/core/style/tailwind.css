@@ -112,6 +112,15 @@
 	.stroked {
 		-webkit-text-stroke: 0.4px;
 	}
+
+	.hide-scollbar::-webkit-scrollbar {
+		display: none;
+	}
+
+	.hide-scollbar {
+		-ms-overflow-style: none;
+		scrollbar-width: none;
+	}
 }
 
 @layer base {
