@@ -5,7 +5,7 @@ import MainArea from '@components/Home/MainArea';
 
 const Home = () => {
 	return (
-		<CleanLayout title="" className="flex-cc w-full h-screen">
+		<CleanLayout title="hj" className="flex-cc w-full h-screen">
 			<MainArea />
 			<BannerWelcome />
 		</CleanLayout>

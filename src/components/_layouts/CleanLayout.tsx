@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+import SEOTags from '@components/_shared/SEOTags';
 import useMinHeight from '@core/hooks/useMinHeight';
 
 interface Props {
@@ -11,12 +12,9 @@ interface Props {
 const CleanLayout = ({ children, style, className, title }: Props) => {
 	const [minHeight, upper, lower] = useMinHeight();
 
-	useEffect(() => {
-		if (title) document.title = `${title} — Audiobox`;
-	}, [title]);
-
 	return (
 		<>
+			<SEOTags title={title} />
 			<nav className="flex-cc w-full" ref={upper}></nav>
 			<main style={{ minHeight, ...style }} className={className}>
 				{children}
