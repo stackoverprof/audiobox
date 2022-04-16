@@ -7,13 +7,14 @@ const MainArea = () => {
 	return (
 		<div className="container flex-ss col z-10 pl-12 w-full max-w-screen-xl h-full -lg:px-6 -lg:flex-sc">
 			<div className="flex-ss col w-2/3 -lg:w-auto -lg:flex-cc ">
-				<div className="flex-bc mt-24 mb-24">
-					<h1 className="flex-cc font-serif text-4xl font-semibold ">
+				<div className="flex-bc my-24 -sm:mt-12">
+					<h1 className="flex-cc font-serif -sm:text-[28px] text-4xl font-semibold ">
 						<MdLibraryMusic size={36} className="mr-2" />
 						Audiobox
 					</h1>
 				</div>
-				<h2 className="text-[40px] font-semibold w-[500px] -sm:w-full -lg:text-center mb-16">
+				{/* TODO: add sounb bar lottie here */}
+				<h2 className="text-[40px] -sm:text-[32px] font-semibold w-[500px] -sm:w-full -lg:text-center mb-16">
 					Find Tracks and create the <span className="text-grad"> Playlist</span> you
 					love.
 				</h2>

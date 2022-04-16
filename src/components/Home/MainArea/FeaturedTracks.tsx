@@ -19,7 +19,7 @@ const FeaturedTracks = ({ size }: Props) => {
 				Featured Daily Global&nbsp;
 				<span className="font-medium text-theme-blue">#TopCharts</span>
 			</h3>
-			<div className="grid grid-cols-3 gap-8 -xl:grid-cols-2 ">
+			<div className="grid grid-cols-3 gap-8 -xl:grid-cols-2 -lg:grid-cols-3 -md:grid-cols-2 ">
 				{featuredTracks.slice(0, size * index).map((data, i) => (
 					<TrackCard data={data} index={i} key={data.uri} />
 				))}
