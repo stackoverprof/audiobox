@@ -25,7 +25,7 @@ const TrackCard = ({ data, index }: Props) => {
 							</span>
 						))}
 					</p>
-					<p className="w-full text-sm truncate opacity-40 -sm:y-32 text-ellipsis">
+					<p className="w-full text-xs truncate opacity-40 -sm:y-32 text-ellipsis">
 						{data.album.name}
 					</p>
 				</div>

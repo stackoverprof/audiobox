@@ -16,7 +16,7 @@ const MainLayout = ({ children, style, className, title }: Props) => {
 	return (
 		<div className="flex-bs w-full">
 			<SEOTags title={title} />
-			<aside className="h-screen">
+			<aside className="w-72 h-screen">
 				<Sidebar />
 			</aside>
 			<div className="flex-sc col flex-1">
