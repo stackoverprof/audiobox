@@ -7,7 +7,7 @@ const BannerWelcome = () => {
 	return (
 		<>
 			<div
-				className="fixed z-20 right-0 top-0 w-[480px] flex-cc h-full col bg-black bg-opacity-20"
+				className="fixed -lg:hidden z-20 right-0 top-0 w-[480px] flex-cc h-full col bg-black bg-opacity-20"
 				style={{ boxShadow: '0 0 24px #fb5aff55' }}
 			>
 				<div

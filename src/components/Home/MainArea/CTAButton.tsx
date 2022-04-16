@@ -6,7 +6,7 @@ const CTAButton = () => {
 	return (
 		<a
 			href={spotifyLogin()}
-			className="block flex-cc px-4 py-3 text-base font-semibold bg-white rounded hover:bg-theme-green"
+			className="block flex-cc px-4 py-3 text-base font-semibold bg-white rounded transition hover:bg-theme-green"
 		>
 			<FaSpotify size={24} className="mr-2" />
 			Connect to Spotify
