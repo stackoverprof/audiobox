@@ -1,8 +1,8 @@
-import React, { ChangeEventHandler } from 'react';
+import React from 'react';
 
 interface Props {
 	value: string;
-	onChange: ChangeEventHandler<HTMLTextAreaElement>;
+	onChange(value: string): void;
 }
 
 const TitleInput = ({ value, onChange }: Props) => {
@@ -12,7 +12,7 @@ const TitleInput = ({ value, onChange }: Props) => {
 				placeholder="Write the description here..."
 				className="px-2 py-2 w-full bg-black bg-opacity-0 rounded-md opacity-40 resize-none focus:bg-opacity-100 placeholder:text-white focus:opacity-100"
 				value={value}
-				onChange={onChange}
+				onChange={(e) => onChange(e.target.value)}
 				name=""
 				id=""
 			></textarea>
