@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 
 const useSession = () => {
 	const dispatch = useDispatch();
-
+	// [TODO] : handle token expiration
 	return useEffect(() => {
 		dispatch(syncToken());
 	}, [dispatch]);
