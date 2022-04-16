@@ -6,7 +6,7 @@ const TracksSelected = () => {
 			<div className="flex-cc">
 				<p className="pr-8 text-lg">0 Tracks</p>
 			</div>
-			<div className="flex-1 h-full bg-white bg-opacity-5"></div>
+			<div className="flex-1 h-full"></div>
 		</div>
 	);
 };

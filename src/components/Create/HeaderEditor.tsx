@@ -6,7 +6,7 @@ import TracksSelected from './TracksSelected';
 const HeaderEditor = () => {
 	return (
 		<div
-			className="flex-bs col w-full h-[280px]"
+			className="flex-bs col w-full h-[260px]"
 			style={{ background: 'linear-gradient(0deg, #fff1, #fff0)' }}
 		>
 			<div className="flex-bc w-full">
