@@ -27,7 +27,7 @@ const MainArea = () => {
 						<p className="ml-6 text-lg -sm:m-0">Let&apos;s create your playlist</p>
 					</div>
 				</div>
-				<p className="mb-8">
+				<p className="mb-8 text-center">
 					Copyright © {new Date().getFullYear()}&ensp; — &ensp;Made with &nbsp;💕 &nbsp;by{' '}
 					<a
 						target="_blank"
