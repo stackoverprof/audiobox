@@ -1,5 +1,5 @@
 import React from 'react';
-import CreatePlaylist from '@pages/create-playlist';
+import Create from '@pages/create';
 import Home from '@pages/index';
 import useSession from '@core/hooks/useSession';
 import { Navigate, Route, Routes } from 'react-router-dom';
@@ -16,14 +16,8 @@ const App = () => {
 
 	return (
 		<Routes>
-			<Route
-				path="/"
-				element={!authenticated ? <Home /> : <Navigate to="/create-playlist" />}
-			/>
-			<Route
-				path="/create-playlist"
-				element={authenticated ? <CreatePlaylist /> : <Navigate to="/" />}
-			/>
+			<Route path="/" element={!authenticated ? <Home /> : <Navigate to="/create" />} />
+			<Route path="/create" element={authenticated ? <Create /> : <Navigate to="/" />} />
 		</Routes>
 	);
 };
