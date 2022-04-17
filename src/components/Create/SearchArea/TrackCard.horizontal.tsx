@@ -26,7 +26,7 @@ const TrackCard = ({ data, selected }: Props) => {
 	console.log(data);
 
 	return (
-		<div className="flex-bc overflow-hidden pl-4 m-4 h-28 bg-white bg-opacity-10 rounded-lg backdrop-blur group">
+		<div className="flex-bc overflow-hidden pl-4 h-28 bg-white bg-opacity-10 rounded-lg backdrop-blur group">
 			<div className="flex-cs mr-4">
 				<div className="relative overflow-hidden mr-4 w-20 h-20 rounded-md">
 					<img

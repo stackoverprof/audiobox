@@ -10,16 +10,14 @@ const ResultGrid = ({ data }: Props) => {
 	const { selectedTracks } = useCreatePlaylist();
 
 	return (
-		<div className="flex-cc w-full">
-			<div className="flex flex-ss flex-wrap">
-				{data.map((data) => (
-					<TrackCard
-						data={data}
-						selected={!!selectedTracks.find((track) => track.uri === data.uri)}
-						key={data.uri}
-					/>
-				))}
-			</div>
+		<div className="grid grid-cols-2 gap-8">
+			{data.map((data) => (
+				<TrackCard
+					data={data}
+					selected={!!selectedTracks.find((track) => track.uri === data.uri)}
+					key={data.uri}
+				/>
+			))}
 		</div>
 	);
 };

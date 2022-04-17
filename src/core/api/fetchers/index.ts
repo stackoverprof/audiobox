@@ -13,23 +13,21 @@ export const getRecommendations = () => {
 		.catch((err) => console.error(err.response.data));
 };
 
-export const getRecentlyPlayed = ({ limit = '12' }: { limit: string }) => {
-	const params = new URLSearchParams({ limit }).toString();
-
-	return Spotify.get('/me/player/recently-played?' + params)
+export const getRecentlyPlayed = ({ limit = 6 }: { limit: number }) => {
+	return Spotify.get('/me/player/recently-played?', { params: { limit } })
 		.then((res) => res.data.items.map((item) => item.track))
 		.catch((err) => console.error(err.response.data));
 };
 
 export const searchTracks = (query) => {
-	const config = {
+	if (!query) return [];
+	return Spotify.get('/search', {
 		params: {
 			type: 'track',
 			q: query,
+			limit: 8,
 		},
-	};
-
-	return Spotify.get('/search', config)
+	})
 		.then((res) => res.data.tracks.items)
 		.catch((err) => console.error(err.response.data));
 };

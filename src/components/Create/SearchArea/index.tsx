@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import * as fetchers from '@core/api/fetchers';
+import RecentlyGrid from './RecentlyGrid';
 import ResultGrid from './ResultGrid';
 import SearchInput from './SearchInput';
 
@@ -10,24 +11,23 @@ const SearchArea = () => {
 	const handleSearch = async (e) => {
 		e.preventDefault();
 
+		if (!searchQuery) return;
+
 		const result = await fetchers.searchTracks(searchQuery);
 		setSearchResult(result);
 	};
 
-	useEffect(() => {
-		(async () => {
-			setSearchResult(await fetchers.getRecentlyPlayed({ limit: '12' }));
-		})();
-	}, []);
-
 	return (
-		<div className="flex-sc col px-12 w-full">
-			<SearchInput
-				value={searchQuery}
-				onChange={(val) => setSearchQuery(val)}
-				handleSearch={handleSearch}
-			/>
-			<ResultGrid data={searchResult} />
+		<div className="flex-ss mb-16 w-full">
+			<div className="flex-cc col px-12">
+				<SearchInput
+					value={searchQuery}
+					onChange={(val) => setSearchQuery(val)}
+					handleSearch={handleSearch}
+				/>
+				<ResultGrid data={searchResult} />
+				<RecentlyGrid />
+			</div>
 		</div>
 	);
 };
