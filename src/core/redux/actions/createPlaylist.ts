@@ -3,7 +3,7 @@ import { setSelectedTracks, TrackType } from '../reducer/createPlaylist';
 
 export const addTrack = (track: TrackType) => (dispatch) => {
 	const { selectedTracks } = store.getState().createPlaylist;
-	const added = [...selectedTracks, track];
+	const added = [track, ...selectedTracks];
 	dispatch(setSelectedTracks(added));
 };
 

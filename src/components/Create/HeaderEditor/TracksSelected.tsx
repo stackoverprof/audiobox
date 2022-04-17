@@ -20,11 +20,11 @@ const TracksSelected = () => {
 				freeMode={true}
 				modules={[FreeMode]}
 				style={{ width: 'calc(100% - 144px)' }}
-				className="absolute right-0 h-16"
+				className="absolute right-0 h-20"
 			>
-				{[...Array(200)].map((item, i) => (
+				{selectedTracks.map((item, i) => (
 					<SwiperSlide key={i}>
-						<div className="flex-cc h-16">Slide {i}</div>
+						<TrackCardMini data={item.data} />
 					</SwiperSlide>
 				))}
 			</Swiper>
