@@ -9,7 +9,12 @@ const TabLinks = () => {
 	return (
 		<div className="px-6 w-full">
 			<TabLink route="/explore" text="Explore" Icon={FaGlobeAmericas} />
-			<TabLink route="/library" text="Library" Icon={ImBooks} badge={data.length} />
+			<TabLink
+				route="/library"
+				text="Library"
+				Icon={ImBooks}
+				badge={data.length > 49 ? '49+' : data.length}
+			/>
 		</div>
 	);
 };

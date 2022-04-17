@@ -9,7 +9,7 @@ const PlaylistsPeek = () => {
 		<div className="flex-ss col px-8 mt-8">
 			{data.slice(0, 5).map((item, i) => (
 				<Link
-					to={`/library/${item.uri}`}
+					to={`/library/${item.id}`}
 					className="my-2 text-sm opacity-50 hover:opacity-100"
 					key={i}
 				>

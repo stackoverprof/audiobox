@@ -3,6 +3,8 @@ import useSWR from 'swr';
 
 export default function useUserPlaylist() {
 	const { data, mutate, error } = useSWR('user_playlist', fetchers.getUserPlaylist);
+	console.log(data);
+
 	return {
 		loading: !data && !error,
 		error: error && error.status === 403,

@@ -8,7 +8,7 @@ export const getUser = () => {
 };
 
 export const getUserPlaylist = () => {
-	return Spotify.get('/me/playlists')
+	return Spotify.get('/me/playlists?limit=50')
 		.then((res) => res.data.items)
 		.catch((err) => console.error(err.response.data));
 };
