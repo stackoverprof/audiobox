@@ -5,6 +5,8 @@ import store from './core/redux/store';
 import { BrowserRouter } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import { Provider } from 'react-redux';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Root = document.getElementById('root');
 
@@ -19,6 +21,7 @@ if (Root) {
 					<App />
 				</BrowserRouter>
 			</Provider>
+			<ToastContainer position="bottom-left" autoClose={5000} pauseOnHover theme="dark" />
 		</React.StrictMode>
 	);
 }
