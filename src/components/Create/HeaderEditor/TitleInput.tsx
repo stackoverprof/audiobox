@@ -29,6 +29,15 @@ const TitleInput = ({ value, onChange }: Props) => {
 					</div>
 				)}
 			</div>
+
+			<div
+				className={[
+					'absolute transition flex-es top-0 left-0 text-xs text-red-300 pointer-events-none full opacity-0',
+					!focus && value && value.length < 10 && 'opacity-100',
+				].join(' ')}
+			>
+				<p className="pt-1 pr-2 text-right">Title is too short. Minimal 10 characters</p>
+			</div>
 		</div>
 	);
 };

@@ -31,3 +31,36 @@ export const searchTracks = (query) => {
 		.then((res) => res.data.tracks.items)
 		.catch((err) => console.error(err.response.data));
 };
+
+export const createPlaylist = async ({
+	user_id,
+	title,
+	description,
+	uris,
+}: CreatePlaylistParams) => {
+	// create a new playlist
+	const playlist_id = await Spotify.post(`/users/${user_id}/playlists`, {
+		name: title,
+		description: description,
+		public: false,
+		collaborative: false,
+	})
+		.then((res) => res.data.id)
+		.catch((err) => err.response.data);
+
+	// add the selected tracks to the playlist
+	const result = await Spotify.post(`/playlists/${playlist_id}/tracks`, {
+		uris,
+	})
+		.then((res) => res.data.snapshot_id)
+		.catch((err) => console.error(err.response.data));
+
+	return result;
+};
+
+interface CreatePlaylistParams {
+	user_id: string;
+	title: string;
+	description: string;
+	uris: string[];
+}

@@ -58,16 +58,16 @@ const TrackCard = ({ data, selected }: Props) => {
 				className={[
 					'flex-cc w-12 h-full bg-opacity-5 transition ',
 					selected
-						? 'bg-theme-green bg-opacity-50 hover:bg-opacity-30'
-						: 'bg-white  group-hover:bg-theme-pink group-hover:bg-opacity-30',
+						? 'bg-theme-blue bg-opacity-50 hover:bg-opacity-30'
+						: 'bg-white  group-hover:bg-theme-green group-hover:bg-opacity-30',
 				].join(' ')}
 			>
 				{selected ? (
-					<BsCheckLg size={20} className="transition-all transform text-theme-green" />
+					<BsCheckLg size={20} className="transition-all transform text-theme-blue" />
 				) : (
 					<HiPlus
 						size={28}
-						className="text-white opacity-40 transition-all transform group-hover:opacity-100 group-hover:text-theme-pink group-hover:scale-125"
+						className="text-white opacity-40 transition-all transform group-hover:opacity-100 group-hover:text-theme-green group-hover:scale-125"
 					/>
 				)}
 			</button>
