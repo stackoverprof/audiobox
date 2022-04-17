@@ -11,7 +11,9 @@ const TracksSelected = () => {
 	return (
 		<div className="relative flex-sc pl-12 mb-2 w-full h-20">
 			<div className="flex-sc w-36">
-				<p className="text-lg">{selectedTracks.length} Tracks</p>
+				<p className="text-lg">
+					{selectedTracks.length} Track{selectedTracks.length > 1 && 's'}
+				</p>
 			</div>
 			<Swiper
 				slidesPerView={4}
@@ -21,12 +23,14 @@ const TracksSelected = () => {
 				modules={[FreeMode]}
 				style={{ width: 'calc(100% - 144px)' }}
 				className="absolute right-0 h-20"
+				containerModifierClass="pr-12"
 			>
 				{selectedTracks.map((item, i) => (
 					<SwiperSlide key={i}>
 						<TrackCardMini data={item.data} />
 					</SwiperSlide>
 				))}
+				<SwiperSlide />
 			</Swiper>
 		</div>
 	);
