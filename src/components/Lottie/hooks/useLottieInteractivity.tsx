@@ -3,26 +3,26 @@ import { AnimationSegment } from 'lottie-web';
 import { InteractivityProps } from '../types';
 
 // helpers
-export function getContainerVisibility(container: Element): number {
+export const getContainerVisibility = (container: Element): number => {
 	const { top, height } = container.getBoundingClientRect();
 
 	const current = window.innerHeight - top;
 	const max = window.innerHeight + height;
 	return current / max;
-}
+};
 
-export function getContainerCursorPosition(
+export const getContainerCursorPosition = (
 	container: Element,
 	cursorX: number,
 	cursorY: number
-): { x: number; y: number } {
+): { x: number; y: number } => {
 	const { top, left, width, height } = container.getBoundingClientRect();
 
 	const x = (cursorX - left) / width;
 	const y = (cursorY - top) / height;
 
 	return { x, y };
-}
+};
 
 export type InitInteractivity = {
 	wrapperRef: React.RefObject<HTMLDivElement>;

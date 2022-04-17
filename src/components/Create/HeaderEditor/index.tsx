@@ -5,7 +5,7 @@ import DescriptionInput from './DescriptionInput';
 import SubmitPlaylist from './SubmitPlaylist';
 import TitleInput from './TitleInput';
 import TracksSelected from './TracksSelected';
-import useUser from '@core/swr/user';
+import useUser from '@core/swr/userData';
 import useUserPlaylist from '@core/swr/userPlaylists';
 import { setDescription, setTitle, useCreatePlaylist } from '@core/redux/reducer/createPlaylist';
 import { toast } from 'react-toastify';

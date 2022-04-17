@@ -1,8 +1,8 @@
 import React from 'react';
-import useUser from '@core/swr/user';
+import useUserData from '@core/swr/userData';
 
 const UserProfile = () => {
-	const { user } = useUser();
+	const { user } = useUserData();
 
 	return (
 		<div className="flex-bc px-6 w-full">

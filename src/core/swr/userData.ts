@@ -3,7 +3,7 @@ import * as fetchers from '@core/api/fetchers';
 import useSWR, { useSWRConfig } from 'swr';
 import { useAuth } from '../redux/reducer/auth';
 
-export default function useUser() {
+const useUserData = () => {
 	const { cache } = useSWRConfig();
 	const { data, mutate, error } = useSWR('api_user', fetchers.getUser);
 	const { authenticated } = useAuth();
@@ -19,4 +19,6 @@ export default function useUser() {
 		user: data ? data : {},
 		mutate,
 	};
-}
+};
+
+export default useUserData;
