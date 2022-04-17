@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import * as fetchers from '@core/api/fetchers';
 import CoverPlaylist from './CoverPlaylist';
 import HeaderPlaylist from './HeaderPlaylist';
@@ -10,6 +10,7 @@ interface Props {
 }
 
 const PlaylistCard = ({ data }: Props) => {
+	const [hover, setHover] = useState(false);
 	const { data: playlistData } = useSWR(`/playlists/${data.id}`, () =>
 		fetchers.getPlaylist(data.id)
 	);
@@ -18,16 +19,17 @@ const PlaylistCard = ({ data }: Props) => {
 	// [TODO] : diferentiate private adn public, and the editable
 	// [TODO] : or dont show public playlist
 	return (
-		<>
-			<div className="flex-sc pl-12 w-full">
-				<CoverPlaylist images={data.images} />
-				<div className="flex-bs col w-full h-40">
-					<HeaderPlaylist data={data} />
-					{tracks.length > 0 && <SliderTracks data={tracks} />}
-				</div>
+		<div
+			onMouseEnter={() => setHover(true)}
+			onMouseLeave={() => setHover(false)}
+			className="flex-sc border-b cursor-pointer border-white border-opacity-10 py-8 pl-12 w-full hover:bg-theme-pink hover:bg-opacity-5 transition"
+		>
+			<CoverPlaylist images={data.images} />
+			<div className="flex-bs col w-full h-40">
+				<HeaderPlaylist data={data} hover={hover} />
+				{tracks.length > 0 && <SliderTracks data={tracks} />}
 			</div>
-			<div className="my-8 w-full h-px bg-white bg-opacity-10"></div>
-		</>
+		</div>
 	);
 };
 
