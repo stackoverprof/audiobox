@@ -3,7 +3,7 @@ import React from 'react';
 interface Props {
 	data: any;
 }
-
+// [TODO] : edit dan details jadiin satu codebase
 const HeaderPlaylist = ({ data }: Props) => {
 	return (
 		<div className="flex-bs pr-12 w-full">

@@ -1,8 +1,9 @@
 import React from 'react';
 import _404 from '@pages/_404';
-import About from '@pages/about';
+import About from '@pages/history';
 import Create from '@pages/create';
 import Explore from '@pages/explore';
+import History from '@pages/history';
 import Home from '@pages/index';
 import Library from '@pages/library';
 import useSession from '@core/hooks/useSession';
@@ -25,7 +26,7 @@ const App = () => {
 			<Route path="/create" element={authenticated ? <Create /> : <Navigate to="/" />} />
 			<Route path="/explore" element={authenticated ? <Explore /> : <Navigate to="/" />} />
 			<Route path="/library" element={authenticated ? <Library /> : <Navigate to="/" />} />
-			<Route path="/about" element={authenticated ? <About /> : <Navigate to="/" />} />
+			<Route path="/history" element={authenticated ? <History /> : <Navigate to="/" />} />
 			<Route path="*" element={<_404 />} />
 		</Routes>
 	);

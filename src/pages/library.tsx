@@ -5,7 +5,7 @@ import PlaylistsMapper from '@components/Library/PlaylistsMapper';
 
 const Library = () => {
 	return (
-		<MainLayout title="Create" className="flex-sc col w-full">
+		<MainLayout title="Library" className="flex-sc col w-full">
 			<HeaderLibrary />
 			<PlaylistsMapper />
 		</MainLayout>

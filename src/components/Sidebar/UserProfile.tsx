@@ -8,5 +8,6 @@ const UserProfile = () => {
 		</div>
 	);
 };
+// [TODO] : make an explicit logout btn
 
 export default UserProfile;

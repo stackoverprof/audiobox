@@ -1,12 +1,12 @@
 import React from 'react';
 import MainLayout from '@components/_layouts/MainLayout';
 
-const Explore = () => {
+const History = () => {
 	return (
-		<MainLayout title="Explore" className="flex-sc col w-full">
-			Explore
+		<MainLayout title="History" className="flex-sc col w-full">
+			History
 		</MainLayout>
 	);
 };
 
-export default Explore;
+export default History;

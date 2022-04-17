@@ -4,7 +4,7 @@ import { RiShieldKeyholeLine } from 'react-icons/ri';
 
 const BadgesInfo = () => {
 	return (
-		<div className="flex-cs col">
+		<div className="flex-cs col pl-4">
 			<div className="flex-cc my-1 opacity-60 hover:opacity-100">
 				<RiShieldKeyholeLine size={20} />
 				<p className="ml-2 text-sm">Private</p>

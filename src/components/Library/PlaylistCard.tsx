@@ -15,7 +15,8 @@ const PlaylistCard = ({ data }: Props) => {
 	);
 
 	const tracks = playlistData?.tracks?.items || [];
-
+	// [TODO] : diferentiate private adn public, and the editable
+	// [TODO] : or dont show public playlist
 	return (
 		<>
 			<div className="flex-sc pl-12 w-full">
