@@ -1,5 +1,5 @@
 import React from 'react';
-import TrackCard from './TrackCard';
+import TrackCard from './TrackCard.horizontal';
 import { useCreatePlaylist } from '@core/redux/reducer/createPlaylist';
 
 interface Props {
