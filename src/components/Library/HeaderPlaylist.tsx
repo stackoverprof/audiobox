@@ -33,4 +33,3 @@ const HeaderPlaylist = ({ data }: Props) => {
 // [TODO] : parse symbol to html
 
 export default HeaderPlaylist;
-

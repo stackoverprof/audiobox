@@ -11,4 +11,3 @@ const LogoAudiobox = () => {
 };
 
 export default LogoAudiobox;
-

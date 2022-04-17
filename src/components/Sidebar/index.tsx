@@ -29,4 +29,3 @@ const Sidebar = () => {
 };
 // [TODO] : responsivness scorll?
 export default Sidebar;
-

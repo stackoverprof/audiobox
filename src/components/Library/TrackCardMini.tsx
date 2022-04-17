@@ -40,4 +40,3 @@ const TrackCardMini = ({ data }: Props) => {
 };
 
 export default TrackCardMini;
-

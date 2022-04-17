@@ -76,4 +76,3 @@ const TrackCard = ({ data, selected }: Props) => {
 };
 
 export default TrackCard;
-

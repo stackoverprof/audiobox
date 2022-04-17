@@ -44,4 +44,3 @@ const SearchInput = ({ value, onChange, handleSearch }: Props) => {
 };
 
 export default SearchInput;
-

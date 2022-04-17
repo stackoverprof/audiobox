@@ -39,4 +39,3 @@ export type TrackType = {
 	uri: string;
 	data: any;
 };
-

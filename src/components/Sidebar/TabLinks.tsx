@@ -20,4 +20,3 @@ const TabLinks = () => {
 };
 
 export default TabLinks;
-

@@ -61,4 +61,3 @@ const HeaderEditor = () => {
 };
 
 export default HeaderEditor;
-

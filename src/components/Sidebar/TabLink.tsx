@@ -29,4 +29,3 @@ const TabLink = ({ route, text, Icon, badge }: Props) => {
 };
 
 export default TabLink;
-

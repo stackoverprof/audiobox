@@ -21,4 +21,3 @@ const CoverPlaylist = ({ images }: Props) => {
 };
 
 export default CoverPlaylist;
-

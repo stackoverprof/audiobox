@@ -21,4 +21,3 @@ const TitleInput = ({ value, onChange }: Props) => {
 };
 
 export default TitleInput;
-

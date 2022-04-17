@@ -18,4 +18,3 @@ const BadgesInfo = () => {
 };
 
 export default BadgesInfo;
-

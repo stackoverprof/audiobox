@@ -13,4 +13,3 @@ const RecentlyGrid = () => {
 };
 
 export default RecentlyGrid;
-

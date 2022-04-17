@@ -12,4 +12,3 @@ export const removeTrack = (uri: string) => (dispatch) => {
 	const removed = [...selectedTracks].filter((track) => track.uri !== uri);
 	dispatch(setSelectedTracks(removed));
 };
-

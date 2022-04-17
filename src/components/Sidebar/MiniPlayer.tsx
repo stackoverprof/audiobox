@@ -7,4 +7,3 @@ const MiniPlayer = () => {
 };
 
 export default MiniPlayer;
-

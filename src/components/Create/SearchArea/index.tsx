@@ -33,4 +33,3 @@ const SearchArea = () => {
 };
 
 export default SearchArea;
-

@@ -31,4 +31,3 @@ const PlaylistCard = ({ data }: Props) => {
 };
 
 export default PlaylistCard;
-

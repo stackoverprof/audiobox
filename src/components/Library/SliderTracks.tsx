@@ -36,4 +36,3 @@ const SliderTracks = ({ data }: Props) => {
 };
 
 export default SliderTracks;
-

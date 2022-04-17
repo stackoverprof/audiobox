@@ -50,4 +50,3 @@ const TrackCard = ({ data }: Props) => {
 };
 
 export default TrackCard;
-

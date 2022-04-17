@@ -5,4 +5,3 @@ const msToTime = (s) => {
 };
 
 export default msToTime;
-

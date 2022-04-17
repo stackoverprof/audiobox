@@ -23,4 +23,3 @@ const ResultGrid = ({ data }: Props) => {
 };
 
 export default ResultGrid;
-

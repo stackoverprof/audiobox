@@ -12,4 +12,3 @@ const ButtonOptions = () => {
 };
 
 export default ButtonOptions;
-
