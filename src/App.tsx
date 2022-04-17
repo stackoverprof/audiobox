@@ -1,4 +1,5 @@
 import React from 'react';
+import _404 from '@pages/_404';
 import Create from '@pages/create';
 import Home from '@pages/index';
 import useSession from '@core/hooks/useSession';
@@ -22,6 +23,7 @@ const App = () => {
 		<Routes>
 			<Route path="/" element={!authenticated ? <Home /> : <Navigate to="/create" />} />
 			<Route path="/create" element={authenticated ? <Create /> : <Navigate to="/" />} />
+			<Route path="*" element={<_404 />} />
 		</Routes>
 	);
 };
