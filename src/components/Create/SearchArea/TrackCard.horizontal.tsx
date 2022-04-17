@@ -1,7 +1,10 @@
 import React from 'react';
 import msToTime from '@core/utils/ms-to-time';
+import { addTrack, removeTrack } from '@core/redux/actions/createPlaylist';
+import { BsCheckLg } from 'react-icons/bs';
 import { FaPlay } from 'react-icons/fa';
 import { HiPlus } from 'react-icons/hi';
+import { useDispatch } from 'react-redux';
 
 interface Props {
 	data: any;
@@ -9,19 +12,14 @@ interface Props {
 }
 
 const TrackCard = ({ data, selected }: Props) => {
-	// const id = data.uri;
-	// const selected = selectedTracks.includes(id);
+	const dispatch = useDispatch();
 
-	// const handleSelect = () => {
-	// 	if (selectedTracks.find((x) => x === id)) return;
-	// 	setSelectedTracks([...selectedTracks, id]);
-	// };
-
-	// const handleUnSelect = () => {
-	// 	if (!selectedTracks.find((x) => x === id)) return;
-	// 	const deleted = [...selectedTracks].filter((x) => x !== id);
-	// 	setSelectedTracks(deleted);
-	// };
+	const handleSelect = () => {
+		dispatch(addTrack({ uri: data.uri, data }));
+	};
+	const handleUnSelect = () => {
+		dispatch(removeTrack(data.uri));
+	};
 
 	console.log(data);
 
@@ -57,14 +55,24 @@ const TrackCard = ({ data, selected }: Props) => {
 					</p>
 				</div>
 			</div>
-			<div className="flex-cc col w-12 h-full bg-white bg-opacity-5 transition group-hover:bg-theme-pink group-hover:bg-opacity-30">
-				<button className="flex-cc full">
+			<button
+				onClick={selected ? handleUnSelect : handleSelect}
+				className={[
+					'flex-cc w-12 h-full bg-opacity-5 transition ',
+					selected
+						? 'bg-theme-green bg-opacity-50 hover:bg-opacity-30'
+						: 'bg-white  group-hover:bg-theme-pink group-hover:bg-opacity-30',
+				].join(' ')}
+			>
+				{selected ? (
+					<BsCheckLg size={20} className="transition-all transform text-theme-green" />
+				) : (
 					<HiPlus
 						size={28}
 						className="text-white opacity-40 transition-all transform group-hover:opacity-100 group-hover:text-theme-pink group-hover:scale-125"
 					/>
-				</button>
-			</div>
+				)}
+			</button>
 		</div>
 	);
 };
