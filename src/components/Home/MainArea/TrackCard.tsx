@@ -9,7 +9,7 @@ const TrackCard = ({ data, index }: Props) => {
 		<div className="flex-ss col overflow-hidden p-4 bg-white bg-opacity-10 rounded-lg border backdrop-blur">
 			<div className="flex-cs col mb-4">
 				<img
-					src={data.album.images[0].url}
+					src={data.album.images[0]?.url || ''}
 					alt=""
 					className="object-cover mb-4 w-40 h-40 rounded-md -sm:w-32 -sm:h-32"
 				/>

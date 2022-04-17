@@ -1,11 +1,11 @@
+import { useEffect } from 'react';
+import * as fetchers from '@core/api/fetchers';
 import useSWR, { useSWRConfig } from 'swr';
 import { useAuth } from '../redux/reducer/auth';
-import { useEffect } from 'react';
-import { getUser } from '../api/fetchers';
 
 export default function useUser() {
 	const { cache } = useSWRConfig();
-	const { data, mutate, error } = useSWR('api_user', getUser);
+	const { data, mutate, error } = useSWR('api_user', fetchers.getUser);
 	const { authenticated } = useAuth();
 
 	useEffect(() => {

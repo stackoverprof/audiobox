@@ -3,15 +3,17 @@ import randomBytesJs from 'random-bytes-js';
 const client_id = import.meta.env.VITE_SPOTIFY_CLIENT_ID;
 
 const spotifyLogin = () => {
-	const targetURL = new URL('https://accounts.spotify.com/authorize');
+	const options = {
+		response_type: 'token',
+		client_id: client_id,
+		redirect_uri: window.location.origin,
+		state: randomBytesJs.randHex(8),
+		scope: 'playlist-modify-private  user-read-private playlist-read-private  user-read-email  user-read-recently-played',
+	};
 
-	targetURL.searchParams.set('response_type', 'token');
-	targetURL.searchParams.set('client_id', client_id);
-	targetURL.searchParams.set('redirect_uri', window.location.origin);
-	targetURL.searchParams.set('state', randomBytesJs.randHex(8));
-	targetURL.searchParams.set('scope', 'playlist-modify-private');
+	const params = new URLSearchParams(options).toString();
 
-	return targetURL.href;
+	return 'https://accounts.spotify.com/authorize?' + params;
 };
 
 export default spotifyLogin;

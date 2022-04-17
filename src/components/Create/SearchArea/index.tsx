@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import * as fetchers from '@core/api/fetchers';
 import ResultGrid from './ResultGrid';
 import SearchInput from './SearchInput';
-import Spotify from '@core/api/lib/spotify';
 
 const SearchArea = () => {
 	const [searchQuery, setSearchQuery] = useState('');
@@ -10,19 +10,15 @@ const SearchArea = () => {
 	const handleSearch = async (e) => {
 		e.preventDefault();
 
-		const config = {
-			params: {
-				type: 'track',
-				q: searchQuery,
-			},
-		};
-
-		const result = await Spotify.get('/search', config)
-			.then((res) => res.data.tracks.items)
-			.catch((err) => console.error(err.response.data));
-
+		const result = await fetchers.searchTracks(searchQuery);
 		setSearchResult(result);
 	};
+
+	useEffect(() => {
+		(async () => {
+			setSearchResult(await fetchers.getRecentlyPlayed({ limit: '12' }));
+		})();
+	}, []);
 
 	return (
 		<div className="flex-sc col px-12 w-full">
