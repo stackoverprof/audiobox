@@ -3,6 +3,7 @@ import colors from '@core/style/colors';
 import CTACreate from './CTACreate';
 import LogoAudiobox from './LogoAudiobox';
 import MiniPlayer from './MiniPlayer';
+import PlaylistsPeek from './PlaylistsPeek';
 import TabLinks from './TabLinks';
 import UserProfile from './UserProfile';
 
@@ -16,8 +17,9 @@ const Sidebar = () => {
 				<LogoAudiobox />
 				<CTACreate />
 				<TabLinks />
+				<PlaylistsPeek />
 			</div>
-			<div className="px-6 w-full"></div>
+			<div className="w-full "></div>
 			<div className="w-full">
 				<UserProfile />
 				<MiniPlayer />

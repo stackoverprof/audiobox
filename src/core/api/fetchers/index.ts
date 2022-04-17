@@ -7,6 +7,12 @@ export const getUser = () => {
 		.catch((err) => console.error(err.response.data));
 };
 
+export const getUserPlaylist = () => {
+	return Spotify.get('/me/playlists')
+		.then((res) => res.data.items)
+		.catch((err) => console.error(err.response.data));
+};
+
 export const getRecommendations = () => {
 	return SpotifyPublic.get('/playlists/37i9dQZEVXbMDoHDwVN2tF')
 		.then((res) => res.data)
@@ -52,7 +58,7 @@ export const createPlaylist = async ({
 	const result = await Spotify.post(`/playlists/${playlist_id}/tracks`, {
 		uris,
 	})
-		.then((res) => res.data.snapshot_id)
+		.then((res) => res.data)
 		.catch((err) => console.error(err.response.data));
 
 	return result;

@@ -6,12 +6,14 @@ import SubmitPlaylist from './SubmitPlaylist';
 import TitleInput from './TitleInput';
 import TracksSelected from './TracksSelected';
 import useUser from '@core/swr/user';
+import useUserPlaylist from '@core/swr/userPlaylists';
 import { setDescription, setTitle, useCreatePlaylist } from '@core/redux/reducer/createPlaylist';
 import { useDispatch } from 'react-redux';
 
 const HeaderEditor = () => {
 	const { title, description, selectedTracks } = useCreatePlaylist();
 	const { user } = useUser();
+	const { mutate } = useUserPlaylist();
 
 	const dispatch = useDispatch();
 
@@ -29,7 +31,10 @@ const HeaderEditor = () => {
 			uris,
 		});
 
-		// [TODO] : add error handling
+		console.log(result);
+		mutate();
+
+		// [TODO] : custom alert for any error/fails, add error handling
 	};
 
 	return (
