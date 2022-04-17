@@ -1,6 +1,6 @@
 import React from 'react';
 import msToTime from '@core/utils/ms-to-time';
-import { FaPlay, FaPlus } from 'react-icons/fa';
+import { FaPlay } from 'react-icons/fa';
 import { HiPlus } from 'react-icons/hi';
 
 interface Props {
