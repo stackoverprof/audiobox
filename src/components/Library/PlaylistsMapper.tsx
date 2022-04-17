@@ -4,7 +4,6 @@ import useUserPlaylist from '@core/swr/userPlaylists';
 
 const PlaylistsMapper = () => {
 	const { data } = useUserPlaylist();
-	console.log(data);
 
 	return (
 		<div className="flex-sc col w-full">

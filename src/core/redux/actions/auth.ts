@@ -28,6 +28,8 @@ export const syncToken = () => async (dispatch) => {
 			dispatch(setToken(params.access_token));
 		}
 	}
+
+	dispatch(authRedux.makeReady());
 };
 
 export const logout = () => async (dispatch) => {

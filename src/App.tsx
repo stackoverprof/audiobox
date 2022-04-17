@@ -16,8 +16,9 @@ const App = () => {
 	useSession();
 
 	// AUTH STATUS
-	const { authenticated } = useAuth();
+	const { authenticated, ready } = useAuth();
 
+	if (!ready) return <></>;
 	return (
 		<Routes>
 			<Route path="/" element={!authenticated ? <Home /> : <Navigate to="/create" />} />

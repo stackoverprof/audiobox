@@ -13,6 +13,12 @@ export const getUserPlaylist = () => {
 		.catch((err) => console.error(err.response.data));
 };
 
+export const getPlaylist = (playlist_id: string) => {
+	return SpotifyPublic.get(`/playlists/${playlist_id}`)
+		.then((res) => res.data)
+		.catch((err) => console.error(err.response.data));
+};
+
 export const getRecommendations = () => {
 	return SpotifyPublic.get('/playlists/37i9dQZEVXbMDoHDwVN2tF')
 		.then((res) => res.data)
