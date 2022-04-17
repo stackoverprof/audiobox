@@ -5,7 +5,7 @@ interface Props {
 	selected: boolean;
 }
 
-const TrackCard = ({ data, selected }: Props) => {
+const TrackCard = ({ data }: Props) => {
 	// const id = data.uri;
 	// const selected = selectedTracks.includes(id);
 
@@ -19,8 +19,6 @@ const TrackCard = ({ data, selected }: Props) => {
 	// 	const deleted = [...selectedTracks].filter((x) => x !== id);
 	// 	setSelectedTracks(deleted);
 	// };
-
-	console.log(data);
 
 	return (
 		<div className="flex-ss col overflow-hidden p-4 m-4 bg-white bg-opacity-10 rounded-lg backdrop-blur">

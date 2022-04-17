@@ -8,10 +8,9 @@ import { useDispatch } from 'react-redux';
 
 interface Props {
 	data: any;
-	selected: boolean;
 }
 
-const TrackCard = ({ data, selected }: Props) => {
+const TrackCardMini = ({ data }: Props) => {
 	const dispatch = useDispatch();
 
 	const handleSelect = () => {
@@ -53,27 +52,9 @@ const TrackCard = ({ data, selected }: Props) => {
 					</p>
 				</div>
 			</div>
-			<button
-				onClick={selected ? handleUnSelect : handleSelect}
-				className={[
-					'flex-cc w-12 h-full bg-opacity-5 transition ',
-					selected
-						? 'bg-theme-green bg-opacity-50 hover:bg-opacity-30'
-						: 'bg-white  group-hover:bg-theme-pink group-hover:bg-opacity-30',
-				].join(' ')}
-			>
-				{selected ? (
-					<BsCheckLg size={20} className="transition-all transform text-theme-green" />
-				) : (
-					<HiPlus
-						size={28}
-						className="text-white opacity-40 transition-all transform group-hover:opacity-100 group-hover:text-theme-pink group-hover:scale-125"
-					/>
-				)}
-			</button>
 		</div>
 	);
 };
 
-export default TrackCard;
+export default TrackCardMini;
 

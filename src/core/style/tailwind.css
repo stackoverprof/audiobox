@@ -113,11 +113,11 @@
 		-webkit-text-stroke: 0.4px;
 	}
 
-	.hide-scollbar::-webkit-scrollbar {
+	.hide-scrollbar::-webkit-scrollbar {
 		display: none;
 	}
 
-	.hide-scollbar {
+	.hide-scrollbar {
 		-ms-overflow-style: none;
 		scrollbar-width: none;
 	}
