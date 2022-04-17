@@ -18,7 +18,7 @@ const PlaylistCard = ({ data }: Props) => {
 
 	return (
 		<>
-			<div className="flex-sc px-12 w-full">
+			<div className="flex-sc pl-12 w-full">
 				<CoverPlaylist images={data.images} />
 				<div className="flex-bs col w-full h-40">
 					<HeaderPlaylist data={data} />

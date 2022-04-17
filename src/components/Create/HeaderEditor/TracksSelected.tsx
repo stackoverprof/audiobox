@@ -32,6 +32,12 @@ const TracksSelected = () => {
 				))}
 				<SwiperSlide />
 			</Swiper>
+			<div
+				className="absolute right-0 -top-2 z-20 w-40 h-24 pointer-events-none"
+				style={{
+					background: 'linear-gradient(90deg, #160e2d00, #160e2ddd, #160e2dff)',
+				}}
+			></div>
 		</div>
 	);
 };

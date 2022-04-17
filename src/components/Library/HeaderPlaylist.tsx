@@ -6,7 +6,7 @@ interface Props {
 
 const HeaderPlaylist = ({ data }: Props) => {
 	return (
-		<div className="flex-bs w-full">
+		<div className="flex-bs pr-12 w-full">
 			<div className="flex-ss col w-full max-w-[500px]">
 				<p className="mb-1 text-3xl font-medium line-clamp-1">
 					{data.name || <span className="opacity-20">Untitled Playlist</span>}

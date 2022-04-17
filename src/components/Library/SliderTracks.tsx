@@ -1,5 +1,6 @@
 import React from 'react';
 import ButtonOptions from './ButtonOptions';
+import colors from '@core/style/colors';
 import TrackCardMini from './TrackCardMini';
 import { FreeMode } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -31,6 +32,12 @@ const SliderTracks = ({ data }: Props) => {
 				))}
 				<SwiperSlide />
 			</Swiper>
+			<div
+				className="absolute right-0 z-20 w-24 h-full pointer-events-none"
+				style={{
+					background: `linear-gradient(90deg, ${colors.base}00, ${colors.base}dd, ${colors.base}ff)`,
+				}}
+			></div>
 		</div>
 	);
 };
