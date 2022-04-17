@@ -12,8 +12,12 @@ const App = () => {
 	useSession();
 
 	// AUTH STATUS
-	const { authenticated } = useAuth();
+	const { ready, authenticated } = useAuth();
+	console.log(ready);
 
+	if (!ready) return <></>;
+
+	// [TODO] : redirecting doesn't work on production
 	return (
 		<Routes>
 			<Route path="/" element={!authenticated ? <Home /> : <Navigate to="/create" />} />

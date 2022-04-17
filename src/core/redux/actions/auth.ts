@@ -1,5 +1,5 @@
 import getParams from '@core/utils/get-params';
-import { removeToken, setToken } from '../reducer/auth';
+import { makeReady, removeToken, setToken } from '../reducer/auth';
 
 export const syncToken = () => async (dispatch) => {
 	const savedToken = localStorage.getItem('access_token');
@@ -10,7 +10,9 @@ export const syncToken = () => async (dispatch) => {
 		if (!params.access_token) return;
 		localStorage.setItem('access_token', params.access_token);
 		dispatch(setToken(params.access_token));
-	} else return;
+	}
+
+	dispatch(makeReady());
 };
 
 export const logout = () => async (dispatch) => {
