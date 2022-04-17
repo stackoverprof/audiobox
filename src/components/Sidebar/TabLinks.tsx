@@ -1,6 +1,6 @@
 import React from 'react';
 import TabLink from './TabLink';
-import { FaGithub, FaGlobeAmericas } from 'react-icons/fa';
+import { FaGlobeAmericas } from 'react-icons/fa';
 import { ImBooks } from 'react-icons/im';
 
 const DATA_TAB_LINKS = [
@@ -13,11 +13,6 @@ const DATA_TAB_LINKS = [
 		route: '/library',
 		text: 'Library',
 		icon: ImBooks,
-	},
-	{
-		route: '/about',
-		text: 'About',
-		icon: FaGithub,
 	},
 ];
 

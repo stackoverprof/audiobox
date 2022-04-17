@@ -6,12 +6,14 @@ export interface State {
 	token: string;
 }
 
+const initialState = <State>{
+	authenticated: false,
+	token: '',
+};
+
 const ReduxSlice = createSlice({
 	name: 'AUTH',
-	initialState: <State>{
-		authenticated: false,
-		token: '',
-	},
+	initialState,
 	reducers: {
 		setToken: (state, action) => {
 			state.token = action.payload;
@@ -21,9 +23,10 @@ const ReduxSlice = createSlice({
 			state.token = '';
 			state.authenticated = false;
 		},
+		reset: () => initialState,
 	},
 });
 
-export const { setToken, removeToken } = ReduxSlice.actions;
+export const { setToken, reset, removeToken } = ReduxSlice.actions;
 export const useAuth = (): State => useSelector((RootState: { auth: State }) => RootState.auth);
 export default ReduxSlice.reducer;

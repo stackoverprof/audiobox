@@ -1,3 +1,4 @@
+import * as authRedux from '../reducer/auth';
 import getParams from '@core/utils/get-params';
 import { removeToken, setToken } from '../reducer/auth';
 import { toast } from 'react-toastify';
@@ -12,6 +13,7 @@ export const syncToken = () => async (dispatch) => {
 			localStorage.removeItem('access_token');
 			localStorage.removeItem('token_expiration');
 			toast.error('Sessions expired');
+			dispatch(authRedux.reset());
 		} else {
 			dispatch(setToken(savedToken));
 		}
