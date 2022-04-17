@@ -17,7 +17,7 @@ const TabLink = ({ route, text, Icon }: Props) => {
 			to={route}
 			className="flex-bc px-3 w-full h-12 bg-white bg-opacity-0 rounded-md hover:bg-opacity-20"
 		>
-			<div className="flex-cc">
+			<div className="flex-sc">
 				<Icon size={24} className="mr-4" />
 				<p className="">{text}</p>
 			</div>
