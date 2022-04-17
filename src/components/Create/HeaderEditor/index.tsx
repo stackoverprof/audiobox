@@ -8,6 +8,7 @@ import TracksSelected from './TracksSelected';
 import useUser from '@core/swr/user';
 import useUserPlaylist from '@core/swr/userPlaylists';
 import { setDescription, setTitle, useCreatePlaylist } from '@core/redux/reducer/createPlaylist';
+import { toast } from 'react-toastify';
 import { useDispatch } from 'react-redux';
 
 const HeaderEditor = () => {
@@ -19,22 +20,21 @@ const HeaderEditor = () => {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		if (title.length < 10) return;
-		if (!selectedTracks.length) return;
+		if (!selectedTracks.length) return toast.error('Select tracks first!');
+		if (title.length < 10) return toast.error('Title is too short!');
 
 		const uris = selectedTracks.map((track) => track.uri);
 
-		const result = await fetchers.createPlaylist({
+		await fetchers.createPlaylist({
 			user_id: user.id,
 			title,
 			description,
 			uris,
 		});
 
-		console.log(result);
-		mutate();
+		// [TODO] : popup see playlist or close
 
-		// [TODO] : custom alert for any error/fails, add error handling
+		mutate();
 	};
 
 	return (

@@ -4,7 +4,6 @@ import { useSelector } from 'react-redux';
 export interface State {
 	authenticated: boolean;
 	token: string;
-	ready: boolean;
 }
 
 const ReduxSlice = createSlice({
@@ -12,12 +11,8 @@ const ReduxSlice = createSlice({
 	initialState: <State>{
 		authenticated: false,
 		token: '',
-		ready: false,
 	},
 	reducers: {
-		makeReady: (state) => {
-			state.ready = true;
-		},
 		setToken: (state, action) => {
 			state.token = action.payload;
 			state.authenticated = true;
@@ -29,6 +24,6 @@ const ReduxSlice = createSlice({
 	},
 });
 
-export const { makeReady, setToken, removeToken } = ReduxSlice.actions;
+export const { setToken, removeToken } = ReduxSlice.actions;
 export const useAuth = (): State => useSelector((RootState: { auth: State }) => RootState.auth);
 export default ReduxSlice.reducer;

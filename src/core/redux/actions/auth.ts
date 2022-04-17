@@ -1,5 +1,5 @@
 import getParams from '@core/utils/get-params';
-import { makeReady, removeToken, setToken } from '../reducer/auth';
+import { removeToken, setToken } from '../reducer/auth';
 import { toast } from 'react-toastify';
 
 export const syncToken = () => async (dispatch) => {
@@ -26,8 +26,6 @@ export const syncToken = () => async (dispatch) => {
 			dispatch(setToken(params.access_token));
 		}
 	}
-	// SET THE APP READY
-	dispatch(makeReady());
 };
 
 export const logout = () => async (dispatch) => {

@@ -21,7 +21,7 @@ if (Root) {
 					<App />
 				</BrowserRouter>
 			</Provider>
-			<ToastContainer position="bottom-left" autoClose={5000} pauseOnHover theme="dark" />
+			<ToastContainer position="bottom-right" autoClose={5000} pauseOnHover theme="dark" />
 		</React.StrictMode>
 	);
 }

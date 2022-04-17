@@ -59,7 +59,7 @@ const TrackCard = ({ data, selected }: Props) => {
 					'flex-cc w-12 h-full bg-opacity-5 transition ',
 					selected
 						? 'bg-theme-blue bg-opacity-50 hover:bg-opacity-30'
-						: 'bg-white  group-hover:bg-theme-green group-hover:bg-opacity-30',
+						: 'bg-white  hover:bg-theme-green hover:bg-opacity-30',
 				].join(' ')}
 			>
 				{selected ? (

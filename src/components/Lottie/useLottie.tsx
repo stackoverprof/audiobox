@@ -30,7 +30,6 @@ const useLottie = (
 
 		// Specified here to take them out from the 'rest'
 
-		// TODO: find a better way to extract the html props to avoid specifying
 		//  all the props that we want to exclude (as you can see above)
 		...rest
 	} = props;
