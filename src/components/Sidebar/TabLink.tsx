@@ -9,7 +9,7 @@ interface Props {
 	badge?: string | number;
 }
 
-const TabLink = ({ route, text, Icon, badge }: Props) => {
+const TabLink = ({ route, text, Icon, badge = '' }: Props) => {
 	return (
 		<Link
 			to={route}
@@ -20,7 +20,7 @@ const TabLink = ({ route, text, Icon, badge }: Props) => {
 				<p className="">{text}</p>
 			</div>
 			<div className="flex-cc">
-				{badge && (
+				{badge.toString() && (
 					<div className="px-2 py-1 text-xs bg-white bg-opacity-20 rounded">{badge}</div>
 				)}
 			</div>

@@ -10,7 +10,7 @@ const ResultGrid = ({ data }: Props) => {
 	const { selectedTracks } = useCreatePlaylist();
 
 	return (
-		<div className="grid grid-cols-2 gap-8">
+		<div className="grid grid-cols-2 gap-8 mb-8">
 			{data.map((data) => (
 				<TrackCard
 					data={data}

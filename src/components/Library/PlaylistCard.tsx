@@ -14,8 +14,7 @@ const PlaylistCard = ({ data }: Props) => {
 	const { data: playlist } = useSWR(`/playlists/${data.id}`, () => fetchers.getPlaylist(data.id));
 
 	const tracks = playlist?.tracks?.items || [];
-	// [TODO] : diferentiate private adn public, and the editable
-	// [TODO] : or dont show public playlist
+
 	return (
 		<div
 			onMouseEnter={() => setHover(true)}

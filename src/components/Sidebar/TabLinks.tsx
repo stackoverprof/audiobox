@@ -6,6 +6,7 @@ import { ImBooks } from 'react-icons/im';
 
 const TabLinks = () => {
 	const { data } = useUserPlaylist();
+
 	return (
 		<div className="px-6 w-full">
 			<TabLink route="/explore" text="Explore" Icon={FaGlobeAmericas} />
