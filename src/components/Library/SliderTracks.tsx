@@ -3,13 +3,14 @@ import ButtonOptions from './ButtonOptions';
 import TrackCardMini from './TrackCardMini';
 import { FreeMode } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { useCreatePlaylist } from '@core/redux/reducer/createPlaylist';
 import 'swiper/css';
 import 'swiper/css/pagination';
 
-const SliderTracks = () => {
-	const { selectedTracks } = useCreatePlaylist();
+interface Props {
+	data: any[];
+}
 
+const SliderTracks = ({ data }: Props) => {
 	return (
 		<div className="relative flex-sc w-full h-20">
 			<ButtonOptions />
@@ -23,9 +24,9 @@ const SliderTracks = () => {
 				className="absolute right-0 h-20"
 				containerModifierClass="pr-12"
 			>
-				{selectedTracks.map((item, i) => (
+				{data.map((item, i) => (
 					<SwiperSlide key={i}>
-						<TrackCardMini data={item.data} />
+						<TrackCardMini data={item.track} />
 					</SwiperSlide>
 				))}
 				<SwiperSlide />

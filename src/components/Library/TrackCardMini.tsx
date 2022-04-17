@@ -22,10 +22,10 @@ const TrackCardMini = ({ data }: Props) => {
 					</button>
 				</div>
 				<div className="flex-cs col flex-1">
-					<h3 className="overflow-hidden w-full text-sm font-semibold text-left line-clamp-1 text-ellipsis">
+					<h3 className="overflow-hidden w-full text-sm font-semibold text-left line-clamp-1">
 						{data.name}
 					</h3>
-					<p className="w-full text-sm truncate text-ellipsis">
+					<p className="w-full text-sm line-clamp-1">
 						{data.artists.map((artist, i, arr) => (
 							<span key={i}>
 								{artist.name}

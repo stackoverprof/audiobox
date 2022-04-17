@@ -37,10 +37,10 @@ const TrackCard = ({ data, selected }: Props) => {
 					</button>
 				</div>
 				<div className="flex-ss col w-56 -sm:w-32">
-					<h3 className="overflow-hidden mb-3 w-full font-semibold text-left line-clamp-1 text-ellipsis">
+					<h3 className="overflow-hidden mb-3 w-full font-semibold text-left line-clamp-1">
 						{data.name}
 					</h3>
-					<p className="mb-1 w-full text-sm truncate text-ellipsis">
+					<p className="mb-1 w-full text-sm line-clamp-1">
 						{data.artists.map((artist, i, arr) => (
 							<span key={i}>
 								{artist.name}
@@ -48,7 +48,7 @@ const TrackCard = ({ data, selected }: Props) => {
 							</span>
 						))}
 					</p>
-					<p className="w-full text-xs truncate opacity-40 -sm:y-32 text-ellipsis">
+					<p className="w-full text-xs opacity-40 line-clamp-1 -sm:y-32">
 						{msToTime(data.duration_ms)} - {data.album.name}
 					</p>
 				</div>

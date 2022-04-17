@@ -14,10 +14,10 @@ const TrackCard = ({ data, index }: Props) => {
 					className="object-cover mb-4 w-40 h-40 rounded-md -sm:w-32 -sm:h-32"
 				/>
 				<div className="flex-ss col w-40 -sm:w-32">
-					<h3 className="overflow-hidden mb-3 w-full font-semibold text-left line-clamp-2 text-ellipsis">
+					<h3 className="overflow-hidden mb-3 w-full font-semibold text-left line-clamp-2">
 						<span className="text-theme-pink">#{index + 1}</span>&ensp;{data.name}
 					</h3>
-					<p className="mb-1 w-full text-sm truncate text-ellipsis">
+					<p className="mb-1 w-full text-sm line-clamp-1">
 						{data.artists.map((artist, i, arr) => (
 							<span key={i}>
 								{artist.name}
@@ -25,7 +25,7 @@ const TrackCard = ({ data, index }: Props) => {
 							</span>
 						))}
 					</p>
-					<p className="w-full text-xs truncate opacity-40 -sm:y-32 text-ellipsis">
+					<p className="w-full text-xs line-clamp-1 opacity-40 -sm:y-32">
 						{data.album.name}
 					</p>
 				</div>
