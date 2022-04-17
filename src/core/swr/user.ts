@@ -16,7 +16,7 @@ export default function useUser() {
 	return {
 		loading: !data && !error,
 		error: error && error.status === 403,
-		user: data,
+		user: data ? data : {},
 		mutate,
 	};
 }

@@ -1,14 +1,15 @@
 import * as fetchers from '@core/api/fetchers';
-import useSWR from 'swr';
+import useSWR, { useSWRConfig } from 'swr';
 
 export default function useUserPlaylist() {
+	const { cache } = useSWRConfig();
 	const { data, mutate, error } = useSWR('user_playlist', fetchers.getUserPlaylist);
-	console.log(data);
+	const user = cache.get('api_user');
 
 	return {
 		loading: !data && !error,
 		error: error && error.status === 403,
-		data: data ? data : [],
+		data: data ? data.filter((x) => x.owner.id === user.id) : [],
 		mutate,
 	};
 }

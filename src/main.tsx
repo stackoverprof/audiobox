@@ -5,6 +5,7 @@ import store from './core/redux/store';
 import { BrowserRouter } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import { Provider } from 'react-redux';
+import { SWRConfig } from 'swr';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -17,9 +18,11 @@ if (Root) {
 				<meta charSet="utf-8" />
 			</Helmet>
 			<Provider store={store}>
-				<BrowserRouter>
-					<App />
-				</BrowserRouter>
+				<SWRConfig>
+					<BrowserRouter>
+						<App />
+					</BrowserRouter>
+				</SWRConfig>
 			</Provider>
 			<ToastContainer position="bottom-right" autoClose={5000} pauseOnHover theme="dark" />
 		</React.StrictMode>

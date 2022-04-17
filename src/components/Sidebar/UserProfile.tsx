@@ -1,9 +1,12 @@
 import React from 'react';
+import useUser from '@core/swr/user';
 
 const UserProfile = () => {
+	const { user } = useUser();
+
 	return (
 		<div className="flex-bc px-6 w-full">
-			<p className="">Hi, Angkasa</p>
+			<p className="">Hi, {user?.display_name}</p>
 			<div className="w-8 h-8 bg-white bg-opacity-20 rounded-full"></div>
 		</div>
 	);
