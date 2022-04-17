@@ -11,11 +11,11 @@ interface Props {
 
 const PlaylistCard = ({ data }: Props) => {
 	const [hover, setHover] = useState(false);
-	const { data: playlistData } = useSWR(`/playlists/${data.id}`, () =>
-		fetchers.getPlaylist(data.id)
-	);
+	const { data: playlist } = useSWR(`/playlists/${data.id}`, () => fetchers.getPlaylist(data.id));
 
-	const tracks = playlistData?.tracks?.items || [];
+	console.log(playlist);
+
+	const tracks = playlist?.tracks?.items || [];
 	// [TODO] : diferentiate private adn public, and the editable
 	// [TODO] : or dont show public playlist
 	return (
