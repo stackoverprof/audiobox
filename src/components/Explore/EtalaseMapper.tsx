@@ -4,36 +4,10 @@ import DisplaySection from './DisplaySection';
 const EtalaseMapper = () => {
 	return (
 		<div className="flex-sc col w-full -mt-14">
-			<DisplaySection
-				title="Top Charts Global"
-				description="World most played tracks. Ranked."
-				playlist_id="37i9dQZEVXbNG2KDcFcKOF"
-			/>
-			<DisplaySection
-				title="For you."
-				description="World most played tracks. Ranked."
-				playlist_id="37i9dQZEVXbNG2KDcFcKOF"
-			/>
-			<DisplaySection
-				title="Releases Radar"
-				description="World most played tracks. Ranked."
-				playlist_id="37i9dQZEVXbNG2KDcFcKOF"
-			/>
-			<DisplaySection
-				title="For you."
-				description="World most played tracks. Ranked."
-				playlist_id="37i9dQZEVXbNG2KDcFcKOF"
-			/>
-			<DisplaySection
-				title="Releases Radar"
-				description="World most played tracks. Ranked."
-				playlist_id="37i9dQZEVXbNG2KDcFcKOF"
-			/>
-			<DisplaySection
-				title="Top Charts Global"
-				description="World most played tracks. Ranked."
-				playlist_id="37i9dQZEVXbNG2KDcFcKOF"
-			/>
+			<DisplaySection playlist_id="37i9dQZEVXbNG2KDcFcKOF" ordered />
+			<DisplaySection playlist_id="37i9dQZEVXbIZK8aUquyx8" ordered />
+			<DisplaySection playlist_id="37i9dQZF1DXd7DmVuEZl0w" />
+			<DisplaySection playlist_id="37i9dQZF1DX70RN3TfWWJh" />
 		</div>
 	);
 };

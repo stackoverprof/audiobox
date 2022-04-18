@@ -5,11 +5,10 @@ import usePlaylist from '@core/swr/usePlaylist';
 
 interface Props {
 	playlist_id: string;
-	title: string;
-	description: string;
+	ordered?: boolean;
 }
 
-const DisplaySection = ({ playlist_id, title, description }: Props) => {
+const DisplaySection = ({ playlist_id, ordered = false }: Props) => {
 	const { playlist } = usePlaylist(playlist_id);
 	if (!playlist) return <></>;
 
@@ -24,11 +23,11 @@ const DisplaySection = ({ playlist_id, title, description }: Props) => {
 					background: `linear-gradient(60deg, ${colors.base}ff 30%, ${colors.base}ee 40%, ${colors.base}cc 50%, ${colors.base}55 65%, ${colors.base}00 70%)`,
 				}}
 			>
-				<h2 className="font-semibold text-4xl">{title}</h2>
-				<p className="opacity-50 text-lg">{description}</p>
+				<h2 className="font-semibold text-4xl">{playlist.name}</h2>
+				<p className="opacity-50 text-lg">{playlist.description}</p>
 			</div>
 			<div className="absolute full top-0 left-0">
-				<SliderTracks data={data} />
+				<SliderTracks data={data} ordered={ordered} />
 			</div>
 		</div>
 	);

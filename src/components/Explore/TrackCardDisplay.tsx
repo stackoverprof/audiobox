@@ -3,11 +3,13 @@ import { FaPlay } from 'react-icons/fa';
 
 interface Props {
 	data: any;
+	index: number;
+	ordered: boolean;
 }
 
 // [TODO] : fallback for image, ad actually all data
 
-const TrackCardDisplay = ({ data }: Props) => {
+const TrackCardDisplay = ({ data, index, ordered }: Props) => {
 	return (
 		<div className="h-full flex-sc col backdrop-blur-sm pt-4 w-full bg-white bg-opacity-10 rounded-lg">
 			<div className="relative overflow-hidden mb-4 w-40 h-40 bg-white bg-opacity-10 rounded-lg group">
@@ -20,7 +22,8 @@ const TrackCardDisplay = ({ data }: Props) => {
 			</div>
 			<div className="flex-ss col w-40">
 				<h3 className="overflow-hidden mb-3 w-full font-semibold text-left line-clamp-1">
-					<span className="text-theme-pink">#{0 + 1}</span>&ensp;{data.name}
+					{ordered && <span className="text-theme-pink">#{index + 1}&ensp;</span>}
+					{data.name}
 				</h3>
 				<p className="mb-1 w-full text-sm line-clamp-1">
 					{data.artists.map((artist, i, arr) => (

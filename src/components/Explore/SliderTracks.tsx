@@ -7,9 +7,10 @@ import 'swiper/css/pagination';
 
 interface Props {
 	data: any[];
+	ordered: boolean;
 }
 
-const SliderTracks = ({ data }: Props) => {
+const SliderTracks = ({ data, ordered }: Props) => {
 	return (
 		<div>
 			<Swiper
@@ -23,7 +24,7 @@ const SliderTracks = ({ data }: Props) => {
 				<SwiperSlide style={{ width: 460 }} />
 				{data.map((item, i) => (
 					<SwiperSlide style={{ width: 192 }} key={i}>
-						<TrackCardDisplay data={item} />
+						<TrackCardDisplay data={item} index={i} ordered={ordered} />
 					</SwiperSlide>
 				))}
 				<SwiperSlide style={{ width: 230 }} />
