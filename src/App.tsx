@@ -13,11 +13,11 @@ import '@core/style/typefaces.css';
 import Playlist from '@pages/library/:playlist_id';
 
 const App = () => {
-	// CUSTOM HOOK FOR AUTHENTICATION WITH TOKEN
+	// CUSTOM AUTHENTICATION HOOKS
 	useSession();
 
-	// AUTH STATUS
-	const { authenticated, ready } = useAuth();
+	// AUTH STATUS from redux
+	const { ready, authenticated } = useAuth();
 
 	// PRIVATE ROUTE BLOCKING LOGIC
 	const routeblocks = {
@@ -42,6 +42,8 @@ const App = () => {
 		</Routes>
 	);
 };
+
+// NOTE: ALL PROVIDERS and ROOT LEVEL WRAPPER is at `main.tsx`
 
 export default App;
 

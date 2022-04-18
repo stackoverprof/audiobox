@@ -12,6 +12,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const Root = document.getElementById('root');
 
 if (Root) {
+	// INITIALIZE REACT-APP to Root Div
 	ReactDOM.createRoot(Root).render(
 		<React.StrictMode>
 			<Helmet defaultTitle="Audiobox" titleTemplate="%s — Audiobox">

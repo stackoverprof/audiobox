@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 const useSession = () => {
 	const dispatch = useDispatch();
 
-	// TRIGGER CALLING SYNC TOKEN FUNCTION
+	// TRIGGER CALLS REDUX ACTIONS
 	useEffect(() => {
 		dispatch(syncToken());
 	}, [dispatch]);
