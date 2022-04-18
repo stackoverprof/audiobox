@@ -73,6 +73,7 @@ export const createPlaylist = async ({
 	})
 		.then((res) => res.data.id)
 		.catch((err) => err.response.data);
+	if (!playlist_id) return { success: false };
 
 	// add the selected tracks to the playlist
 	const result = await Spotify.post(`/playlists/${playlist_id}/tracks`, {
@@ -80,8 +81,9 @@ export const createPlaylist = async ({
 	})
 		.then((res) => res.data)
 		.catch((err) => console.error(err.response.data));
+	if (!result) return { success: false };
 
-	return result;
+	return { success: true, playlist_id };
 };
 
 interface CreatePlaylistParams {

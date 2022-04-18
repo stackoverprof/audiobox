@@ -39,7 +39,7 @@ const EtalaseMapper = () => {
 		</div>
 	);
 };
-// [TODO] : bind to params ?tab=
+
 export default EtalaseMapper;
 
 const DATA_CHARTS = [
