@@ -1,5 +1,6 @@
 import React from 'react';
 import TrackCard from './TrackCard.horizontal';
+import TrackCardAdder from './TrackCardAdder';
 
 interface Props {
 	data: any[];
@@ -11,6 +12,7 @@ const ResultGrid = ({ data }: Props) => {
 			{data.map((data) => (
 				<TrackCard data={data} key={data.uri} />
 			))}
+			<TrackCardAdder />
 		</div>
 	);
 };
