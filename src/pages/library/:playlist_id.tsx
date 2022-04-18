@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import * as editPlaylistRedux from '@core/redux/reducer/editPlaylist';
+import ContentTracks from '@components/Playlist/ContentTracks';
 import HeaderEditor from '@components/Playlist/HeaderEditor';
 import MainLayout from '@components/_layouts/MainLayout';
 import usePlaylist from '@core/swr/usePlaylist';
@@ -46,6 +47,7 @@ const Playlist = () => {
 	return (
 		<MainLayout title="Playlist" className="flex-sc col w-full">
 			<HeaderEditor />
+			<ContentTracks />
 		</MainLayout>
 	);
 };
