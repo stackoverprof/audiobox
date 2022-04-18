@@ -64,7 +64,7 @@ const TrackCard = ({ data, selected }: Props) => {
 				{selected ? (
 					<FaTrash
 						size={20}
-						className="transition-all transform text-red-400 opacity-50"
+						className="transition-all transform text-red-400 opacity-50 group-hover:scale-110 group-hover:opacity-100 group-hover:text-red-600"
 					/>
 				) : (
 					<HiPlus
