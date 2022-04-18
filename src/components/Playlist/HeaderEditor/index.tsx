@@ -39,7 +39,7 @@ const HeaderEditor = () => {
 
 	return (
 		<div
-			className="flex-bs col w-full h-[260px]"
+			className="flex-bs col w-full h-[200px]"
 			style={{ background: 'linear-gradient(0deg, #fff1, #fff0)' }}
 		>
 			<form onSubmit={handleSubmit} className="flex-bc w-full">
@@ -55,7 +55,6 @@ const HeaderEditor = () => {
 					<BadgesInfo />
 				</div>
 			</form>
-			<TracksSelected />
 		</div>
 	);
 };

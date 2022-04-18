@@ -1,8 +1,7 @@
 import React from 'react';
 import msToTime from '@core/utils/ms-to-time';
 import { addTrack, removeTrack } from '@core/redux/actions/editPlaylist';
-import { BsCheckLg } from 'react-icons/bs';
-import { FaPlay } from 'react-icons/fa';
+import { FaPlay, FaTrash } from 'react-icons/fa';
 import { HiPlus } from 'react-icons/hi';
 import { useDispatch } from 'react-redux';
 
@@ -58,12 +57,15 @@ const TrackCard = ({ data, selected }: Props) => {
 				className={[
 					'flex-cc w-12 h-full bg-opacity-5 transition ',
 					selected
-						? 'bg-theme-blue bg-opacity-50 hover:bg-opacity-30'
-						: 'bg-white  hover:bg-theme-green hover:bg-opacity-30',
+						? 'bg-white hover:bg-opacity-30 hover:bg-red-400'
+						: 'bg-white hover:bg-theme-green hover:bg-opacity-30',
 				].join(' ')}
 			>
 				{selected ? (
-					<BsCheckLg size={20} className="transition-all transform text-theme-blue" />
+					<FaTrash
+						size={20}
+						className="transition-all transform text-red-400 opacity-50"
+					/>
 				) : (
 					<HiPlus
 						size={28}
