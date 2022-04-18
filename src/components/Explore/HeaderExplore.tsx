@@ -13,7 +13,7 @@ const HeaderExplore = () => {
 				<h1 className="flex-cc text-5xl font-semibold mb-12">
 					<FaGlobeAmericas className="mr-4" size={52} /> Explore
 				</h1>
-				<p className="mb-12 text-lg">Discover tracks all over the world.</p>
+				<p className="mb-12 text-lg">Discover the highly curated spotify playlists.</p>
 			</div>
 			<div className="absolute top-0 right-0 overflow-hidden full flex-es">
 				<Lottie
