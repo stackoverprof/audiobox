@@ -1,5 +1,5 @@
 import React from 'react';
-import Lottie from '@components/Lottie';
+import Lottie from '@components/_shared/Lottie';
 import worldMap from '@public/lottie/world-map.json';
 import { FaGlobeAmericas } from 'react-icons/fa';
 import { setSelectedTab, useExplore } from '@core/redux/reducer/explore';

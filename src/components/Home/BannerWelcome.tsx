@@ -2,7 +2,7 @@ import React from 'react';
 import colors from '@core/style/colors';
 import girlMusicBg from '@public/lottie/girlMusic.bg.json';
 import girlMusicObj from '@public/lottie/girlMusic.object.json';
-import Lottie from '@components/Lottie';
+import Lottie from '@components/_shared/Lottie';
 
 const BannerWelcome = () => {
 	return (
