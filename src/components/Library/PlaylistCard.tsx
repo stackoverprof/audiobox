@@ -4,6 +4,7 @@ import CoverPlaylist from './CoverPlaylist';
 import HeaderPlaylist from './HeaderPlaylist';
 import SliderTracks from './SliderTracks';
 import useSWR from 'swr';
+import { Link } from 'react-router-dom';
 
 interface Props {
 	data: any;
@@ -16,7 +17,8 @@ const PlaylistCard = ({ data }: Props) => {
 	const tracks = playlist?.tracks?.items || [];
 
 	return (
-		<div
+		<Link
+			to={`/library/${data.id}`}
 			onMouseEnter={() => setHover(true)}
 			onMouseLeave={() => setHover(false)}
 			className="flex-sc border-b cursor-pointer border-white border-opacity-10 py-8 pl-12 w-full hover:bg-theme-pink hover:bg-opacity-5 transition"
@@ -26,7 +28,7 @@ const PlaylistCard = ({ data }: Props) => {
 				<HeaderPlaylist data={data} hover={hover} />
 				{tracks.length > 0 && <SliderTracks data={tracks} />}
 			</div>
-		</div>
+		</Link>
 	);
 };
 

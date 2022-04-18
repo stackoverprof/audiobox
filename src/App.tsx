@@ -18,14 +18,25 @@ const App = () => {
 	// AUTH STATUS
 	const { authenticated, ready } = useAuth();
 
+	// PRIVATE ROUTE BLOCKING LOGIC
+	const routeblocks = {
+		guestOnly: (Page) => (!authenticated ? <Page /> : <Navigate to="/create" />),
+		userOnly: (Page) => (authenticated ? <Page /> : <Navigate to="/" />),
+	};
+
 	if (!ready) return <></>;
 	return (
 		<Routes>
-			<Route path="/" element={!authenticated ? <Home /> : <Navigate to="/create" />} />
-			<Route path="/create" element={authenticated ? <Create /> : <Navigate to="/" />} />
-			<Route path="/explore" element={authenticated ? <Explore /> : <Navigate to="/" />} />
-			<Route path="/library" element={authenticated ? <Library /> : <Navigate to="/" />} />
-			<Route path="/history" element={authenticated ? <History /> : <Navigate to="/" />} />
+			<Route path="/">
+				<Route index element={routeblocks.guestOnly(Home)} />
+				<Route path="create" element={routeblocks.userOnly(Create)} />
+				<Route path="explore" element={routeblocks.userOnly(Explore)} />
+				<Route path="library">
+					<Route index element={routeblocks.userOnly(Library)} />
+					<Route path=":playlist_id" element={routeblocks.userOnly(Explore)} />
+				</Route>
+				<Route path="history" element={routeblocks.userOnly(History)} />
+			</Route>
 			<Route path="*" element={<_404 />} />
 		</Routes>
 	);
