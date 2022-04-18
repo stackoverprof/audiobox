@@ -6,7 +6,7 @@ interface Props {
 
 const TrackCard = ({ data, index }: Props) => {
 	return (
-		<div className="flex-ss col overflow-hidden p-4 bg-white bg-opacity-10 rounded-lg border backdrop-blur">
+		<div className="flex-ss col overflow-hidden p-4 bg-white bg-opacity-10 rounded-lg backdrop-blur">
 			<div className="flex-cs col mb-4">
 				<img
 					src={data.album.images[0]?.url || ''}
@@ -25,7 +25,7 @@ const TrackCard = ({ data, index }: Props) => {
 							</span>
 						))}
 					</p>
-					<p className="w-full text-xs line-clamp-1 opacity-40 -sm:y-32">
+					<p className="w-full text-xs opacity-40 line-clamp-1 -sm:y-32">
 						{data.album.name}
 					</p>
 				</div>

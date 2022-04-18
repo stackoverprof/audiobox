@@ -9,9 +9,11 @@ import 'swiper/css/pagination';
 
 interface Props {
 	data: any[];
+	hover: boolean;
 }
 
-const SliderTracks = ({ data }: Props) => {
+const SliderTracks = ({ data, hover }: Props) => {
+	const fader = hover ? '#17072f' : colors.base;
 	return (
 		<div className="relative flex-sc w-full h-20">
 			<ButtonOptions />
@@ -35,7 +37,7 @@ const SliderTracks = ({ data }: Props) => {
 			<div
 				className="absolute right-0 z-20 w-24 h-full pointer-events-none"
 				style={{
-					background: `linear-gradient(90deg, ${colors.base}00, ${colors.base}dd, ${colors.base}ff)`,
+					background: `linear-gradient(90deg, ${fader}00, ${fader}dd, ${fader}ff)`,
 				}}
 			></div>
 		</div>

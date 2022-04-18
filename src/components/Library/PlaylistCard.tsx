@@ -20,12 +20,12 @@ const PlaylistCard = ({ data }: Props) => {
 			to={`/library/${data.id}`}
 			onMouseEnter={() => setHover(true)}
 			onMouseLeave={() => setHover(false)}
-			className="flex-sc border-b cursor-pointer border-white border-opacity-10 py-8 pl-12 w-full hover:bg-theme-pink hover:bg-opacity-5 transition"
+			className="flex-sc py-8 pl-12 w-full border-b border-white border-opacity-10 transition cursor-pointer hover:bg-theme-pink hover:bg-opacity-5"
 		>
 			<CoverPlaylist images={data.images} />
 			<div className="flex-bs col w-full h-40">
 				<HeaderPlaylist data={data} hover={hover} />
-				{tracks.length > 0 && <SliderTracks data={tracks} />}
+				{tracks.length > 0 && <SliderTracks hover={hover} data={tracks} />}
 			</div>
 		</Link>
 	);
