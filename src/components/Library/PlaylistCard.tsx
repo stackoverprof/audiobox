@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import * as fetchers from '@core/api/fetchers';
 import CoverPlaylist from './CoverPlaylist';
 import HeaderPlaylist from './HeaderPlaylist';
 import SliderTracks from './SliderTracks';
-import useSWR from 'swr';
+import usePlaylist from '@core/swr/usePlaylist';
 import { Link } from 'react-router-dom';
 
 interface Props {
@@ -12,7 +11,7 @@ interface Props {
 
 const PlaylistCard = ({ data }: Props) => {
 	const [hover, setHover] = useState(false);
-	const { data: playlist } = useSWR(`/playlists/${data.id}`, () => fetchers.getPlaylist(data.id));
+	const { playlist } = usePlaylist(data.id);
 
 	const tracks = playlist?.tracks?.items || [];
 
