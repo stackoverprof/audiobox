@@ -1,6 +1,8 @@
 import React from 'react';
 import * as fetchers from '@core/api/fetchers';
+import HeaderEditor from '@components/Playlist/HeaderEditor';
 import MainLayout from '@components/_layouts/MainLayout';
+import SearchArea from '@components/Playlist/SearchArea';
 import useSWR from 'swr';
 import { useNavigate, useParams } from 'react-router-dom';
 
@@ -17,7 +19,8 @@ const Playlist = () => {
 
 	return (
 		<MainLayout title="Playlist" className="flex-sc col w-full">
-			Playlist
+			<HeaderEditor />
+			<SearchArea />
 		</MainLayout>
 	);
 };

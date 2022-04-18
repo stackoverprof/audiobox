@@ -1,5 +1,5 @@
 import React from 'react';
-import HeaderEditor from '@components/Create/HeaderEditor';
+import HeaderEditor from '@components/Playlist/HeaderEditor';
 import MainLayout from '@components/_layouts/MainLayout';
 import SearchArea from '@components/Create/SearchArea';
 

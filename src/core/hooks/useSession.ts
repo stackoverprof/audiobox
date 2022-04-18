@@ -6,9 +6,11 @@ import { useDispatch } from 'react-redux';
 const useSession = () => {
 	const dispatch = useDispatch();
 
+	// LOAD USER DATA (SWR)
 	useUserData();
 
-	return useEffect(() => {
+	// TRIGGER CALLING SYNC TOKEN FUNCTION
+	useEffect(() => {
 		dispatch(syncToken());
 	}, [dispatch]);
 };
