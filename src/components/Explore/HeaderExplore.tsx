@@ -9,8 +9,6 @@ const HeaderExplore = () => {
 	const { selectedTab } = useExplore();
 	const dispatch = useDispatch();
 
-	console.log('res', selectedTab);
-
 	return (
 		<div className="relative w-full h-72">
 			<div

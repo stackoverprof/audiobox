@@ -8,7 +8,6 @@ import Library from '@pages/library';
 import useSession from '@core/hooks/useSession';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { useAuth } from '@core/redux/reducer/auth';
-import { useSWRConfig } from 'swr';
 import '@core/style/tailwind.css';
 import '@core/style/typefaces.css';
 import Playlist from '@pages/library/:playlist_id';
@@ -19,8 +18,6 @@ const App = () => {
 
 	// AUTH STATUS
 	const { authenticated, ready } = useAuth();
-	const { cache } = useSWRConfig();
-	console.log('cache', cache);
 
 	// PRIVATE ROUTE BLOCKING LOGIC
 	const routeblocks = {
@@ -47,3 +44,5 @@ const App = () => {
 };
 
 export default App;
+
+// [TODO] : make env zipped to gigih, make sure they can run
