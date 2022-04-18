@@ -18,8 +18,8 @@ const TracksSelected = () => {
 			<Swiper
 				slidesPerView="auto"
 				spaceBetween={16}
-				grabCursor={true}
-				freeMode={true}
+				grabCursor
+				freeMode
 				modules={[FreeMode]}
 				style={{ width: 'calc(100% - 156px)' }}
 				className="absolute right-0 h-20"

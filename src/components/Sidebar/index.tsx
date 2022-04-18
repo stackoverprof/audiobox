@@ -10,7 +10,7 @@ import UserProfile from './UserProfile';
 const Sidebar = () => {
 	return (
 		<div
-			className="fixed flex-bs col top-0 left-0 pt-8 w-72 h-full bg-black bg-opacity-40"
+			className="fixed flex-bs col top-0 left-0 pt-8 w-72 h-full z-50 bg-black bg-opacity-40"
 			style={{ boxShadow: `0 0 40px -8px ${colors.theme.pink}55` }}
 		>
 			<div className="w-full">

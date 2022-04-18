@@ -13,20 +13,19 @@ const SliderTracks = ({ data }: Props) => {
 	return (
 		<div>
 			<Swiper
-				slidesPerView={3.5}
-				spaceBetween={16}
-				grabCursor={true}
-				freeMode={true}
+				slidesPerView="auto"
+				spaceBetween={32}
+				grabCursor
+				freeMode
 				modules={[FreeMode]}
-				className="absolute right-0 h-20 w-full"
-				containerModifierClass="pr-12"
+				centeredSlides
+				className="absolute right-0 h-full w-full"
 			>
 				{data.map((item, i) => (
-					<SwiperSlide key={i}>
+					<SwiperSlide style={{ width: 200 }} key={i}>
 						<TrackCardDisplay data={item} />
 					</SwiperSlide>
 				))}
-				<SwiperSlide />
 			</Swiper>
 		</div>
 	);

@@ -5,7 +5,7 @@ interface Props {
 }
 
 const TrackCardDisplay = ({ data }: Props) => {
-	return <div className="h-[260px] w-[100px] bg-white bg-opacity-10 rounded-md"></div>;
+	return <div className="h-full backdrop-blur-sm w-full bg-white bg-opacity-10 rounded-md"></div>;
 };
 
 export default TrackCardDisplay;
