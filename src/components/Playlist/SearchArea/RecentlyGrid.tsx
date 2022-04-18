@@ -10,7 +10,11 @@ const RecentlyGrid = ({ showLabel }: Props) => {
 	const { data } = useRecentlyPlayed();
 	return (
 		<div className="flex-ss col w-full">
-			{showLabel && <p className="mb-6 text-3xl font-semibold">Recently played</p>}
+			{showLabel ? (
+				<p className="mb-6 text-3xl font-semibold">Recently played</p>
+			) : (
+				<p className="text-lg mb-3 mt-8 opacity-40">Recently played</p>
+			)}
 			<ResultGrid data={data} />
 		</div>
 	);
