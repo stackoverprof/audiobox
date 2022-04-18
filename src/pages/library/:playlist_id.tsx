@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import * as editPlaylistRedux from '@core/redux/reducer/editPlaylist';
 import HeaderEditor from '@components/Playlist/HeaderEditor';
 import MainLayout from '@components/_layouts/MainLayout';
 import usePlaylist from '@core/swr/usePlaylist';
@@ -18,7 +19,6 @@ const Playlist = () => {
 
 	const { playlist } = usePlaylist(playlist_id);
 	const { initialized } = useEditPlaylist();
-	console.log(playlist);
 
 	//  FILL UP EXISTING DATA
 	const dispatch = useDispatch();
@@ -34,6 +34,14 @@ const Playlist = () => {
 			dispatch(makeInitialized());
 		}
 	}, [playlist, initialized]);
+
+	useEffect(() => {
+		return () => {
+			console.log('unmounting');
+			dispatch(editPlaylistRedux.reset());
+			console.log('UUUunmounting');
+		};
+	}, []);
 
 	return (
 		<MainLayout title="Playlist" className="flex-sc col w-full">
