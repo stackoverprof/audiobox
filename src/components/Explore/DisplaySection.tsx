@@ -12,7 +12,7 @@ const DisplaySection = ({ title, description, data }: Props) => {
 	return (
 		<div className="h-[260px] relative w-full flex-se mb-24">
 			<div
-				className="pointer-events-none w-[440px] pr-20 absolute pl-[120px] h-full flex-es col z-20"
+				className="pointer-events-none w-[440px] pr-20 absolute pl-[84px] h-full flex-es col z-20"
 				style={{
 					background: `linear-gradient(60deg, ${colors.base}ff 30%, ${colors.base}00 70%)`,
 				}}

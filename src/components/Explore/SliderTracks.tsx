@@ -18,14 +18,15 @@ const SliderTracks = ({ data }: Props) => {
 				grabCursor
 				freeMode
 				modules={[FreeMode]}
-				centeredSlides
 				className="absolute right-0 h-full w-full"
 			>
+				<SwiperSlide style={{ width: 460 }} />
 				{data.map((item, i) => (
 					<SwiperSlide style={{ width: 200 }} key={i}>
 						<TrackCardDisplay data={item} />
 					</SwiperSlide>
 				))}
+				<SwiperSlide style={{ width: 230 }} />
 			</Swiper>
 		</div>
 	);
