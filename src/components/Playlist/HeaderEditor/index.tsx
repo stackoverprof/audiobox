@@ -4,7 +4,6 @@ import BadgesInfo from './BadgesInfo';
 import DescriptionInput from './DescriptionInput';
 import SubmitPlaylist from './SubmitPlaylist';
 import TitleInput from './TitleInput';
-import TracksSelected from './TracksSelected';
 import useUser from '@core/swr/userData';
 import useUserPlaylist from '@core/swr/userPlaylists';
 import { setDescription, setTitle, useEditPlaylist } from '@core/redux/reducer/editPlaylist';

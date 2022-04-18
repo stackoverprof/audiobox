@@ -34,18 +34,16 @@ const Playlist = () => {
 			);
 			dispatch(makeInitialized());
 		}
-	}, [playlist, initialized]);
+	}, [playlist, initialized, playlist_id]);
 
 	useEffect(() => {
 		return () => {
-			console.log('unmounting');
 			dispatch(editPlaylistRedux.reset());
-			console.log('UUUunmounting');
 		};
-	}, []);
+	}, [playlist_id]);
 
 	return (
-		<MainLayout title="Playlist" className="flex-sc col w-full">
+		<MainLayout title="Playlist" className="flex-sc col w-full" key={playlist_id}>
 			<HeaderEditor />
 			<ContentTracks />
 		</MainLayout>
@@ -53,4 +51,3 @@ const Playlist = () => {
 };
 
 export default Playlist;
-

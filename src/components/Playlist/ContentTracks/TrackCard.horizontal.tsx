@@ -1,25 +1,12 @@
 import React from 'react';
 import msToTime from '@core/utils/ms-to-time';
-import { addTrack, removeTrack } from '@core/redux/actions/editPlaylist';
-import { FaPlay, FaTrash } from 'react-icons/fa';
-import { HiPlus } from 'react-icons/hi';
-import { useDispatch } from 'react-redux';
+import { FaPlay } from 'react-icons/fa';
 
 interface Props {
 	data: any;
-	selected: boolean;
 }
 
-const TrackCard = ({ data, selected }: Props) => {
-	const dispatch = useDispatch();
-
-	const handleSelect = () => {
-		dispatch(addTrack({ uri: data.uri, data }));
-	};
-	const handleUnSelect = () => {
-		dispatch(removeTrack(data.uri));
-	};
-
+const TrackCard = ({ data }: Props) => {
 	return (
 		<div className="flex-bc overflow-hidden pl-4 h-28 bg-white bg-opacity-10 rounded-lg backdrop-blur group">
 			<div className="flex-cs mr-4">
@@ -52,27 +39,7 @@ const TrackCard = ({ data, selected }: Props) => {
 					</p>
 				</div>
 			</div>
-			<button
-				onClick={selected ? handleUnSelect : handleSelect}
-				className={[
-					'flex-cc w-12 h-full bg-opacity-5 transition ',
-					selected
-						? 'bg-white hover:bg-opacity-30 hover:bg-red-400'
-						: 'bg-white hover:bg-theme-green hover:bg-opacity-30',
-				].join(' ')}
-			>
-				{selected ? (
-					<FaTrash
-						size={20}
-						className="transition-all transform text-red-400 opacity-50 group-hover:scale-110 group-hover:opacity-100 group-hover:text-red-600"
-					/>
-				) : (
-					<HiPlus
-						size={28}
-						className="text-white opacity-40 transition-all transform group-hover:opacity-100 group-hover:text-theme-green group-hover:scale-125"
-					/>
-				)}
-			</button>
+			<div className="flex-cc w-12 h-full bg-opacity-5 transition opacity-0"></div>
 		</div>
 	);
 };
