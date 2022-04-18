@@ -7,7 +7,7 @@ const useUserPlaylist = () => {
 	const { data, mutate, error } = useSWR('user_playlist', fetchers.getUserPlaylist);
 
 	const preprocess = () => {
-		const owned_only = user.id ? data.filter((x) => x.owner.id === user.id) : data;
+		const owned_only = data && user.id ? data.filter((x) => x.owner.id === user.id) : data;
 		return owned_only;
 	};
 

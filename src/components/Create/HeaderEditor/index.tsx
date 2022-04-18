@@ -22,7 +22,7 @@ const HeaderEditor = () => {
 		e.preventDefault();
 		if (!selectedTracks.length) return toast.error('Select tracks first!');
 		if (title.length < 10) return toast.error('Title is too short!');
-		if (!description) return toast.error('Please provide description!');
+		// [TODO] : konfirm, perlu ga si wajibnya desc?
 
 		const uris = selectedTracks.map((track) => track.uri);
 

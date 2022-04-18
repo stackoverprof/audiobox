@@ -51,7 +51,7 @@ const HeaderEditor = () => {
 
 	const navigate = useNavigate();
 	const handleDelete = async () => {
-		fetchers.unfollowPlaylist({ playlist_id: id });
+		await fetchers.unfollowPlaylist({ playlist_id: id });
 		await swrPlaylist.mutate();
 		await swrUserPlaylists.mutate();
 		navigate('/library');
