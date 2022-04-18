@@ -7,7 +7,7 @@ const SubmitPlaylist = () => {
 			type="submit"
 			className="flex-cc py-2 pr-3 pl-4 mb-3 text-base bg-white rounded-md hover:bg-theme-green"
 		>
-			<p className="mr-2 font-semibold">Create Playlist</p>
+			<p className="mr-2 font-semibold">Update Playlist</p>
 			<BsCheckLg className="m-1" size={16} />
 		</button>
 	);

@@ -22,12 +22,10 @@ const TitleInput = ({ value, onChange }: Props) => {
 				onBlur={() => setFocus(false)}
 			/>
 			<div className="absolute flex-sc pl-7 pointer-events-none full">
-				{!value && (
-					<div className="flex-ce text-5xl font-semibold">
-						New Playlist{' '}
-						{!focus && <FiEdit3 size={32} className="mb-0.5 ml-3 opacity-40" />}
-					</div>
-				)}
+				<div className="flex-ce text-5xl font-semibold">
+					<span className="opacity-0">{value}</span>
+					{!focus && <FiEdit3 size={32} className="mb-0.5 ml-3 opacity-40" />}
+				</div>
 			</div>
 
 			<div

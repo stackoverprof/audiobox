@@ -1,13 +1,13 @@
 import React from 'react';
 import TrackCard from './TrackCard.horizontal';
-import { useCreatePlaylist } from '@core/redux/reducer/createPlaylist';
+import { useEditPlaylist } from '@core/redux/reducer/editPlaylist';
 
 interface Props {
 	data: any[];
 }
 
 const ResultGrid = ({ data }: Props) => {
-	const { selectedTracks } = useCreatePlaylist();
+	const { selectedTracks } = useEditPlaylist();
 
 	return (
 		<div className="grid grid-cols-2 gap-8 mb-8">

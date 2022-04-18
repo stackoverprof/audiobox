@@ -2,12 +2,12 @@ import React from 'react';
 import TrackCardMini from './TrackCardMini';
 import { FreeMode } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { useCreatePlaylist } from '@core/redux/reducer/createPlaylist';
+import { useEditPlaylist } from '@core/redux/reducer/editPlaylist';
 import 'swiper/css';
 import 'swiper/css/pagination';
 
 const TracksSelected = () => {
-	const { selectedTracks } = useCreatePlaylist();
+	const { selectedTracks } = useEditPlaylist();
 	return (
 		<div className="relative flex-sc pl-12 mb-2 w-full h-20">
 			<div className="flex-sc w-36">

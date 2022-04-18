@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaPlay } from 'react-icons/fa';
 import { IoMdCloseCircle } from 'react-icons/io';
-import { removeTrack } from '@core/redux/actions/createPlaylist';
+import { removeTrack } from '@core/redux/actions/editPlaylist';
 import { useDispatch } from 'react-redux';
 
 interface Props {

@@ -1,6 +1,6 @@
 import React from 'react';
 import msToTime from '@core/utils/ms-to-time';
-import { addTrack, removeTrack } from '@core/redux/actions/createPlaylist';
+import { addTrack, removeTrack } from '@core/redux/actions/editPlaylist';
 import { BsCheckLg } from 'react-icons/bs';
 import { FaPlay } from 'react-icons/fa';
 import { HiPlus } from 'react-icons/hi';
