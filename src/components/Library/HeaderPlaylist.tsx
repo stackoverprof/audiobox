@@ -1,4 +1,5 @@
 import React from 'react';
+import { convert } from 'html-to-text';
 
 interface Props {
 	data: any;
@@ -22,7 +23,7 @@ const HeaderPlaylist = ({ data, hover }: Props) => {
 						{data.tracks.total > 99 ? '99+' : data.tracks.total} Track
 						{data.tracks.total > 1 && 's'}
 					</span>
-					{data.description && <>&ensp;-&ensp;{data.description}</>}
+					{data.description && <>&ensp;-&ensp;{convert(data.description)}</>}
 				</p>
 			</div>
 			<div className={['flex-cs transition', hover ? 'opacity-100' : 'opacity-0'].join(' ')}>

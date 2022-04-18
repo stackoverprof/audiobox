@@ -15,6 +15,7 @@
 		"@reduxjs/toolkit": "^1.8.1",
 		"@tailwindcss/line-clamp": "^0.3.1",
 		"axios": "^0.26.1",
+		"html-to-text": "^8.2.0",
 		"lottie-web": "^5.9.2",
 		"random-bytes-js": "^1.0.0",
 		"react": "^18.0.0",

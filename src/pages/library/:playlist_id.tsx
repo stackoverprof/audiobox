@@ -5,6 +5,7 @@ import HeaderEditor from '@components/Playlist/HeaderEditor';
 import MainLayout from '@components/_layouts/MainLayout';
 import SearchArea from '@components/Playlist/SearchArea';
 import usePlaylist from '@core/swr/usePlaylist';
+import { convert } from 'html-to-text';
 import { makeInitialized, setDescription, setId, setTitle } from '@core/redux/reducer/editPlaylist';
 import { setSelectedTracks, useEditPlaylist } from '@core/redux/reducer/editPlaylist';
 import { useDispatch } from 'react-redux';
@@ -27,7 +28,7 @@ const Playlist = () => {
 		) {
 			dispatch(setId(playlist.id));
 			dispatch(setTitle(playlist.name));
-			dispatch(setDescription(playlist.description));
+			dispatch(setDescription(convert(playlist.description)));
 			dispatch(
 				setSelectedTracks(
 					playlist.tracks.items.map((item) => ({ uri: item.track.uri, data: item.track }))

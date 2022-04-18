@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import colors from '@core/style/colors';
 import SliderTracks from './SliderTracks';
 import usePlaylist from '@core/swr/usePlaylist';
+import { convert } from 'html-to-text';
 import { Link } from 'react-router-dom';
 
 interface Props {
@@ -38,15 +39,15 @@ const DisplaySection = ({ playlist_id, ordered = false }: Props) => {
 				</Link>
 				<Link
 					to={`/library/${playlist.id}`}
-					className="flex-es group col pointer-events-auto"
+					className="flex-es col pointer-events-auto group"
 				>
-					<h2 className="font-semibold text-4xl group-hover:text-theme-pink">
+					<h2 className="text-4xl font-semibold group-hover:text-theme-pink">
 						{playlist.name}
 					</h2>
-					<p className="opacity-50 text-lg">{playlist.description}</p>
+					<p className="text-lg opacity-50">{convert(playlist.description)}</p>
 				</Link>
 			</div>
-			<div className="absolute full top-0 left-0">
+			<div className="absolute top-0 left-0 full">
 				<SliderTracks data={data} ordered={ordered} />
 			</div>
 		</div>
