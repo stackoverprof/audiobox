@@ -1,25 +1,31 @@
 import React from 'react';
+import ButtonOptions from './ButtonOptions';
+import CoverPlaylist from './CoverPlaylist';
 import ResultGrid from './ResultGrid';
-import { HiPlus } from 'react-icons/hi';
-import { setEditMode, useEditPlaylist } from '@core/redux/reducer/editPlaylist';
-import { useDispatch } from 'react-redux';
+import { useEditPlaylist } from '@core/redux/reducer/editPlaylist';
 
-const ContentTracks = () => {
+interface Props {
+	data: any;
+}
+
+const ContentTracks = ({ data }: Props) => {
 	const { selectedTracks } = useEditPlaylist();
-	const dispatch = useDispatch();
 
 	return (
-		<div className="flex-sc col px-12 mt-8 w-full max-w-[900px]">
-			<div className="flex-bc mb-6 w-full text-3xl font-semibold">
-				<p className="">Tracks</p>
-				<button
-					onClick={() => dispatch(setEditMode(true))}
-					className="flex-cc ml-4 w-8 h-8 rounded-md border border-opacity-50 text-theme-blue hover:bg-theme-blue hover:bg-opacity-20 hover:text-white border-theme-blue"
-				>
-					<HiPlus size={24} />
-				</button>
+		<div className="w-full flex-ss">
+			<div className="flex-sc col px-12 pt-8 w-full max-w-[820px]">
+				<div className="flex-bc mb-6 w-full text-3xl font-semibold">
+					<p className="">Tracks</p>
+					<ButtonOptions />
+				</div>
+				<ResultGrid data={selectedTracks.map((x) => x.data)} />
 			</div>
-			<ResultGrid data={selectedTracks.map((x) => x.data)} />
+			<div className="w-48 pt-8">
+				<div className="flex-bc mb-6 w-full text-3xl font-semibold">
+					<p className="">Play All</p>
+				</div>
+				<CoverPlaylist images={data.images} />
+			</div>
 		</div>
 	);
 };
