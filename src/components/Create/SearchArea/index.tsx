@@ -26,7 +26,7 @@ const SearchArea = () => {
 					handleSearch={handleSearch}
 				/>
 				{searchResult.length > 0 && <ResultGrid data={searchResult} />}
-				<RecentlyGrid />
+				<RecentlyGrid showLabel={searchResult.length > 0} />
 			</div>
 		</div>
 	);
