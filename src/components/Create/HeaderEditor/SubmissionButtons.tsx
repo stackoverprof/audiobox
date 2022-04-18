@@ -1,7 +1,7 @@
 import React from 'react';
 import { BsCheckLg } from 'react-icons/bs';
 
-const SubmitPlaylist = () => {
+const SubmissionButtons = () => {
 	return (
 		<button
 			type="submit"
@@ -13,4 +13,4 @@ const SubmitPlaylist = () => {
 	);
 };
 
-export default SubmitPlaylist;
+export default SubmissionButtons;

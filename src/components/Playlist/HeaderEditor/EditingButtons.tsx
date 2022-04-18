@@ -9,7 +9,7 @@ interface Props {
 	handleDelete(): void;
 }
 
-const EditButton = ({ handleDelete }: Props) => {
+const EditingButtons = ({ handleDelete }: Props) => {
 	const [preDelete, setPreDelete] = useState(false);
 	const dispatch = useDispatch();
 
@@ -61,4 +61,4 @@ const EditButton = ({ handleDelete }: Props) => {
 	);
 };
 
-export default EditButton;
+export default EditingButtons;

@@ -1,5 +1,5 @@
 import React from 'react';
-import TrackCard from './TrackCard.horizontal';
+import TrackCardSlim from './TrackCardSlim';
 import { useCreatePlaylist } from '@core/redux/reducer/createPlaylist';
 
 interface Props {
@@ -12,7 +12,7 @@ const ResultGrid = ({ data }: Props) => {
 	return (
 		<div className="grid grid-cols-2 gap-8 mb-8 w-full">
 			{data.map((data) => (
-				<TrackCard
+				<TrackCardSlim
 					data={data}
 					selected={!!selectedTracks.find((track) => track.uri === data.uri)}
 					key={data.uri}

@@ -4,7 +4,7 @@ import * as fetchers from '@core/api/fetchers';
 import BadgesInfo from './BadgesInfo';
 import DescriptionInput from './DescriptionInput';
 import PopupSuccess from './PopupSuccess';
-import SubmitPlaylist from './SubmitPlaylist';
+import SubmissionButtons from './SubmissionButtons';
 import TitleInput from './TitleInput';
 import TracksSelected from './TracksSelected';
 import useUserData from '@core/swr/userData';
@@ -66,7 +66,7 @@ const HeaderEditor = () => {
 						/>
 					</div>
 					<div className="flex-ss col w-60 h-20">
-						<SubmitPlaylist />
+						<SubmissionButtons />
 						<BadgesInfo />
 					</div>
 				</form>

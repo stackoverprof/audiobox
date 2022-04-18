@@ -3,8 +3,8 @@ import * as editPlaylistRedux from '@core/redux/reducer/editPlaylist';
 import * as fetchers from '@core/api/fetchers';
 import BadgesInfo from './BadgesInfo';
 import DescriptionInput from './DescriptionInput';
-import EditButton from './EditButton';
-import SubmitPlaylist from './SubmitPlaylist';
+import EditingButtons from './EditingButtons';
+import SubmissionButtons from './SubmissionButtons';
 import TitleInput from './TitleInput';
 import usePlaylist from '@core/swr/usePlaylist';
 import useUserPlaylist from '@core/swr/userPlaylists';
@@ -78,7 +78,11 @@ const HeaderEditor = () => {
 					/>
 				</div>
 				<div className="flex-ss col h-20">
-					{editMode ? <SubmitPlaylist /> : <EditButton handleDelete={handleDelete} />}
+					{editMode ? (
+						<SubmissionButtons />
+					) : (
+						<EditingButtons handleDelete={handleDelete} />
+					)}
 					<BadgesInfo />
 				</div>
 			</form>

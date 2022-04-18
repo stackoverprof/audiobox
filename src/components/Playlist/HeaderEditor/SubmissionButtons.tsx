@@ -4,7 +4,7 @@ import { CgClose } from 'react-icons/cg';
 import { setEditMode } from '@core/redux/reducer/editPlaylist';
 import { useDispatch } from 'react-redux';
 
-const SubmitPlaylist = () => {
+const SubmissionButtons = () => {
 	const dispatch = useDispatch();
 
 	const handleCancel = () => {
@@ -32,4 +32,4 @@ const SubmitPlaylist = () => {
 	);
 };
 
-export default SubmitPlaylist;
+export default SubmissionButtons;
