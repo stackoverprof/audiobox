@@ -7,32 +7,32 @@ const EtalaseMapper = () => {
 			<DisplaySection
 				title="Top Charts Global"
 				description="World most played tracks. Ranked."
-				data={[...Array(12)]}
+				playlist_id="37i9dQZEVXbNG2KDcFcKOF"
 			/>
 			<DisplaySection
 				title="For you."
 				description="World most played tracks. Ranked."
-				data={[...Array(12)]}
+				playlist_id="37i9dQZEVXbNG2KDcFcKOF"
 			/>
 			<DisplaySection
 				title="Releases Radar"
 				description="World most played tracks. Ranked."
-				data={[...Array(12)]}
+				playlist_id="37i9dQZEVXbNG2KDcFcKOF"
 			/>
 			<DisplaySection
 				title="For you."
 				description="World most played tracks. Ranked."
-				data={[...Array(12)]}
+				playlist_id="37i9dQZEVXbNG2KDcFcKOF"
 			/>
 			<DisplaySection
 				title="Releases Radar"
 				description="World most played tracks. Ranked."
-				data={[...Array(12)]}
+				playlist_id="37i9dQZEVXbNG2KDcFcKOF"
 			/>
 			<DisplaySection
 				title="Top Charts Global"
 				description="World most played tracks. Ranked."
-				data={[...Array(12)]}
+				playlist_id="37i9dQZEVXbNG2KDcFcKOF"
 			/>
 		</div>
 	);

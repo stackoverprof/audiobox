@@ -22,7 +22,7 @@ const SliderTracks = ({ data }: Props) => {
 			>
 				<SwiperSlide style={{ width: 460 }} />
 				{data.map((item, i) => (
-					<SwiperSlide style={{ width: 200 }} key={i}>
+					<SwiperSlide style={{ width: 192 }} key={i}>
 						<TrackCardDisplay data={item} />
 					</SwiperSlide>
 				))}
