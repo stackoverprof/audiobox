@@ -13,8 +13,6 @@ const DisplaySection = ({ playlist_id, ordered = false }: Props) => {
 	if (!playlist) return <></>;
 
 	const data = playlist.tracks?.items?.map((x) => x.track) || [];
-	console.log(data);
-
 	return (
 		<div className="h-[292px] relative w-full flex-se mb-20">
 			<div

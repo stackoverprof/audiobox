@@ -22,11 +22,13 @@ const SliderTracks = ({ data, ordered }: Props) => {
 				className="absolute right-0 h-full w-full"
 			>
 				<SwiperSlide style={{ width: 460 }} />
-				{data.map((item, i) => (
-					<SwiperSlide style={{ width: 192 }} key={i}>
-						<TrackCardDisplay data={item} index={i} ordered={ordered} />
-					</SwiperSlide>
-				))}
+				{data
+					.filter((x) => x)
+					.map((item, i) => (
+						<SwiperSlide style={{ width: 192 }} key={i}>
+							<TrackCardDisplay data={item} index={i} ordered={ordered} />
+						</SwiperSlide>
+					))}
 				<SwiperSlide style={{ width: 230 }} />
 			</Swiper>
 		</div>

@@ -25,8 +25,16 @@ export const getRecommendations = () => {
 		.catch((err) => console.error(err.response.data));
 };
 
+export const getFeaturedPlaylists = ({ limit = 12 }: { limit: number }) => {
+	return Spotify.get('https://api.spotify.com/v1/browse/featured-playlists', {
+		params: { limit },
+	})
+		.then((res) => res.data.playlists.items)
+		.catch((err) => console.error(err.response.data));
+};
+
 export const getRecentlyPlayed = ({ limit = 6 }: { limit: number }) => {
-	return Spotify.get('/me/player/recently-played?', { params: { limit } })
+	return Spotify.get('/me/player/recently-played', { params: { limit } })
 		.then((res) => res.data.items.map((item) => item.track))
 		.catch((err) => console.error(err.response.data));
 };
