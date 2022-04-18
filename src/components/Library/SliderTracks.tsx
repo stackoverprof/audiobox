@@ -18,21 +18,20 @@ const SliderTracks = ({ data, hover }: Props) => {
 		<div className="relative flex-sc w-full h-20">
 			<ButtonOptions />
 			<Swiper
-				slidesPerView={3.5}
+				slidesPerView="auto"
 				spaceBetween={16}
 				grabCursor={true}
 				freeMode={true}
 				modules={[FreeMode]}
 				style={{ width: 'calc(100% - 72px)' }}
 				className="absolute right-0 h-20"
-				containerModifierClass="pr-12"
 			>
 				{data.map((item, i) => (
-					<SwiperSlide key={i}>
+					<SwiperSlide style={{ width: 240 }} key={i}>
 						<TrackCardMini data={item.track} />
 					</SwiperSlide>
 				))}
-				<SwiperSlide />
+				<SwiperSlide style={{ width: 240 }} />
 			</Swiper>
 			<div
 				className="absolute right-0 z-20 w-24 h-full pointer-events-none"

@@ -16,7 +16,7 @@ const TrackCardMini = ({ data }: Props) => {
 	};
 
 	return (
-		<div className="relative flex-bc mt-2 h-16 bg-white bg-opacity-10 rounded-lg backdrop-blur group">
+		<div className="relative flex-bc mt-2 w-full h-16 bg-white bg-opacity-10 rounded-lg backdrop-blur group">
 			<div className="flex-sc pr-4">
 				<div className="relative overflow-hidden mr-4 ml-3 w-12 h-12 rounded-md">
 					<img

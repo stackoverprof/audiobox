@@ -17,21 +17,20 @@ const TracksSelected = () => {
 				</p>
 			</div>
 			<Swiper
-				slidesPerView={4.5}
+				slidesPerView="auto"
 				spaceBetween={16}
 				grabCursor={true}
 				freeMode={true}
 				modules={[FreeMode]}
 				style={{ width: 'calc(100% - 156px)' }}
 				className="absolute right-0 h-20"
-				containerModifierClass="pr-12"
 			>
 				{selectedTracks.map((item, i) => (
-					<SwiperSlide key={i}>
+					<SwiperSlide style={{ width: 240 }} key={i}>
 						<TrackCardMini data={item.data} />
 					</SwiperSlide>
 				))}
-				<SwiperSlide />
+				<SwiperSlide style={{ width: 240 }} />
 			</Swiper>
 			<div
 				className="absolute right-0 -top-2 z-20 w-40 h-24 pointer-events-none"
