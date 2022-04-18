@@ -41,6 +41,8 @@ const HeaderEditor = () => {
 		await swrPlaylist.mutate();
 		await swrUserPlaylists.mutate();
 
+		// [TODO] : delete playlist
+
 		dispatch(editPlaylistRedux.reset());
 		dispatch(setEditMode(false));
 		toast.success('Playlist updated!');

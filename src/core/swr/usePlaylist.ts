@@ -5,6 +5,7 @@ const usePlaylist = (playlist_id) => {
 	const { data, mutate, error } = useSWR(`/playlists/${playlist_id}`, () =>
 		fetchers.getPlaylist(playlist_id)
 	);
+
 	return {
 		loading: !data && !error,
 		error: error && error.status === 403,

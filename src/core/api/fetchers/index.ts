@@ -14,7 +14,7 @@ export const getUserPlaylist = () => {
 };
 
 export const getPlaylist = (playlist_id: string) => {
-	return SpotifyPublic.get(`/playlists/${playlist_id}`)
+	return Spotify.get(`/playlists/${playlist_id}`)
 		.then((res) => res.data)
 		.catch((err) => console.error(err.response.data));
 };
