@@ -34,5 +34,6 @@ export const syncToken = () => async (dispatch) => {
 
 export const logout = () => async (dispatch) => {
 	await localStorage.removeItem('access_token');
+	await localStorage.removeItem('token_expiration');
 	dispatch(removeToken());
 };

@@ -3,7 +3,6 @@ import useSWR from 'swr';
 
 const useFeaturedPlaylist = () => {
 	const { data, mutate, error } = useSWR('featured_playlist', fetchers.getFeaturedPlaylists);
-	console.log('featrued pla', data, error);
 
 	const preprocess = () => {
 		return data;

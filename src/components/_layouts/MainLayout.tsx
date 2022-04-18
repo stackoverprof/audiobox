@@ -1,7 +1,6 @@
 import React from 'react';
 import SEOTags from '@components/_shared/SEOTags';
 import Sidebar from '@components/Sidebar';
-import useMinHeight from '@core/hooks/useMinHeight';
 
 interface Props {
 	children: React.ReactNode;
@@ -11,8 +10,6 @@ interface Props {
 }
 
 const MainLayout = ({ children, style, className, title }: Props) => {
-	const [minHeight, upper, lower] = useMinHeight();
-
 	return (
 		<div className="flex-bs w-full">
 			<SEOTags title={title} />
@@ -20,15 +17,9 @@ const MainLayout = ({ children, style, className, title }: Props) => {
 				<Sidebar />
 			</aside>
 			<div className="flex-sc col flex-1">
-				<nav className="flex-cc w-full" ref={upper}>
-					{/* <Navbar /> */}
-				</nav>
-				<main style={{ minHeight, ...style }} className={className}>
+				<main style={style} className={className}>
 					{children}
 				</main>
-				<footer className="flex-cc w-full" ref={lower}>
-					{/* <Footer /> */}
-				</footer>
 			</div>
 		</div>
 	);

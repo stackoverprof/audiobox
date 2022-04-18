@@ -20,4 +20,3 @@ const EtalaseMapper = () => {
 };
 
 export default EtalaseMapper;
-

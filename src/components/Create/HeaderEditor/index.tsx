@@ -5,7 +5,7 @@ import DescriptionInput from './DescriptionInput';
 import SubmitPlaylist from './SubmitPlaylist';
 import TitleInput from './TitleInput';
 import TracksSelected from './TracksSelected';
-import useUser from '@core/swr/userData';
+import useUserData from '@core/swr/userData';
 import useUserPlaylist from '@core/swr/userPlaylists';
 import { setDescription, setTitle, useCreatePlaylist } from '@core/redux/reducer/createPlaylist';
 import { toast } from 'react-toastify';
@@ -13,7 +13,7 @@ import { useDispatch } from 'react-redux';
 
 const HeaderEditor = () => {
 	const { title, description, selectedTracks } = useCreatePlaylist();
-	const { user } = useUser();
+	const { user } = useUserData();
 	const { mutate } = useUserPlaylist();
 
 	const dispatch = useDispatch();

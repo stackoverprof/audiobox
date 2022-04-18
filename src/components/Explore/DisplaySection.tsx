@@ -54,4 +54,3 @@ const DisplaySection = ({ playlist_id, ordered = false }: Props) => {
 };
 
 export default DisplaySection;
-

@@ -40,4 +40,3 @@ const TrackCardDisplay = ({ data, index, ordered }: Props) => {
 };
 
 export default TrackCardDisplay;
-

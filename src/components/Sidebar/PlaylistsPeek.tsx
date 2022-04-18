@@ -10,7 +10,7 @@ const PlaylistsPeek = () => {
 			{data.slice(0, 5).map((item, i) => (
 				<Link
 					to={`/library/${item.id}`}
-					className="my-2 text-sm opacity-50 hover:opacity-100 line-clamp-1"
+					className="my-2 text-sm w-full opacity-50 hover:opacity-100 line-clamp-1"
 					key={i}
 				>
 					{item.name}
