@@ -1,13 +1,13 @@
 import * as fetchers from '@core/api/fetchers';
-import useSWR, { useSWRConfig } from 'swr';
+import useSWR from 'swr';
+import useUserData from './userData';
 
 const useUserPlaylist = () => {
-	const { cache } = useSWRConfig();
+	const { user } = useUserData();
 	const { data, mutate, error } = useSWR('user_playlist', fetchers.getUserPlaylist);
 
 	const preprocess = () => {
-		const user = cache.get('api_user');
-		const owned_only = user?.id ? data.filter((x) => x.owner.id === user.id) : data;
+		const owned_only = user.id ? data.filter((x) => x.owner.id === user.id) : data;
 		return owned_only;
 	};
 
