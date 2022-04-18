@@ -42,4 +42,3 @@ const PopupSuccess = ({ playlistID, handleClose }: Props) => {
 };
 
 export default PopupSuccess;
-
