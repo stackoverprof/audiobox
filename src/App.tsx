@@ -10,6 +10,7 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import { useAuth } from '@core/redux/reducer/auth';
 import '@core/style/tailwind.css';
 import '@core/style/typefaces.css';
+import Playlist from '@pages/library/:playlist_id';
 
 const App = () => {
 	// CUSTOM HOOK FOR AUTHENTICATION WITH TOKEN
@@ -33,7 +34,7 @@ const App = () => {
 				<Route path="explore" element={routeblocks.userOnly(Explore)} />
 				<Route path="library">
 					<Route index element={routeblocks.userOnly(Library)} />
-					<Route path=":playlist_id" element={routeblocks.userOnly(Explore)} />
+					<Route path=":playlist_id" element={routeblocks.userOnly(Playlist)} />
 				</Route>
 				<Route path="history" element={routeblocks.userOnly(History)} />
 			</Route>
