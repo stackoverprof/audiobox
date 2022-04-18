@@ -8,9 +8,8 @@ import 'swiper/css/pagination';
 
 const TracksSelected = () => {
 	const { selectedTracks } = useEditPlaylist();
-
 	return (
-		<div className="relative flex-sc pl-12 mb-2 w-full h-20">
+		<div className="relative flex-sc pl-12 mt-2 mb-2 w-full h-20">
 			<div className="flex-sc w-36">
 				<p className="text-lg">
 					{selectedTracks.length} Track{selectedTracks.length > 1 && 's'}

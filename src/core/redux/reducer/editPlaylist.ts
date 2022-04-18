@@ -2,17 +2,21 @@ import { createSlice } from '@reduxjs/toolkit';
 import { useSelector } from 'react-redux';
 
 export interface State {
+	id: string;
 	title: string;
 	description: string;
 	selectedTracks: TrackType[];
 	initialized: boolean;
+	editMode: boolean;
 }
 
 const initialState = <State>{
+	id: '',
 	title: '',
 	description: '',
 	selectedTracks: [],
 	initialized: false,
+	editMode: false,
 };
 
 // [TODO] : isChanged state
@@ -23,6 +27,9 @@ const ReduxSlice = createSlice({
 		makeInitialized: (state) => {
 			state.initialized = true;
 		},
+		setId: (state, action) => {
+			state.id = action.payload;
+		},
 		setTitle: (state, action) => {
 			state.title = action.payload;
 		},
@@ -32,12 +39,22 @@ const ReduxSlice = createSlice({
 		setSelectedTracks: (state, action) => {
 			state.selectedTracks = action.payload;
 		},
+		setEditMode: (state, action) => {
+			state.editMode = action.payload;
+		},
 		reset: () => initialState,
 	},
 });
 
-export const { makeInitialized, setTitle, setDescription, setSelectedTracks, reset } =
-	ReduxSlice.actions;
+export const {
+	makeInitialized,
+	setId,
+	setTitle,
+	setDescription,
+	setSelectedTracks,
+	setEditMode,
+	reset,
+} = ReduxSlice.actions;
 export const useEditPlaylist = (): State =>
 	useSelector((RootState: { editPlaylist: State }) => RootState.editPlaylist);
 export default ReduxSlice.reducer;

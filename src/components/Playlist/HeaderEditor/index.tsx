@@ -1,19 +1,26 @@
 import React from 'react';
+import * as editPlaylistRedux from '@core/redux/reducer/editPlaylist';
 import * as fetchers from '@core/api/fetchers';
 import BadgesInfo from './BadgesInfo';
 import DescriptionInput from './DescriptionInput';
+import EditButton from './EditButton';
 import SubmitPlaylist from './SubmitPlaylist';
 import TitleInput from './TitleInput';
-import useUser from '@core/swr/userData';
+import usePlaylist from '@core/swr/usePlaylist';
 import useUserPlaylist from '@core/swr/userPlaylists';
-import { setDescription, setTitle, useEditPlaylist } from '@core/redux/reducer/editPlaylist';
 import { toast } from 'react-toastify';
 import { useDispatch } from 'react-redux';
+import {
+	setDescription,
+	setEditMode,
+	setTitle,
+	useEditPlaylist,
+} from '@core/redux/reducer/editPlaylist';
 
 const HeaderEditor = () => {
-	const { title, description, selectedTracks } = useEditPlaylist();
-	const { user } = useUser();
-	const { mutate } = useUserPlaylist();
+	const { id, title, description, selectedTracks, editMode } = useEditPlaylist();
+	const swrPlaylist = usePlaylist(id);
+	const swrUserPlaylists = useUserPlaylist();
 
 	const dispatch = useDispatch();
 
@@ -24,16 +31,19 @@ const HeaderEditor = () => {
 
 		const uris = selectedTracks.map((track) => track.uri);
 
-		await fetchers.createPlaylist({
-			user_id: user.id,
+		await fetchers.editPlaylist({
+			playlist_id: id,
 			title,
 			description,
 			uris,
 		});
 
-		// [TODO] : popup see playlist or close
+		await swrPlaylist.mutate();
+		await swrUserPlaylists.mutate();
 
-		mutate();
+		dispatch(editPlaylistRedux.reset());
+		dispatch(setEditMode(false));
+		toast.success('Playlist updated!');
 	};
 
 	return (
@@ -43,14 +53,19 @@ const HeaderEditor = () => {
 		>
 			<form onSubmit={handleSubmit} className="flex-bc w-full">
 				<div className="flex-cs col flex-1 mr-8 w-full">
-					<TitleInput value={title} onChange={(val) => dispatch(setTitle(val))} />
+					<TitleInput
+						disabled={!editMode}
+						value={title}
+						onChange={(val) => dispatch(setTitle(val))}
+					/>
 					<DescriptionInput
+						disabled={!editMode}
 						value={description}
 						onChange={(val) => dispatch(setDescription(val))}
 					/>
 				</div>
-				<div className="flex-ss col w-64 h-20">
-					<SubmitPlaylist />
+				<div className="flex-ss col w-[300px] h-20">
+					{editMode ? <SubmitPlaylist /> : <EditButton />}
 					<BadgesInfo />
 				</div>
 			</form>

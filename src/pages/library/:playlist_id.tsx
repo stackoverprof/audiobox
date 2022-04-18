@@ -3,15 +3,12 @@ import * as editPlaylistRedux from '@core/redux/reducer/editPlaylist';
 import ContentTracks from '@components/Playlist/ContentTracks';
 import HeaderEditor from '@components/Playlist/HeaderEditor';
 import MainLayout from '@components/_layouts/MainLayout';
+import SearchArea from '@components/Playlist/SearchArea';
 import usePlaylist from '@core/swr/usePlaylist';
-import { setDescription, setTitle } from '@core/redux/reducer/editPlaylist';
+import { makeInitialized, setDescription, setId, setTitle } from '@core/redux/reducer/editPlaylist';
+import { setSelectedTracks, useEditPlaylist } from '@core/redux/reducer/editPlaylist';
 import { useDispatch } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
-import {
-	makeInitialized,
-	setSelectedTracks,
-	useEditPlaylist,
-} from '@core/redux/reducer/editPlaylist';
 
 const Playlist = () => {
 	const { playlist_id } = useParams();
@@ -19,12 +16,16 @@ const Playlist = () => {
 	if (!playlist_id) return navigate('/library');
 
 	const { playlist } = usePlaylist(playlist_id);
-	const { initialized } = useEditPlaylist();
+	const { editMode, initialized } = useEditPlaylist();
 
 	//  FILL UP EXISTING DATA
 	const dispatch = useDispatch();
 	useEffect(() => {
-		if (!initialized && (playlist.name || playlist.description || playlist.tracks?.items)) {
+		if (
+			(!initialized || !editMode) &&
+			(playlist.name || playlist.description || playlist.tracks?.items)
+		) {
+			dispatch(setId(playlist.id));
 			dispatch(setTitle(playlist.name));
 			dispatch(setDescription(playlist.description));
 			dispatch(
@@ -34,7 +35,7 @@ const Playlist = () => {
 			);
 			dispatch(makeInitialized());
 		}
-	}, [playlist, initialized, playlist_id]);
+	}, [playlist, playlist_id, editMode]);
 
 	useEffect(() => {
 		return () => {
@@ -45,7 +46,12 @@ const Playlist = () => {
 	return (
 		<MainLayout title="Playlist" className="flex-sc col w-full" key={playlist_id}>
 			<HeaderEditor />
-			<ContentTracks />
+			{!editMode && <ContentTracks />}
+			{editMode && (
+				<>
+					<SearchArea />
+				</>
+			)}
 		</MainLayout>
 	);
 };

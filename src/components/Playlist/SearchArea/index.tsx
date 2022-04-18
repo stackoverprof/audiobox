@@ -3,6 +3,7 @@ import * as fetchers from '@core/api/fetchers';
 import RecentlyGrid from './RecentlyGrid';
 import ResultGrid from './ResultGrid';
 import SearchInput from './SearchInput';
+import TracksSelected from './TracksSelected';
 
 const SearchArea = () => {
 	const [searchQuery, setSearchQuery] = useState('');
@@ -18,7 +19,8 @@ const SearchArea = () => {
 	};
 
 	return (
-		<div className="flex-ss mb-16 w-full">
+		<div className="flex-ss col mb-16 w-full">
+			<TracksSelected />
 			<div className="flex-ss col px-12">
 				<SearchInput
 					value={searchQuery}

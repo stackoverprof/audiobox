@@ -76,3 +76,31 @@ interface CreatePlaylistParams {
 	description: string;
 	uris: string[];
 }
+
+export const editPlaylist = async ({
+	playlist_id,
+	title,
+	description,
+	uris,
+}: EditPlaylistParams) => {
+	await Spotify.put(`/playlists/${playlist_id}`, {
+		name: title,
+		description,
+	})
+		.then((res) => res.data)
+		.catch((err) => console.error(err.response.data));
+
+	// add the selected tracks to the playlist
+	await Spotify.put(`/playlists/${playlist_id}/tracks`, {
+		uris,
+	})
+		.then((res) => res.data)
+		.catch((err) => console.error(err.response.data));
+};
+
+interface EditPlaylistParams {
+	playlist_id: string;
+	title: string;
+	description: string;
+	uris: string[];
+}

@@ -4,15 +4,17 @@ import { FiEdit3 } from 'react-icons/fi';
 interface Props {
 	value: string;
 	onChange(value: string): void;
+	disabled: boolean;
 }
 
-const TitleInput = ({ value, onChange }: Props) => {
+const TitleInput = ({ value, onChange, disabled }: Props) => {
 	const [focus, setFocus] = useState(false);
 
 	return (
 		<div className="relative flex-cc pl-10 mt-8 w-full">
 			<input
 				type="text"
+				disabled={disabled}
 				className="px-2 py-2 w-full text-5xl font-semibold bg-black bg-opacity-0 rounded-md focus:bg-opacity-100 placeholder:text-white"
 				value={value}
 				onChange={(e) => onChange(e.target.value)}
@@ -24,7 +26,9 @@ const TitleInput = ({ value, onChange }: Props) => {
 			<div className="absolute flex-sc pl-7 pointer-events-none full">
 				<div className="flex-ce text-5xl font-semibold">
 					<span className="opacity-0">{value}</span>
-					{!focus && <FiEdit3 size={32} className="mb-0.5 ml-3 opacity-40" />}
+					{!focus && !disabled && (
+						<FiEdit3 size={32} className="mb-0.5 ml-3 opacity-40" />
+					)}
 				</div>
 			</div>
 
