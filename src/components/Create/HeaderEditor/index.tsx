@@ -50,7 +50,7 @@ const HeaderEditor = () => {
 						onChange={(val) => dispatch(setDescription(val))}
 					/>
 				</div>
-				<div className="flex-ss col w-64 h-20">
+				<div className="flex-ss col w-60 h-20">
 					<SubmitPlaylist />
 					<BadgesInfo />
 				</div>

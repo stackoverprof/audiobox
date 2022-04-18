@@ -10,6 +10,7 @@ import usePlaylist from '@core/swr/usePlaylist';
 import useUserPlaylist from '@core/swr/userPlaylists';
 import { toast } from 'react-toastify';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import {
 	setDescription,
 	setEditMode,
@@ -48,6 +49,15 @@ const HeaderEditor = () => {
 		toast.success('Playlist updated!');
 	};
 
+	const navigate = useNavigate();
+	const handleDelete = async () => {
+		fetchers.unfollowPlaylist({ playlist_id: id });
+		await swrPlaylist.mutate();
+		await swrUserPlaylists.mutate();
+		navigate('/library');
+		toast.success('Playlist deleted!');
+	};
+
 	return (
 		<div
 			className="flex-bs col w-full h-[200px]"
@@ -66,8 +76,8 @@ const HeaderEditor = () => {
 						onChange={(val) => dispatch(setDescription(val))}
 					/>
 				</div>
-				<div className="flex-ss col w-[300px] h-20">
-					{editMode ? <SubmitPlaylist /> : <EditButton />}
+				<div className="flex-ss col w-[280px] h-20">
+					{editMode ? <SubmitPlaylist /> : <EditButton handleDelete={handleDelete} />}
 					<BadgesInfo />
 				</div>
 			</form>

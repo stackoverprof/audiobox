@@ -1,4 +1,5 @@
 import React from 'react';
+import colors from '@core/style/colors';
 import TrackCardMini from './TrackCardMini';
 import { FreeMode } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -35,7 +36,7 @@ const TracksSelected = () => {
 			<div
 				className="absolute right-0 -top-2 z-20 w-40 h-24 pointer-events-none"
 				style={{
-					background: 'linear-gradient(90deg, #160e2d00, #160e2ddd, #160e2dff)',
+					background: `linear-gradient(90deg, ${colors.base}00, ${colors.base}dd, ${colors.base}ff)`,
 				}}
 			></div>
 		</div>
