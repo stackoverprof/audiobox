@@ -3,7 +3,6 @@ import { HiPlus } from 'react-icons/hi';
 import { setEditMode } from '@core/redux/reducer/editPlaylist';
 import { useDispatch } from 'react-redux';
 
-
 const ButtonOptions = () => {
 	const dispatch = useDispatch();
 	return (
@@ -19,4 +18,3 @@ const ButtonOptions = () => {
 };
 
 export default ButtonOptions;
-

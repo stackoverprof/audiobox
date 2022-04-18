@@ -60,11 +60,11 @@ const HeaderEditor = () => {
 
 	return (
 		<div
-			className="flex-bs col w-full h-[200px]"
+			className="flex-ss col w-full h-[200px]"
 			style={{ background: 'linear-gradient(0deg, #fff1, #fff0)' }}
 		>
-			<form onSubmit={handleSubmit} className="flex-bc w-full">
-				<div className="flex-cs col flex-1 mr-8 w-full">
+			<form onSubmit={handleSubmit} className="flex-sc w-full">
+				<div className="flex-cs col w-full max-w-[820px]">
 					<TitleInput
 						disabled={!editMode}
 						value={title}
@@ -76,7 +76,7 @@ const HeaderEditor = () => {
 						onChange={(val) => dispatch(setDescription(val))}
 					/>
 				</div>
-				<div className="flex-ss col w-[280px] h-20">
+				<div className="flex-ss col h-20">
 					{editMode ? <SubmitPlaylist /> : <EditButton handleDelete={handleDelete} />}
 					<BadgesInfo />
 				</div>

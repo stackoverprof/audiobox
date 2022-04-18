@@ -19,7 +19,7 @@ const SearchArea = () => {
 
 	return (
 		<div className="flex-ss mb-16 w-full">
-			<div className="flex-ss col px-12">
+			<div className="flex-ss col px-12 max-w-[820px]">
 				<SearchInput
 					value={searchQuery}
 					onChange={(val) => setSearchQuery(val)}

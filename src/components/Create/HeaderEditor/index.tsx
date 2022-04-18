@@ -22,6 +22,7 @@ const HeaderEditor = () => {
 		e.preventDefault();
 		if (!selectedTracks.length) return toast.error('Select tracks first!');
 		if (title.length < 10) return toast.error('Title is too short!');
+		if (!description) return toast.error('Please provide description!');
 
 		const uris = selectedTracks.map((track) => track.uri);
 
@@ -42,8 +43,8 @@ const HeaderEditor = () => {
 			className="flex-bs col w-full h-[260px]"
 			style={{ background: 'linear-gradient(0deg, #fff1, #fff0)' }}
 		>
-			<form onSubmit={handleSubmit} className="flex-bc w-full">
-				<div className="flex-cs col flex-1 mr-8 w-full">
+			<form onSubmit={handleSubmit} className="flex-sc w-full">
+				<div className="flex-cs col flex-1 w-full max-w-[820px] pr-8">
 					<TitleInput value={title} onChange={(val) => dispatch(setTitle(val))} />
 					<DescriptionInput
 						value={description}
