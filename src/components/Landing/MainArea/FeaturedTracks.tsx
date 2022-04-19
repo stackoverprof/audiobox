@@ -14,7 +14,7 @@ const FeaturedTracks = ({ size }: Props) => {
 	const loadMore = () => setIndex(index + 1);
 	// [TODO] : Skeleton loading
 	return (
-		<div className="flex-cs col mt-24 mb-16">
+		<div className="flex-cs col mb-16">
 			<h3 className="mb-8 text-lg">
 				Featured Daily Global&nbsp;
 				<span className="font-medium text-theme-blue">#TopCharts</span>
