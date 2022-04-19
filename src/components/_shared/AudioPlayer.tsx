@@ -1,9 +1,12 @@
 import React, { useEffect, useRef } from 'react';
+import * as playerRedux from '@core/redux/reducer/player';
+import { useDispatch } from 'react-redux';
 import { usePlayer } from '@core/redux/reducer/player';
 
 const AudioPlayer = () => {
-	const { currentTrack, paused } = usePlayer();
 	const audio = useRef<any>(null);
+
+	const { currentTrack, paused } = usePlayer();
 
 	useEffect(() => {
 		if (audio.current) {
@@ -15,6 +18,13 @@ const AudioPlayer = () => {
 		}
 	}, [paused, audio]);
 
+	const dispatch = useDispatch();
+	const handleEnded = () => {
+		console.log('onended trigerred');
+
+		dispatch(playerRedux.reset());
+	};
+
 	if (!currentTrack.preview_url || !currentTrack.id) return <></>;
 	return (
 		<audio
@@ -23,6 +33,7 @@ const AudioPlayer = () => {
 			autoPlay
 			key={currentTrack.id}
 			className="hidden pointer-events-none"
+			onEnded={handleEnded}
 		>
 			<source src={currentTrack.preview_url} type="audio/mpeg" />
 		</audio>
