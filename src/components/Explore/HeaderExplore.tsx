@@ -54,6 +54,4 @@ const HeaderExplore = () => {
 	);
 };
 
-// [TODO] : make two tabs, with Charts
-
 export default HeaderExplore;

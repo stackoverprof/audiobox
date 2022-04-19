@@ -16,7 +16,7 @@ const UserProfile = () => {
 	return (
 		<div className="flex-bc px-6 w-full">
 			<div className="flex-cc">
-				<div className="w-8 h-8 mr-3 bg-white bg-opacity-20 rounded-full"></div>
+				<div className="mr-3 w-8 h-8 bg-white bg-opacity-20 rounded-full"></div>
 				<p className="ml-2">{user?.display_name}</p>
 			</div>
 			<button
@@ -28,6 +28,5 @@ const UserProfile = () => {
 		</div>
 	);
 };
-// [TODO] : make an explicit logout btn
 
 export default UserProfile;

@@ -1,3 +1,5 @@
+// [README] : Higher Order Component, layout with sidebar
+
 import React from 'react';
 import SEOTags from '@components/_shared/SEOTags';
 import Sidebar from '@components/Sidebar';

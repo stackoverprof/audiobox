@@ -5,7 +5,7 @@ interface Props {
 	data: any;
 	hover: boolean;
 }
-// [TODO] : edit dan details jadiin satu codebase
+
 const HeaderPlaylist = ({ data, hover }: Props) => {
 	return (
 		<div className="flex-bs pr-12 w-full">
@@ -34,7 +34,5 @@ const HeaderPlaylist = ({ data, hover }: Props) => {
 		</div>
 	);
 };
-
-// [TODO] : parse symbol to html
 
 export default HeaderPlaylist;

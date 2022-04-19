@@ -64,7 +64,7 @@ const EditingButtons = ({ handleFollow, handleDelete }: Props) => {
 						onClick={handleDelete}
 						className="flex-cc py-2 pr-3 pl-4 mb-3 text-red-400 rounded-md border border-red-400 border-opacity-60 hover:text-white hover:bg-red-400 hover:bg-opacity-30"
 					>
-						<p className="mr-2 font-semibold">Remove this playlist?</p>
+						<p className="mr-2 font-semibold">Confirm to Remove?</p>
 						<FaTrash className="" size={14} />
 					</button>
 					<button

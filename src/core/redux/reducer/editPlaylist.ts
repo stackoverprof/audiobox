@@ -21,7 +21,6 @@ const initialState = <State>{
 	editMode: false,
 };
 
-// [TODO] : isChanged state
 const ReduxSlice = createSlice({
 	name: 'EDIT_PLAYLIST',
 	initialState,

@@ -24,8 +24,8 @@ const TitleInput = ({ value, onChange }: Props) => {
 			<div className="absolute flex-sc pl-7 pointer-events-none full">
 				{!value && (
 					<div className="flex-ce text-5xl font-semibold">
-						New Playlist{' '}
-						{!focus && <FiEdit3 size={32} className="mb-0.5 ml-3 opacity-40" />}
+						<p className="opacity-40">New Playlist </p>
+						{!focus && <FiEdit3 size={32} className="mb-0.5 ml-3 opacity-60" />}
 					</div>
 				)}
 			</div>
