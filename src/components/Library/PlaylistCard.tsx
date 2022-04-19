@@ -17,7 +17,7 @@ const PlaylistCard = ({ data }: Props) => {
 
 	return (
 		<Link
-			to={`/library/${data.id}`}
+			to={`/playlist/${data.id}`}
 			onMouseEnter={() => setHover(true)}
 			onMouseLeave={() => setHover(false)}
 			className="flex-sc py-8 pl-12 w-full border-b border-white border-opacity-10 transition cursor-pointer hover:bg-theme-pink hover:bg-opacity-5"

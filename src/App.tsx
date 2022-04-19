@@ -10,7 +10,7 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import { useAuth } from '@core/redux/reducer/auth';
 import '@core/style/tailwind.css';
 import '@core/style/typefaces.css';
-import Playlist from '@pages/library/:playlist_id';
+import Playlist from '@pages/playlist/:playlist_id';
 
 const App = () => {
 	// CUSTOM AUTHENTICATION HOOKS
@@ -32,8 +32,9 @@ const App = () => {
 				<Route index element={routeblocks.guestOnly(Landing)} />
 				<Route path="create" element={routeblocks.userOnly(Create)} />
 				<Route path="explore" element={routeblocks.userOnly(Explore)} />
-				<Route path="library">
-					<Route index element={routeblocks.userOnly(Library)} />
+				<Route path="library" element={routeblocks.userOnly(Library)} />
+				<Route path="playlist">
+					<Route index element={<Navigate to="/explore" />} />
 					<Route path=":playlist_id" element={routeblocks.userOnly(Playlist)} />
 				</Route>
 				<Route path="history" element={routeblocks.userOnly(History)} />
@@ -43,7 +44,7 @@ const App = () => {
 	);
 };
 
-// NOTE: ALL PROVIDERS and ROOT LEVEL WRAPPER is at `main.tsx`
+// [README] : ALL PROVIDERS and ROOT LEVEL WRAPPER is at `main.tsx`
 
 export default App;
 

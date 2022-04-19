@@ -23,7 +23,7 @@ const PopupSuccess = ({ playlistID, handleClose }: Props) => {
 					<p className="mb-4 text-3xl font-semibold">Playlist Created!</p>
 					<div className="flex-cc">
 						<Link
-							to={`/library/${playlistID}`}
+							to={`/playlist/${playlistID}`}
 							className="px-4 py-2 mr-3 rounded-md border hover:bg-white hover:bg-opacity-20"
 						>
 							See result

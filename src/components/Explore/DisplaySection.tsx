@@ -29,7 +29,7 @@ const DisplaySection = ({ playlist_id, ordered = false }: Props) => {
 				}}
 			>
 				<Link
-					to={`/library/${playlist.id}`}
+					to={`/playlist/${playlist.id}`}
 					className={[
 						'py-1.5 mb-8 hover:border-theme-pink hover:border-opacity-50 hover:bg-theme-pink hover:bg-opacity-20 border px-4 pointer-events-auto transition flex-cc rounded-full',
 						hover ? 'opacity-100' : 'opacity-0',
@@ -38,7 +38,7 @@ const DisplaySection = ({ playlist_id, ordered = false }: Props) => {
 					Open
 				</Link>
 				<Link
-					to={`/library/${playlist.id}`}
+					to={`/playlist/${playlist.id}`}
 					className="flex-es col pointer-events-auto group"
 				>
 					<h2 className="text-4xl font-semibold group-hover:text-theme-pink">
