@@ -1,6 +1,4 @@
 import React, { useEffect, useRef } from 'react';
-import * as playerRedux from '@core/redux/reducer/player';
-import { useDispatch } from 'react-redux';
 import { usePlayer } from '@core/redux/reducer/player';
 
 const AudioPlayer = () => {
@@ -18,11 +16,8 @@ const AudioPlayer = () => {
 		}
 	}, [paused, audio]);
 
-	const dispatch = useDispatch();
 	const handleEnded = () => {
-		console.log('onended trigerred');
-
-		dispatch(playerRedux.reset());
+		// [TODO] :  play next in the list / playlist
 	};
 
 	if (!currentTrack.preview_url || !currentTrack.id) return <></>;

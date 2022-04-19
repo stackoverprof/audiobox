@@ -60,9 +60,9 @@ const MiniPlayer = () => {
 				target="_blank"
 				rel="noopener noreferrer"
 				href={`https://open.spotify.com/track/${currentTrack.id}`}
-				className="flex-ec overflow-hidden px-2 w-full h-0 bg-opacity-60 transition-all duration-300 text-theme-pink hover:text-white hover:bg-theme-pink hover:duration-100 hover:bg-opacity-20 bg-base group-hover:h-8"
+				className="flex-ec overflow-hidden px-2 w-full h-0 bg-opacity-60 opacity-60 transition-all duration-300 text-theme-pink hover:opacity-100 hover:text-white hover:bg-theme-pink hover:duration-100 hover:bg-opacity-20 bg-base group-hover:h-8"
 			>
-				<p className="ml-16 font-medium">Listen full version</p>
+				<p className="font-medium">Listen full version</p>
 				<FiArrowUpRight size={24} className="ml-2" />
 			</a>
 		</div>
