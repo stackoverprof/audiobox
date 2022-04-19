@@ -1,5 +1,6 @@
 import React from 'react';
 import App from './App';
+import AudioPlayer from '@components/_shared/AudioPlayer';
 import ReactDOM from 'react-dom/client';
 import store from './core/redux/store';
 import { BrowserRouter } from 'react-router-dom';
@@ -23,6 +24,7 @@ if (Root) {
 					<BrowserRouter>
 						<App />
 					</BrowserRouter>
+					<AudioPlayer />
 				</SWRConfig>
 			</Provider>
 			<ToastContainer position="bottom-right" autoClose={5000} pauseOnHover theme="dark" />

@@ -1,8 +1,8 @@
 import React from 'react';
 import msToTime from '@core/utils/ms-to-time';
-import { FaPlay } from 'react-icons/fa';
+import { FaPause, FaPlay } from 'react-icons/fa';
+import { setCurrentTrack, setPaused, usePlayer } from '@core/redux/reducer/player';
 import { useDispatch } from 'react-redux';
-import { play } from '@core/redux/actions/editPlaylist copy';
 
 interface Props {
 	data: any;
@@ -13,9 +13,17 @@ const TrackCard = ({ data }: Props) => {
 
 	const dispatch = useDispatch();
 
-	const handlePlay = () => {
-		dispatch(play(data));
+	const { currentTrack, paused } = usePlayer();
+
+	const handlePlayer = () => {
+		if (currentTrack.id !== data.id) {
+			dispatch(setCurrentTrack(data));
+		} else {
+			dispatch(setPaused(!paused));
+		}
 	};
+
+	const isPlaying = currentTrack.id ? currentTrack.id === data.id : false;
 
 	return (
 		<div className="flex-bc overflow-hidden pl-4 h-28 bg-white bg-opacity-10 rounded-lg backdrop-blur group">
@@ -29,11 +37,15 @@ const TrackCard = ({ data }: Props) => {
 						/>
 					)}
 					<button
-						onClick={handlePlay}
+						onClick={handlePlayer}
 						className="absolute flex-cc top-0 left-0 bg-black bg-opacity-60 opacity-0 transition hover:bg-opacity-75 group-hover:opacity-100 full"
 					>
 						<div className="flex-cc w-12 h-12 rounded-full border-2">
-							<FaPlay size={24} className="ml-1" />
+							{!isPlaying || paused ? (
+								<FaPlay size={24} className="ml-1" />
+							) : (
+								<FaPause size={24} className="" />
+							)}
 						</div>
 					</button>
 				</div>
