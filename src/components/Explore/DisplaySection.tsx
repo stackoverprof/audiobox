@@ -41,10 +41,12 @@ const DisplaySection = ({ playlist_id, ordered = false }: Props) => {
 					to={`/playlist/${playlist.id}`}
 					className="flex-es col pointer-events-auto group"
 				>
-					<h2 className="text-4xl font-semibold group-hover:text-theme-pink">
+					<h2 className="text-4xl font-semibold line-clamp-3 group-hover:text-theme-pink">
 						{playlist.name}
 					</h2>
-					<p className="text-lg opacity-50">{convert(playlist.description)}</p>
+					<p className="text-lg opacity-50 line-clamp-3">
+						{convert(playlist.description)}
+					</p>
 				</Link>
 			</div>
 			<div className="absolute top-0 left-0 full">

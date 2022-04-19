@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { FiEdit3 } from 'react-icons/fi';
+import { useEditPlaylist } from '@core/redux/reducer/editPlaylist';
 
 interface Props {
 	value: string;
@@ -9,6 +10,8 @@ interface Props {
 
 const TitleInput = ({ value, onChange, disabled }: Props) => {
 	const [focus, setFocus] = useState(false);
+
+	const { editMode } = useEditPlaylist();
 
 	return (
 		<div className="relative flex-cc pl-10 mt-8 w-full">
@@ -41,7 +44,7 @@ const TitleInput = ({ value, onChange, disabled }: Props) => {
 			<div
 				className={[
 					'absolute transition flex-es top-0 left-0 text-xs text-red-300 pointer-events-none full',
-					!focus && value && value.length < 10 ? 'opacity-100' : ' opacity-0',
+					editMode && !focus && value && value.length < 10 ? 'opacity-100' : ' opacity-0',
 				].join(' ')}
 			>
 				<p className="pt-1 pr-2 text-right">Title is too short. Minimal 10 characters</p>

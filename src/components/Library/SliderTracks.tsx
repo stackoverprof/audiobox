@@ -43,4 +43,7 @@ const SliderTracks = ({ data, hover }: Props) => {
 	);
 };
 
+// [TODO] : limit peek slider tracks to 10 and see more card
+// [TODO] : shift + scroll, scroll horizontally, swiper?
+
 export default SliderTracks;
