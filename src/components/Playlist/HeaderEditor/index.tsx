@@ -52,11 +52,28 @@ const HeaderEditor = () => {
 
 	const navigate = useNavigate();
 	const handleDelete = async () => {
-		await fetchers.unfollowPlaylist({ playlist_id: id });
+		const { success } = await fetchers
+			.unfollowPlaylist({ playlist_id: id })
+			.then(() => ({ success: true }))
+			.catch(() => ({ success: false }));
+
+		if (!success) return toast.error('Failed to remove playlist!');
 		await swrPlaylist.mutate();
 		await swrUserPlaylists.mutate();
 		navigate('/library');
-		toast.success('Playlist deleted!');
+		toast.success('Playlist removed!');
+	};
+
+	const handleFollow = async () => {
+		const { success } = await fetchers
+			.followPlaylist({ playlist_id: id })
+			.then(() => ({ success: true }))
+			.catch(() => ({ success: false }));
+
+		if (!success) return toast.error('Failed to follow playlist!');
+		await swrPlaylist.mutate();
+		await swrUserPlaylists.mutate();
+		toast.success('Added to library!');
 	};
 
 	return (
@@ -81,7 +98,7 @@ const HeaderEditor = () => {
 					{editMode ? (
 						<SubmissionButtons />
 					) : (
-						<EditingButtons handleDelete={handleDelete} />
+						<EditingButtons handleFollow={handleFollow} handleDelete={handleDelete} />
 					)}
 					<BadgesInfo />
 				</div>

@@ -10,7 +10,14 @@ const spotifyLogin = () => {
 		client_id: client_id,
 		redirect_uri: window.location.origin,
 		state: randomBytesJs.randHex(8),
-		scope: 'playlist-modify-private  user-read-private playlist-read-private  user-read-email  user-read-recently-played',
+		scope: [
+			'playlist-modify-private',
+			'playlist-modify-public',
+			'user-read-private',
+			'playlist-read-private',
+			'user-read-email',
+			'user-read-recently-played',
+		].join(' '),
 	};
 
 	const params = new URLSearchParams(options).toString();

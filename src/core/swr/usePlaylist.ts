@@ -2,8 +2,12 @@
 
 import * as fetchers from '@core/api/fetchers';
 import useSWR from 'swr';
+import useUserData from './userData';
+import useUserPlaylist from './userPlaylists';
 
 const usePlaylist = (playlist_id) => {
+	const { user } = useUserData();
+	const { data: userPlaylists } = useUserPlaylist();
 	const { data, mutate, error } = useSWR(`/playlists/${playlist_id}`, () =>
 		fetchers.getPlaylist(playlist_id)
 	);
@@ -15,6 +19,8 @@ const usePlaylist = (playlist_id) => {
 		error: error && error.status === 403,
 		playlist: data ? data : [],
 		mutate,
+		isOwned: data ? data.owner.id === user.id : false,
+		isFollowed: data ? userPlaylists.find((x) => x.id === data.id) : false,
 	};
 };
 

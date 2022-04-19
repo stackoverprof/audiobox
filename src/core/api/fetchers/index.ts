@@ -44,6 +44,12 @@ export const getRecentlyPlayed = ({ limit = 6 }: { limit: number }) => {
 		.catch((err) => console.error(err.response.data));
 };
 
+export const followPlaylist = ({ playlist_id }: { playlist_id: string }) => {
+	return Spotify.put(`https://api.spotify.com/v1/playlists/${playlist_id}/followers`)
+		.then((res) => res.data)
+		.catch((err) => console.error(err.response.data));
+};
+
 export const unfollowPlaylist = ({ playlist_id }: { playlist_id: string }) => {
 	return Spotify.delete(`https://api.spotify.com/v1/playlists/${playlist_id}/followers`)
 		.then((res) => res.data)
