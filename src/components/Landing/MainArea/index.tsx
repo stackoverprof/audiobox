@@ -5,7 +5,6 @@ import FooterCredit from './FooterCredit';
 import JumboTron from './JumboTron';
 
 const MainArea = () => {
-	// [TODO] : enable player too in before login
 	// [TODO] : link lyric?
 	return (
 		<div className="container flex-ss col z-10 pl-12 w-full max-w-screen-xl h-full -lg:px-6 -lg:flex-sc">

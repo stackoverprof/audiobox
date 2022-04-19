@@ -26,7 +26,7 @@ const AudioPlayer = () => {
 	useEffect(() => {
 		if (!currentTrack.id && selectedTracks.length > 0) {
 			dispatch(setCurrentTrack(selectedTracks[0]));
-			dispatch(setSelectedTracks([...selectedTracks].slice(1, -1)));
+			dispatch(setSelectedTracks([...selectedTracks].slice(1, selectedTracks.length)));
 		}
 	}, [selectedTracks, currentTrack]);
 
@@ -46,4 +46,3 @@ const AudioPlayer = () => {
 };
 
 export default AudioPlayer;
-
