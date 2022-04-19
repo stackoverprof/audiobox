@@ -16,7 +16,7 @@ const SliderTracks = ({ data, hover }: Props) => {
 	const fader = hover ? '#17072f' : colors.base;
 	return (
 		<div className="relative flex-sc w-full h-20">
-			<ButtonOptions />
+			<ButtonOptions tracks={data} />
 			<Swiper
 				slidesPerView="auto"
 				spaceBetween={16}
@@ -28,7 +28,7 @@ const SliderTracks = ({ data, hover }: Props) => {
 			>
 				{data.map((item, i) => (
 					<SwiperSlide style={{ width: 240 }} key={i}>
-						<TrackCardMini data={item.track} />
+						<TrackCardMini data={item} />
 					</SwiperSlide>
 				))}
 				<SwiperSlide style={{ width: 240 }} />

@@ -11,8 +11,9 @@ interface Props {
 const PlaylistCard = ({ data }: Props) => {
 	const [hover, setHover] = useState(false);
 	const { playlist } = usePlaylist(data.id);
+	if (!playlist) return <></>;
 
-	const tracks = playlist?.tracks?.items || [];
+	const tracks = playlist.tracks?.items?.map((x) => x.track) || [];
 
 	return (
 		<div
@@ -20,7 +21,7 @@ const PlaylistCard = ({ data }: Props) => {
 			onMouseLeave={() => setHover(false)}
 			className="flex-sc py-8 pl-12 w-full border-b border-white border-opacity-10 transition cursor-pointer hover:bg-theme-pink hover:bg-opacity-5"
 		>
-			<CoverPlaylist images={data.images} />
+			<CoverPlaylist tracks={tracks} images={data.images} />
 			<div className="flex-bs col w-full h-40">
 				<HeaderPlaylist data={data} hover={hover} />
 				{tracks.length > 0 && <SliderTracks hover={hover} data={tracks} />}

@@ -21,6 +21,15 @@ const MiniPlayer = () => {
 				currentTrack.id ? 'h-16 border-opacity-40 hover:h-24' : 'h-0 border-opacity-0',
 			].join(' ')}
 		>
+			<a
+				target="_blank"
+				rel="noopener noreferrer"
+				href={`https://open.spotify.com/track/${currentTrack.id}`}
+				className="flex-ec overflow-hidden px-2 w-full h-0 bg-opacity-20 opacity-60 transition-all duration-300 bg-theme-pink text-theme-pink hover:opacity-100 hover:text-white hover:bg-theme-pink hover:duration-100 hover:bg-opacity-20 group-hover:h-8"
+			>
+				<p className="font-medium">Listen full version</p>
+				<FiArrowUpRight size={24} className="ml-2" />
+			</a>
 			<div className="flex-sc w-full h-16">
 				<div className="relative w-16 h-16 min-w-[64px] mr-3">
 					{currentTrack.album?.images?.length > 0 && (
@@ -56,15 +65,6 @@ const MiniPlayer = () => {
 					</div>
 				</div>
 			</div>
-			<a
-				target="_blank"
-				rel="noopener noreferrer"
-				href={`https://open.spotify.com/track/${currentTrack.id}`}
-				className="flex-ec overflow-hidden px-2 w-full h-0 bg-opacity-60 opacity-60 transition-all duration-300 text-theme-pink hover:opacity-100 hover:text-white hover:bg-theme-pink hover:duration-100 hover:bg-opacity-20 bg-base group-hover:h-8"
-			>
-				<p className="font-medium">Listen full version</p>
-				<FiArrowUpRight size={24} className="ml-2" />
-			</a>
 		</div>
 	);
 };
