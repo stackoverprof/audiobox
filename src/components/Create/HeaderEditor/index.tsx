@@ -26,6 +26,7 @@ const HeaderEditor = () => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		if (!selectedTracks.length) return toast.error('Select tracks first!');
+		if (!title) return toast.error('Please provide a title!');
 		if (title.length < 10) return toast.error('Title is too short!');
 		if (!description) return toast.error('Please provide a description!');
 
