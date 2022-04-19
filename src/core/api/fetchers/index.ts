@@ -60,6 +60,13 @@ export const searchTracks = (query) => {
 		.catch((err) => console.error(err.response.data));
 };
 
+interface CreatePlaylistParams {
+	user_id: string;
+	title: string;
+	description: string;
+	uris: string[];
+}
+
 export const createPlaylist = async ({
 	user_id,
 	title,
@@ -88,8 +95,8 @@ export const createPlaylist = async ({
 	return { success: true, playlist_id };
 };
 
-interface CreatePlaylistParams {
-	user_id: string;
+interface EditPlaylistParams {
+	playlist_id: string;
 	title: string;
 	description: string;
 	uris: string[];
@@ -101,24 +108,21 @@ export const editPlaylist = async ({
 	description,
 	uris,
 }: EditPlaylistParams) => {
-	await Spotify.put(`/playlists/${playlist_id}`, {
+	const result1 = await Spotify.put(`/playlists/${playlist_id}`, {
 		name: title,
 		description,
 	})
 		.then((res) => res.data)
 		.catch((err) => console.error(err.response.data));
+	if (!result1) return { success: false };
 
 	// add the selected tracks to the playlist
-	await Spotify.put(`/playlists/${playlist_id}/tracks`, {
+	const result2 = await Spotify.put(`/playlists/${playlist_id}/tracks`, {
 		uris,
 	})
 		.then((res) => res.data)
 		.catch((err) => console.error(err.response.data));
-};
+	if (!result2) return { success: false };
 
-interface EditPlaylistParams {
-	playlist_id: string;
-	title: string;
-	description: string;
-	uris: string[];
-}
+	return { success: true, playlist_id };
+};

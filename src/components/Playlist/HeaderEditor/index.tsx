@@ -33,17 +33,17 @@ const HeaderEditor = () => {
 
 		const uris = selectedTracks.map((track) => track.uri);
 
-		await fetchers.editPlaylist({
+		const { success } = await fetchers.editPlaylist({
 			playlist_id: id,
 			title,
 			description,
 			uris,
 		});
 
+		if (!success) return toast.error('Failed to edit playlist, try again');
+
 		await swrPlaylist.mutate();
 		await swrUserPlaylists.mutate();
-
-		// [TODO] : delete playlist
 
 		dispatch(editPlaylistRedux.reset());
 		dispatch(setEditMode(false));
