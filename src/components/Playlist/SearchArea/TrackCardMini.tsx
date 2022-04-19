@@ -2,7 +2,7 @@ import React from 'react';
 import { FaPause, FaPlay } from 'react-icons/fa';
 import { IoMdCloseCircle } from 'react-icons/io';
 import { removeTrack } from '@core/redux/actions/editPlaylist';
-import { setCurrentTrack, setPaused, usePlayer } from '@core/redux/reducer/player';
+import { setPaused, setSelectedTracks, usePlayer } from '@core/redux/reducer/player';
 import { useDispatch } from 'react-redux';
 
 interface Props {
@@ -18,17 +18,15 @@ const TrackCardMini = ({ data }: Props) => {
 		dispatch(removeTrack(data.uri));
 	};
 
-	
 	// PLAYER CONTROLS
 	const { currentTrack, paused } = usePlayer();
 
 	const handlePlayer = () => {
-		if (currentTrack.id !== data.id) dispatch(setCurrentTrack(data));
+		if (currentTrack.id !== data.id) dispatch(setSelectedTracks([data]));
 		else dispatch(setPaused(!paused));
 	};
 
 	const isPlaying = currentTrack.id ? currentTrack.id === data.id : false;
-
 
 	return (
 		<div className="relative flex-bc mt-2 w-full h-16 bg-white bg-opacity-10 rounded-lg backdrop-blur group">

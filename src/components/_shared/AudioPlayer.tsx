@@ -1,10 +1,11 @@
 import React, { useEffect, useRef } from 'react';
-import { usePlayer } from '@core/redux/reducer/player';
+import { setCurrentTrack, setSelectedTracks, usePlayer } from '@core/redux/reducer/player';
+import { useDispatch } from 'react-redux';
 
 const AudioPlayer = () => {
 	const audio = useRef<any>(null);
 
-	const { currentTrack, paused } = usePlayer();
+	const { currentTrack, selectedTracks, paused } = usePlayer();
 
 	useEffect(() => {
 		if (audio.current) {
@@ -17,8 +18,19 @@ const AudioPlayer = () => {
 	}, [paused, audio]);
 
 	const handleEnded = () => {
-		// [TODO] :  play next in the list / playlist
+		dispatch(setCurrentTrack({}));
 	};
+
+	const dispatch = useDispatch();
+
+	useEffect(() => {
+		if (!currentTrack.id && selectedTracks.length > 0) {
+			console.log('pushing');
+
+			dispatch(setCurrentTrack(selectedTracks[0]));
+			dispatch(setSelectedTracks([...selectedTracks].slice(1, -1)));
+		}
+	}, [selectedTracks, currentTrack]);
 
 	if (!currentTrack.preview_url || !currentTrack.id) return <></>;
 	return (
