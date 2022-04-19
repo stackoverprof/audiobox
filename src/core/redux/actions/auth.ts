@@ -38,5 +38,4 @@ export const logout = () => async (dispatch) => {
 	localStorage.removeItem('access_token');
 	localStorage.removeItem('token_expiration');
 	await dispatch(removeToken());
-	window.location.reload();
 };
