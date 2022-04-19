@@ -8,19 +8,22 @@ const useUserPlaylist = () => {
 	const { user } = useUserData();
 	const { data, mutate, error } = useSWR('user_playlist', fetchers.getUserPlaylist);
 
-	const preprocess = () => {
-		const owned_only = data && user.id ? data.filter((x) => x.owner.id === user.id) : data;
-		return owned_only;
+	const filterOwned = () => {
+		return data && user.id ? data.filter((x) => x.owner.id === user.id) : data;
+	};
+
+	const filterPublic = () => {
+		return data && user.id ? data.filter((x) => x.owner.id !== user.id) : data;
 	};
 
 	return {
 		loading: !data && !error,
 		error: error && error.status === 403,
-		data: data ? preprocess() : [],
+		data: data ? data : [],
+		ownedPlaylists: data ? filterOwned() : [],
+		publicPlaylists: data ? filterPublic() : [],
 		mutate,
 	};
 };
-
-// [TODO] : separate return between owned and all
 
 export default useUserPlaylist;

@@ -1,4 +1,5 @@
 import React from 'react';
+import FilterControl from './FilterControl';
 import { ImBooks } from 'react-icons/im';
 
 const HeaderLibrary = () => {
@@ -7,6 +8,7 @@ const HeaderLibrary = () => {
 			<h1 className="flex-cc text-4xl font-semibold">
 				<ImBooks className="mr-4" size={42} /> Library
 			</h1>
+			<FilterControl />
 		</div>
 	);
 };

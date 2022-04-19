@@ -65,7 +65,7 @@ const HeaderEditor = () => {
 			style={{ background: 'linear-gradient(0deg, #fff1, #fff0)' }}
 		>
 			<form onSubmit={handleSubmit} className="flex-sc w-full">
-				<div className="flex-cs col w-full max-w-[820px]">
+				<div className="flex-cs col w-full max-w-[820px] pr-8">
 					<TitleInput
 						disabled={!editMode}
 						value={title}

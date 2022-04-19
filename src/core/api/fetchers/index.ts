@@ -111,20 +111,25 @@ export const editPlaylist = async ({
 	description,
 	uris,
 }: EditPlaylistParams) => {
-	const result1 = await Spotify.put(`/playlists/${playlist_id}`, {
+	// update title desc
+	const { success } = await Spotify.put(`/playlists/${playlist_id}`, {
 		name: title,
 		description,
 	})
-		.then((res) => res.data)
-		.catch((err) => console.error(err.response.data));
-	if (!result1) return { success: false };
+		.then(() => ({ success: true }))
+		.catch((err) => {
+			console.error(err.response.data);
+			return { success: false };
+		});
+	if (!success) return { success: false };
 
-	// add the selected tracks to the playlist
+	// update the selected tracks to the playlist
 	const result2 = await Spotify.put(`/playlists/${playlist_id}/tracks`, {
 		uris,
 	})
 		.then((res) => res.data)
 		.catch((err) => console.error(err.response.data));
+	console.log('result2', result2);
 	if (!result2) return { success: false };
 
 	return { success: true, playlist_id };
