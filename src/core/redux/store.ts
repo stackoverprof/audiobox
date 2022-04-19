@@ -5,6 +5,7 @@ import createPlaylistReducer, { State as CreatePlaylistStateType } from './reduc
 import editPlaylistReducer, { State as EditPlaylistStateType } from './reducer/editPlaylist';
 import exploreReducer, { State as ExploreStateType } from './reducer/explore';
 import libraryReducer, { State as LibraryStateType } from './reducer/library';
+import playerReducer, { State as PlayerStateType } from './reducer/player';
 import { configureStore, Reducer } from '@reduxjs/toolkit';
 
 const store = configureStore({
@@ -14,6 +15,7 @@ const store = configureStore({
 		editPlaylist: editPlaylistReducer,
 		explore: exploreReducer,
 		library: libraryReducer,
+		player: playerReducer,
 	},
 });
 
@@ -25,4 +27,5 @@ export interface RootStateType {
 	editPlaylist: Reducer<EditPlaylistStateType>;
 	explore: Reducer<ExploreStateType>;
 	library: Reducer<LibraryStateType>;
+	player: Reducer<PlayerStateType>;
 }

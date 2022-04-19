@@ -1,6 +1,8 @@
 import React from 'react';
 import msToTime from '@core/utils/ms-to-time';
 import { FaPlay } from 'react-icons/fa';
+import { useDispatch } from 'react-redux';
+import { play } from '@core/redux/actions/editPlaylist copy';
 
 interface Props {
 	data: any;
@@ -8,6 +10,12 @@ interface Props {
 
 const TrackCard = ({ data }: Props) => {
 	if (!data) return <></>;
+
+	const dispatch = useDispatch();
+
+	const handlePlay = () => {
+		dispatch(play(data));
+	};
 
 	return (
 		<div className="flex-bc overflow-hidden pl-4 h-28 bg-white bg-opacity-10 rounded-lg backdrop-blur group">
@@ -20,7 +28,10 @@ const TrackCard = ({ data }: Props) => {
 							className="object-cover mr-4 full"
 						/>
 					)}
-					<button className="absolute flex-cc top-0 left-0 bg-black bg-opacity-60 opacity-0 transition hover:bg-opacity-75 group-hover:opacity-100 full">
+					<button
+						onClick={handlePlay}
+						className="absolute flex-cc top-0 left-0 bg-black bg-opacity-60 opacity-0 transition hover:bg-opacity-75 group-hover:opacity-100 full"
+					>
 						<div className="flex-cc w-12 h-12 rounded-full border-2">
 							<FaPlay size={24} className="ml-1" />
 						</div>

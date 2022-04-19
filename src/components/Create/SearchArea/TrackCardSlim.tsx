@@ -13,7 +13,7 @@ interface Props {
 
 const TrackCard = ({ data, selected }: Props) => {
 	if (!data) return <></>;
-
+	console.log('data', data);
 	const dispatch = useDispatch();
 
 	const handleSelect = () => {
