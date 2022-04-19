@@ -17,6 +17,7 @@ const usePlaylist = (playlist_id) => {
 	return {
 		loading: !data && !error,
 		error: error && error.status === 403,
+		notFound: error && error.status === 404,
 		playlist: data ? data : [],
 		mutate,
 		isOwned: data ? data.owner.id === user.id : false,

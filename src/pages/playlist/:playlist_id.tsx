@@ -8,6 +8,7 @@ import usePlaylist from '@core/swr/usePlaylist';
 import { convert } from 'html-to-text';
 import { makeInitialized, setDescription, setId, setTitle } from '@core/redux/reducer/editPlaylist';
 import { setSelectedTracks, useEditPlaylist } from '@core/redux/reducer/editPlaylist';
+import { toast } from 'react-toastify';
 import { useDispatch } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 
@@ -16,8 +17,13 @@ const Playlist = () => {
 	const navigate = useNavigate();
 	if (!playlist_id) return navigate('/library');
 
-	const { playlist } = usePlaylist(playlist_id);
 	const { editMode, initialized } = useEditPlaylist();
+	const { playlist, notFound } = usePlaylist(playlist_id);
+
+	if (notFound) {
+		toast.error('Playlist not found!');
+		navigate('/explore');
+	}
 
 	//  FILL UP EXISTING DATA
 	const dispatch = useDispatch();

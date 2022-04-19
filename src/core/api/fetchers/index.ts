@@ -8,26 +8,38 @@ export const getUser = () => {
 		.then((res) => res.data)
 		.catch((err) => {
 			if (err.response.status === 401) window.location.reload();
-			else console.error(err.response.data);
+			else {
+				console.error(err.response.data);
+				throw err.response.data.error;
+			}
 		});
 };
 
 export const getUserPlaylist = () => {
 	return Spotify.get('/me/playlists?limit=50')
 		.then((res) => res.data.items)
-		.catch((err) => console.error(err.response.data));
+		.catch((err) => {
+			console.error(err.response.data);
+			throw err.response.data.error;
+		});
 };
 
 export const getPlaylist = (playlist_id: string) => {
 	return Spotify.get(`/playlists/${playlist_id}`)
 		.then((res) => res.data)
-		.catch((err) => console.error(err.response.data));
+		.catch((err) => {
+			console.error(err.response.data);
+			throw err.response.data.error;
+		});
 };
 
 export const getRecommendations = () => {
 	return SpotifyPublic.get('/playlists/37i9dQZEVXbMDoHDwVN2tF')
 		.then((res) => res.data)
-		.catch((err) => console.error(err.response.data));
+		.catch((err) => {
+			console.error(err.response.data);
+			throw err.response.data.error;
+		});
 };
 
 export const getFeaturedPlaylists = ({ limit = 12 }: { limit: number }) => {
@@ -35,25 +47,37 @@ export const getFeaturedPlaylists = ({ limit = 12 }: { limit: number }) => {
 		params: { limit },
 	})
 		.then((res) => res.data.playlists.items)
-		.catch((err) => console.error(err.response.data));
+		.catch((err) => {
+			console.error(err.response.data);
+			throw err.response.data.error;
+		});
 };
 
 export const getRecentlyPlayed = ({ limit = 6 }: { limit: number }) => {
 	return Spotify.get('/me/player/recently-played', { params: { limit } })
 		.then((res) => res.data.items.map((item) => item.track))
-		.catch((err) => console.error(err.response.data));
+		.catch((err) => {
+			console.error(err.response.data);
+			throw err.response.data.error;
+		});
 };
 
 export const followPlaylist = ({ playlist_id }: { playlist_id: string }) => {
 	return Spotify.put(`https://api.spotify.com/v1/playlists/${playlist_id}/followers`)
 		.then((res) => res.data)
-		.catch((err) => console.error(err.response.data));
+		.catch((err) => {
+			console.error(err.response.data);
+			throw err.response.data.error;
+		});
 };
 
 export const unfollowPlaylist = ({ playlist_id }: { playlist_id: string }) => {
 	return Spotify.delete(`https://api.spotify.com/v1/playlists/${playlist_id}/followers`)
 		.then((res) => res.data)
-		.catch((err) => console.error(err.response.data));
+		.catch((err) => {
+			console.error(err.response.data);
+			throw err.response.data.error;
+		});
 };
 
 export const searchTracks = (query) => {
@@ -66,7 +90,10 @@ export const searchTracks = (query) => {
 		},
 	})
 		.then((res) => res.data.tracks.items)
-		.catch((err) => console.error(err.response.data));
+		.catch((err) => {
+			console.error(err.response.data);
+			throw err.response.data.error;
+		});
 };
 
 interface CreatePlaylistParams {
@@ -98,7 +125,10 @@ export const createPlaylist = async ({
 		uris,
 	})
 		.then((res) => res.data)
-		.catch((err) => console.error(err.response.data));
+		.catch((err) => {
+			console.error(err.response.data);
+			throw err.response.data.error;
+		});
 	if (!result) return { success: false };
 
 	return { success: true, playlist_id };
@@ -134,7 +164,10 @@ export const editPlaylist = async ({
 		uris,
 	})
 		.then((res) => res.data)
-		.catch((err) => console.error(err.response.data));
+		.catch((err) => {
+			console.error(err.response.data);
+			throw err.response.data.error;
+		});
 	if (!result2) return { success: false };
 
 	return { success: true, playlist_id };
