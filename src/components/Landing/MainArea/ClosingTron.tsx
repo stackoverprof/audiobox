@@ -14,4 +14,3 @@ const ClosingTron = () => {
 };
 
 export default ClosingTron;
-

@@ -129,7 +129,6 @@ export const editPlaylist = async ({
 	})
 		.then((res) => res.data)
 		.catch((err) => console.error(err.response.data));
-	console.log('result2', result2);
 	if (!result2) return { success: false };
 
 	return { success: true, playlist_id };

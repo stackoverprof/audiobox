@@ -22,4 +22,3 @@ const JumboTron = () => {
 };
 
 export default JumboTron;
-

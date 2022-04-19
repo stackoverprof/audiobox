@@ -20,7 +20,7 @@ const HeaderPlaylist = ({ data, hover }: Props) => {
 				</p>
 				<p className="text-[#fff7] text-left line-clamp-1">
 					<span className="opacity-60 text-theme-blue">
-						{data.tracks.total > 99 ? '99+' : data.tracks.total} Track
+						{data.tracks.total} Track
 						{data.tracks.total > 1 && 's'}
 					</span>
 					{data.description && <>&ensp;-&ensp;{convert(data.description)}</>}

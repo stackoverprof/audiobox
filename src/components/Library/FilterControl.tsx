@@ -46,4 +46,3 @@ const FilterControl = () => {
 };
 
 export default FilterControl;
-
