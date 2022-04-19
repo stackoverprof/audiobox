@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import * as createPlaylistRedux from '@core/redux/reducer/createPlaylist';
 import * as fetchers from '@core/api/fetchers';
 import BadgesInfo from './BadgesInfo';
@@ -51,6 +51,12 @@ const HeaderEditor = () => {
 		setPlaylistID('');
 		dispatch(createPlaylistRedux.reset());
 	};
+
+	useEffect(() => {
+		return () => {
+			if (showPopup) resetPage();
+		};
+	}, [showPopup]);
 
 	return (
 		<>
