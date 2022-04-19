@@ -8,7 +8,7 @@ const FooterCredit = () => {
 				target="_blank"
 				href="https://github.com/stackoverprof"
 				className="text-theme-blue hover:underline"
-				rel="norefferer noopener noreferrer"
+				rel="noopener noreferrer"
 			>
 				stackoverprof
 			</a>
