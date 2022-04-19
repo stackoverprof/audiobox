@@ -1,5 +1,6 @@
 import React from 'react';
 import { convert } from 'html-to-text';
+import { Link } from 'react-router-dom';
 
 interface Props {
 	data: any;
@@ -8,11 +9,11 @@ interface Props {
 
 const HeaderPlaylist = ({ data, hover }: Props) => {
 	return (
-		<div className="flex-bs pr-12 w-full">
+		<Link to={`/playlist/${data.id}`} className="flex-bs pr-12 w-full group">
 			<div className="flex-ss col w-full max-w-[500px]">
 				<p
 					className={[
-						'mb-1 text-3xl font-medium line-clamp-1 transition',
+						'mb-1 text-3xl font-medium line-clamp-1 transition group-hover:text-theme-blue',
 						hover && '',
 					].join(' ')}
 				>
@@ -31,7 +32,7 @@ const HeaderPlaylist = ({ data, hover }: Props) => {
 					Open
 				</button>
 			</div>
-		</div>
+		</Link>
 	);
 };
 

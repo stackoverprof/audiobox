@@ -2,8 +2,9 @@ import React from 'react';
 import msToTime from '@core/utils/ms-to-time';
 import { addTrack, removeTrack } from '@core/redux/actions/createPlaylist';
 import { BsCheckLg } from 'react-icons/bs';
-import { FaPlay } from 'react-icons/fa';
+import { FaPause, FaPlay } from 'react-icons/fa';
 import { HiPlus } from 'react-icons/hi';
+import { setCurrentTrack, setPaused, usePlayer } from '@core/redux/reducer/player';
 import { useDispatch } from 'react-redux';
 
 interface Props {
@@ -23,6 +24,16 @@ const TrackCard = ({ data, selected }: Props) => {
 		dispatch(removeTrack(data.uri));
 	};
 
+	// PLAYER CONTROLS
+	const { currentTrack, paused } = usePlayer();
+
+	const handlePlayer = () => {
+		if (currentTrack.id !== data.id) dispatch(setCurrentTrack(data));
+		else dispatch(setPaused(!paused));
+	};
+
+	const isPlaying = currentTrack.id ? currentTrack.id === data.id : false;
+
 	return (
 		<div className="flex-bc overflow-hidden pl-4 h-28 bg-white bg-opacity-10 rounded-lg backdrop-blur group">
 			<div className="flex-cs mr-4">
@@ -34,9 +45,19 @@ const TrackCard = ({ data, selected }: Props) => {
 							className="object-cover mr-4 full"
 						/>
 					)}
-					<button className="absolute flex-cc top-0 left-0 bg-black bg-opacity-60 opacity-0 transition hover:bg-opacity-75 group-hover:opacity-100 full">
+					<button
+						onClick={handlePlayer}
+						className={[
+							'absolute flex-cc top-0 left-0 bg-black bg-opacity-60 transition hover:bg-opacity-75 group-hover:opacity-100 full',
+							isPlaying && !paused ? 'opacity-100' : 'opacity-0',
+						].join(' ')}
+					>
 						<div className="flex-cc w-12 h-12 rounded-full border-2">
-							<FaPlay size={24} className="ml-1" />
+							{isPlaying && !paused ? (
+								<FaPause size={24} className="" />
+							) : (
+								<FaPlay size={24} className="ml-1" />
+							)}
 						</div>
 					</button>
 				</div>

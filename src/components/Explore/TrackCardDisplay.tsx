@@ -1,5 +1,7 @@
 import React from 'react';
-import { FaPlay } from 'react-icons/fa';
+import { FaPause, FaPlay } from 'react-icons/fa';
+import { setCurrentTrack, setPaused, usePlayer } from '@core/redux/reducer/player';
+import { useDispatch } from 'react-redux';
 
 interface Props {
 	data: any;
@@ -10,13 +12,35 @@ interface Props {
 const TrackCardDisplay = ({ data, index, ordered }: Props) => {
 	if (!data) return <></>;
 
+	// PLAYER CONTROLS
+	const dispatch = useDispatch();
+
+	const { currentTrack, paused } = usePlayer();
+
+	const handlePlayer = () => {
+		if (currentTrack.id !== data.id) dispatch(setCurrentTrack(data));
+		else dispatch(setPaused(!paused));
+	};
+
+	const isPlaying = currentTrack.id ? currentTrack.id === data.id : false;
+
 	return (
 		<div className="flex-sc col pt-4 w-full h-full bg-white bg-opacity-10 rounded-lg backdrop-blur-sm select-none">
 			<div className="relative overflow-hidden mb-4 w-40 h-40 bg-white bg-opacity-10 rounded-lg group">
 				{data.album?.images?.length > 0 && <img src={data.album?.images[0].url} alt="" />}
-				<button className="absolute flex-cc top-0 left-0 bg-black bg-opacity-60 opacity-0 transition hover:bg-opacity-75 group-hover:opacity-100 full">
-					<div className="flex-cc w-20 h-20 rounded-full border-2">
-						<FaPlay size={36} className="ml-1" />
+				<button
+					onClick={handlePlayer}
+					className={[
+						'absolute flex-cc top-0 left-0 bg-black bg-opacity-60 transition hover:bg-opacity-75 group-hover:opacity-100 full',
+						isPlaying && !paused ? 'opacity-100' : 'opacity-0',
+					].join(' ')}
+				>
+					<div className="flex-cc w-16 h-16 rounded-full border-2">
+						{isPlaying && !paused ? (
+							<FaPause size={32} className="" />
+						) : (
+							<FaPlay size={32} className="ml-1" />
+						)}
 					</div>
 				</button>
 			</div>
