@@ -38,13 +38,16 @@ const TrackCard = ({ data }: Props) => {
 					)}
 					<button
 						onClick={handlePlayer}
-						className="absolute flex-cc top-0 left-0 bg-black bg-opacity-60 opacity-0 transition hover:bg-opacity-75 group-hover:opacity-100 full"
+						className={[
+							'absolute flex-cc top-0 left-0 bg-black bg-opacity-60 transition hover:bg-opacity-75 group-hover:opacity-100 full',
+							isPlaying && !paused ? 'opacity-100' : 'opacity-0',
+						].join(' ')}
 					>
 						<div className="flex-cc w-12 h-12 rounded-full border-2">
-							{!isPlaying || paused ? (
-								<FaPlay size={24} className="ml-1" />
-							) : (
+							{isPlaying && !paused ? (
 								<FaPause size={24} className="" />
+							) : (
+								<FaPlay size={24} className="ml-1" />
 							)}
 						</div>
 					</button>
