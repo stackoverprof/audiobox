@@ -1,3 +1,5 @@
+// [README] : DATA FETCHING manager for the latest played tracks in spotify app
+
 import * as fetchers from '@core/api/fetchers';
 import useSWR from 'swr';
 

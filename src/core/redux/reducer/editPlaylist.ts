@@ -1,3 +1,5 @@
+// [README] : reducer for editing playlist related state management
+
 import { createSlice } from '@reduxjs/toolkit';
 import { useSelector } from 'react-redux';
 

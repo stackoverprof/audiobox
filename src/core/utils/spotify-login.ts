@@ -1,3 +1,5 @@
+// [README] : generate login link to spotify web api
+
 import randomBytesJs from 'random-bytes-js';
 
 const client_id = import.meta.env.VITE_SPOTIFY_CLIENT_ID;

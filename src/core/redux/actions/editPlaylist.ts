@@ -1,3 +1,5 @@
+// [README] : redux actions dispatcher for editing playlist related tasks
+
 import store from '../store';
 import { setSelectedTracks, TrackType } from '../reducer/editPlaylist';
 

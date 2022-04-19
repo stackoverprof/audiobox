@@ -1,3 +1,5 @@
+// [README] : source for consistent colors pallete
+
 const colors = {
 	base: '#0b0324',
 	primary: '#fff',

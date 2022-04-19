@@ -1,3 +1,5 @@
+// [README] : DATA FETCHING manager for the data of a playlist (by ID)
+
 import * as fetchers from '@core/api/fetchers';
 import useSWR from 'swr';
 

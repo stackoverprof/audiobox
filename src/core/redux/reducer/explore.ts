@@ -1,3 +1,5 @@
+// [README] : reducer for explore page related state management
+
 import { createSlice } from '@reduxjs/toolkit';
 import { useSelector } from 'react-redux';
 

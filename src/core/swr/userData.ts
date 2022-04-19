@@ -1,3 +1,5 @@
+// [README] : DATA FETCHING manager for the user data
+
 import * as fetchers from '@core/api/fetchers';
 import useSWR from 'swr';
 

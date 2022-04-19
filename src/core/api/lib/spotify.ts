@@ -1,3 +1,5 @@
+// [README] : Axios instance for Spotify web api integration
+
 import axios from 'axios';
 
 const Spotify = axios.create({

@@ -1,3 +1,5 @@
+// [README] : reducer for auth related state management
+
 import { createSlice } from '@reduxjs/toolkit';
 import { useSelector } from 'react-redux';
 

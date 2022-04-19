@@ -1,3 +1,5 @@
+// [README] : useful custom hook for handling breakpoint changes in javascript way
+
 import { useEffect, useState } from 'react';
 
 const debounce = (callback, waitTime) => {

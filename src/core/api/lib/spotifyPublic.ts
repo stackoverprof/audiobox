@@ -1,3 +1,6 @@
+// [README] : THIS INSTANCE can fetch spotify api via server side, without any token needed, (just to public-accessible contents)
+// [README] : Necessary for the featured tracks in login page before user login
+
 import axios from 'axios';
 
 const SpotifyPublic = axios.create({

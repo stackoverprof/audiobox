@@ -1,3 +1,5 @@
+// [README] : Useful multi state form binding custom hook
+
 import { useState } from 'react';
 
 const useForm = (format) => {

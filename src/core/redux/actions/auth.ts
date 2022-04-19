@@ -1,3 +1,5 @@
+// [README] : redux actions dispatcher for auth related tasks
+
 import * as authRedux from '../reducer/auth';
 import getParams from '@core/utils/get-params';
 import { removeToken, setToken } from '../reducer/auth';

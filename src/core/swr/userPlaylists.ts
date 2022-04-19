@@ -1,3 +1,5 @@
+// [README] : DATA FETCHING manager for the Playlists owned/followed by user
+
 import * as fetchers from '@core/api/fetchers';
 import useSWR from 'swr';
 import useUserData from './userData';
@@ -18,5 +20,7 @@ const useUserPlaylist = () => {
 		mutate,
 	};
 };
+
+// [TODO] : separate return between owned and all
 
 export default useUserPlaylist;

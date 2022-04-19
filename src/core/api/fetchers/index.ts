@@ -1,3 +1,5 @@
+// [README] : This file is a gateway for all api calls
+
 import Spotify from '../lib/spotify';
 import SpotifyPublic from '../lib/spotifyPublic';
 
