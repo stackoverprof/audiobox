@@ -4,7 +4,8 @@ import { addTrack, removeTrack } from '@core/redux/actions/createPlaylist';
 import { BsCheckLg } from 'react-icons/bs';
 import { FaPause, FaPlay } from 'react-icons/fa';
 import { HiPlus } from 'react-icons/hi';
-import { setPaused, setSelectedTracks, usePlayer } from '@core/redux/reducer/player';
+import { play } from '@core/redux/actions/player';
+import { setPaused, usePlayer } from '@core/redux/reducer/player';
 import { useDispatch } from 'react-redux';
 
 interface Props {
@@ -28,7 +29,7 @@ const TrackCard = ({ data, selected }: Props) => {
 	const { currentTrack, paused } = usePlayer();
 
 	const handlePlayer = () => {
-		if (currentTrack.id !== data.id) dispatch(setSelectedTracks([data]));
+		if (currentTrack.id !== data.id) dispatch(play([data]));
 		else dispatch(setPaused(!paused));
 	};
 

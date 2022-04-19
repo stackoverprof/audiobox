@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaPlay } from 'react-icons/fa';
-import { setSelectedTracks } from '@core/redux/reducer/player';
+import { play } from '@core/redux/actions/player';
 import { useDispatch } from 'react-redux';
 
 interface Props {
@@ -11,7 +11,7 @@ const ButtonOptions = ({ tracks }: Props) => {
 	const dispatch = useDispatch();
 
 	const handlePlayPlaylist = () => {
-		dispatch(setSelectedTracks(tracks));
+		dispatch(play(tracks));
 	};
 
 	return (

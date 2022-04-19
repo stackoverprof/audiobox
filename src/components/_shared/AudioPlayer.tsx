@@ -25,8 +25,6 @@ const AudioPlayer = () => {
 
 	useEffect(() => {
 		if (!currentTrack.id && selectedTracks.length > 0) {
-			console.log('pushing');
-
 			dispatch(setCurrentTrack(selectedTracks[0]));
 			dispatch(setSelectedTracks([...selectedTracks].slice(1, -1)));
 		}

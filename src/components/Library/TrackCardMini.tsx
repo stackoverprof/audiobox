@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaPause, FaPlay } from 'react-icons/fa';
-import { setPaused, setSelectedTracks, usePlayer } from '@core/redux/reducer/player';
+import { play } from '@core/redux/actions/player';
+import { setPaused, usePlayer } from '@core/redux/reducer/player';
 import { useDispatch } from 'react-redux';
 
 interface Props {
@@ -16,7 +17,7 @@ const TrackCardMini = ({ data }: Props) => {
 	const { currentTrack, paused } = usePlayer();
 
 	const handlePlayer = () => {
-		if (currentTrack.id !== data.id) dispatch(setSelectedTracks([data]));
+		if (currentTrack.id !== data.id) dispatch(play([data]));
 		else dispatch(setPaused(!paused));
 	};
 
