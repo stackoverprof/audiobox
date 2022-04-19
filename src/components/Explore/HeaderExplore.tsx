@@ -9,6 +9,8 @@ const HeaderExplore = () => {
 	const { selectedTab } = useExplore();
 	const dispatch = useDispatch();
 
+	// [TODO] : lottie bug ciut on safari
+
 	return (
 		<div className="relative w-full h-72">
 			<div
