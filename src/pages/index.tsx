@@ -1,9 +1,9 @@
 import React from 'react';
-import BannerWelcome from '@components/Home/BannerWelcome';
+import BannerWelcome from '@components/Landing/BannerWelcome';
 import CleanLayout from '@components/_layouts/CleanLayout';
-import MainArea from '@components/Home/MainArea';
+import MainArea from '@components/Landing/MainArea';
 
-const Home = () => {
+const Landing = () => {
 	return (
 		<CleanLayout title="" className="flex-cc w-full h-screen">
 			<MainArea />
@@ -12,4 +12,4 @@ const Home = () => {
 	);
 };
 
-export default Home;
+export default Landing;

@@ -3,7 +3,7 @@ import _404 from '@pages/_404';
 import Create from '@pages/create';
 import Explore from '@pages/explore';
 import History from '@pages/history';
-import Home from '@pages/index';
+import Landing from '@pages/index';
 import Library from '@pages/library';
 import useSession from '@core/hooks/useSession';
 import { Navigate, Route, Routes } from 'react-router-dom';
@@ -29,7 +29,7 @@ const App = () => {
 	return (
 		<Routes>
 			<Route path="/">
-				<Route index element={routeblocks.guestOnly(Home)} />
+				<Route index element={routeblocks.guestOnly(Landing)} />
 				<Route path="create" element={routeblocks.userOnly(Create)} />
 				<Route path="explore" element={routeblocks.userOnly(Explore)} />
 				<Route path="library">
