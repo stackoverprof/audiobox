@@ -15,8 +15,6 @@ const TrackCard = ({ data, index }: Props) => {
 
 	const { currentTrack, paused } = usePlayer();
 
-	console.log('currentTrack', currentTrack);
-
 	const handlePlayer = () => {
 		if (currentTrack.id !== data.id) dispatch(setCurrentTrack(data));
 		else dispatch(setPaused(!paused));

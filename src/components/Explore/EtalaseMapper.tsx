@@ -43,6 +43,8 @@ const EtalaseMapper = () => {
 export default EtalaseMapper;
 
 const DATA_CHARTS = [
+	'37i9dQZF1DXcBWIGoYBM5M',
+	'2T5I8nhtRvYaYJpToPEUXg',
 	'37i9dQZEVXbNG2KDcFcKOF',
 	'37i9dQZEVXbIZK8aUquyx8',
 	'37i9dQZEVXbLiRSasKsNU9',
