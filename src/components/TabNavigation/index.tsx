@@ -12,7 +12,7 @@ const TabNavigation = () => {
 			className="flex-cc w-full h-20 bg-base"
 			style={{ boxShadow: `0 0 12px ${colors.theme.pink}55` }}
 		>
-			<div className="flex-be px-8 w-full">
+			<div className="flex-be px-4 w-full">
 				<TabLink route="/explore" text="Explore" Icon={FaGlobeAmericas} />
 				<TabLink route="/history" text="History" Icon={FaHistory} />
 				<CTACreate />
