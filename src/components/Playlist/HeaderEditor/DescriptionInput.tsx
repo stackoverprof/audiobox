@@ -8,7 +8,7 @@ interface Props {
 
 const TitleInput = ({ value, onChange, disabled }: Props) => {
 	return (
-		<div className="flex-cc pl-10 w-full">
+		<div className="flex-cc w-full">
 			<textarea
 				disabled={disabled}
 				placeholder="Write the description here..."

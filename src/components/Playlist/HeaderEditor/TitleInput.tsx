@@ -14,11 +14,11 @@ const TitleInput = ({ value, onChange, disabled }: Props) => {
 	const { editMode } = useEditPlaylist();
 
 	return (
-		<div className="relative flex-cc pl-10 mt-8 w-full">
+		<div className="relative flex-cc mt-8 w-full">
 			<input
 				type="text"
 				disabled={disabled}
-				className="px-2 py-2 w-full text-5xl font-semibold bg-black bg-opacity-0 rounded-md focus:bg-opacity-100 placeholder:text-white"
+				className="px-2 py-2 w-full text-5xl font-semibold bg-black bg-opacity-0 rounded-md -lg:text-4xl focus:bg-opacity-100 placeholder:text-white"
 				value={value}
 				onChange={(e) => onChange(e.target.value)}
 				name=""

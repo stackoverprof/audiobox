@@ -53,12 +53,7 @@ const Playlist = () => {
 	return (
 		<MainLayout title="Playlist" className="flex-ss col w-full" key={playlist_id}>
 			<HeaderEditor />
-			{!editMode && <ContentTracks data={playlist} />}
-			{editMode && (
-				<>
-					<SearchArea />
-				</>
-			)}
+			{editMode ? <SearchArea /> : <ContentTracks data={playlist} />}
 		</MainLayout>
 	);
 };

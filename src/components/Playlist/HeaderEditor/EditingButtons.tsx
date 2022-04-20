@@ -29,7 +29,7 @@ const EditingButtons = ({ handleFollow, handleDelete }: Props) => {
 						<button
 							type="button"
 							onClick={() => dispatch(setEditMode(true))}
-							className="flex-cc py-2 pr-3 pl-4 mb-3 rounded-md border border-opacity-60 hover:text-white text-theme-blue border-theme-blue hover:bg-theme-blue hover:bg-opacity-30 "
+							className="flex-cc py-2 pr-3 pl-4 mb-3 rounded-md border border-opacity-60 -xl:mb-0 hover:text-white text-theme-blue border-theme-blue hover:bg-theme-blue hover:bg-opacity-30 "
 						>
 							<p className="mr-2 font-semibold">Edit</p>
 							<FiEdit3 className="m-1" size={16} />
@@ -39,7 +39,7 @@ const EditingButtons = ({ handleFollow, handleDelete }: Props) => {
 						<button
 							type="button"
 							onClick={handlePreDelete}
-							className="flex-cc py-2 pr-3 pl-4 mb-3 ml-2 text-red-400 rounded-md border border-red-400 border-opacity-60 hover:text-white hover:bg-red-400 hover:bg-opacity-30"
+							className="flex-cc py-2 pr-3 pl-4 mb-3 ml-2 text-red-400 rounded-md border border-red-400 border-opacity-60 -xl:mb-0 hover:text-white hover:bg-red-400 hover:bg-opacity-30"
 						>
 							<p className="mr-2 font-semibold">
 								{isOwned ? 'Remove' : 'Remove from Library'}

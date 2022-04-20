@@ -15,7 +15,7 @@ const SubmissionButtons = () => {
 		<div className="flex-cc">
 			<button
 				type="submit"
-				className="flex-cc py-2 pr-3 pl-4 mb-3 text-base bg-white rounded-md hover:bg-theme-green"
+				className="flex-cc py-2 pr-3 pl-4 mb-3 text-base bg-white rounded-md -xl:mb-0 hover:bg-theme-green"
 			>
 				<p className="mr-2 font-semibold">Save</p>
 				<BsCheckLg className="m-1" size={16} />
@@ -23,7 +23,7 @@ const SubmissionButtons = () => {
 			<button
 				type="button"
 				onClick={handleCancel}
-				className="flex-cc py-2 pr-3 pl-4 mb-3 ml-2 text-red-400 rounded-md border border-red-400 border-opacity-60 hover:text-white hover:bg-red-400 hover:bg-opacity-30"
+				className="flex-cc py-2 pr-3 pl-4 mb-3 ml-2 text-red-400 rounded-md border border-red-400 border-opacity-60 -xl:mb-0 hover:text-white hover:bg-red-400 hover:bg-opacity-30"
 			>
 				<p className="mr-2 font-semibold">Cancel</p>
 				<CgClose className="" size={20} />

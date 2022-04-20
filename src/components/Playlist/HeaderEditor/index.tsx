@@ -77,13 +77,15 @@ const HeaderEditor = () => {
 		toast.success('Added to library!');
 	};
 
+	// [TODO] : code split the business logic above
+
 	return (
 		<div
-			className="flex-ss col w-full h-[200px]"
+			className="flex-ss col pt-0 pr-8 pb-4 pl-10 w-full"
 			style={{ background: 'linear-gradient(0deg, #fff1, #fff0)' }}
 		>
-			<form onSubmit={handleSubmit} className="flex-sc w-full">
-				<div className="flex-cs col pr-8 w-3/4 max-w-[820px]">
+			<form onSubmit={handleSubmit} className="flex-sc w-full -xl:flex-ss -xl:col">
+				<div className="flex-cs col w-full max-w-[780px] pr-8 -lg:pr-4">
 					<TitleInput
 						disabled={!editMode}
 						value={title}
@@ -95,7 +97,7 @@ const HeaderEditor = () => {
 						onChange={(val) => dispatch(setDescription(val))}
 					/>
 				</div>
-				<div className="flex-ss col w-1/4 h-20">
+				<div className="flex-ss col mt-8 w-72 -lg:flex-cs -lg:col -xl:mt-4 -xl:pl-2 -xl:mb-2 -xl:w-auto -xl:flex-row -xl:flex-cc">
 					{editMode ? (
 						<SubmissionButtons />
 					) : (
