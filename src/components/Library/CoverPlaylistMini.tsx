@@ -8,7 +8,7 @@ interface Props {
 	tracks: any[];
 }
 
-const CoverPlaylist = ({ images, tracks }: Props) => {
+const CoverPlaylistMini = ({ images, tracks }: Props) => {
 	const dispatch = useDispatch();
 
 	const handlePlayPlaylist = () => {
@@ -16,15 +16,15 @@ const CoverPlaylist = ({ images, tracks }: Props) => {
 	};
 
 	return (
-		<div className="flex-cc mr-8 -xl:hidden">
-			<div className="relative overflow-hidden w-40 h-40 bg-white bg-opacity-10 rounded-lg group">
+		<div className="flex-cc mr-8 xl:hidden">
+			<div className="relative overflow-hidden w-20 h-20 bg-white bg-opacity-10 rounded-lg group">
 				{images?.length > 0 && <img src={images[0].url} alt="" />}
 				<button
 					onClick={handlePlayPlaylist}
 					className="absolute flex-cc top-0 left-0 bg-black bg-opacity-60 opacity-0 transition hover:bg-opacity-75 group-hover:opacity-100 full"
 				>
-					<div className="flex-cc w-20 h-20 rounded-full border-2">
-						<FaPlay size={36} className="ml-1" />
+					<div className="flex-cc w-10 h-10 rounded-full border-2">
+						<FaPlay size={18} className="ml-1" />
 					</div>
 				</button>
 			</div>
@@ -32,4 +32,4 @@ const CoverPlaylist = ({ images, tracks }: Props) => {
 	);
 };
 
-export default CoverPlaylist;
+export default CoverPlaylistMini;

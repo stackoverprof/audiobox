@@ -2,6 +2,7 @@ import React from 'react';
 import colors from '@core/style/colors';
 import PlayButton from './PlayButton';
 import TrackCardMini from './TrackCardMini';
+import useResize from '@core/hooks/useResize';
 import { FreeMode } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -14,6 +15,8 @@ interface Props {
 
 const SliderTracks = ({ data, hover }: Props) => {
 	const fader = hover ? '#17072f' : colors.base;
+	const screen = useResize();
+
 	return (
 		<div className="relative flex-sc w-full h-20">
 			<PlayButton tracks={data} />
@@ -23,7 +26,7 @@ const SliderTracks = ({ data, hover }: Props) => {
 				grabCursor
 				freeMode
 				modules={[FreeMode]}
-				style={{ width: 'calc(100% - 72px)' }}
+				style={{ width: screen.xl ? 'calc(100% - 72px)' : '100%' }}
 				className="absolute right-0 h-20"
 			>
 				{data.map((item, i) => (
