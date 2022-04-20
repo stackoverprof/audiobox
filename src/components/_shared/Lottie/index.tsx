@@ -1,16 +1,18 @@
-import React, { lazy } from 'react';
+import React, { lazy, Suspense } from 'react';
 import { useTest } from '@core/redux/reducer/test';
 
 const _Lottie = lazy(() => import('./index.original'));
 
 const Lottie = (props) => {
 	const { testMode } = useTest();
-	console.log('testMode', testMode);
 
 	if (testMode) return <></>;
-	else {
-		return <_Lottie {...props} />;
-	}
+	else
+		return (
+			<Suspense fallback={<></>}>
+				<_Lottie {...props} />;
+			</Suspense>
+		);
 };
 
 export default Lottie;
