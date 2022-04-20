@@ -3,32 +3,46 @@ import Main from 'src/main';
 import randomBytesJs from 'random-bytes-js';
 import { render, waitFor } from '@testing-library/react';
 
-test('Simulate post-authentication and redirection to /create', async () => {
-	// AFTER SUCCESSFUL AUTH
-	window.history.pushState(
-		{},
-		'Home Page',
-		`#access_token=${randomBytesJs.randHex(40)}&token_type=Bearer&expires_in=3600`
-	);
+describe('Simulate routing screnarios', () => {
+	test('Entering /create without token SHOULD redirect to /', async () => {
+		window.history.pushState({}, 'Create', '/create');
 
-	// RENDER APP
-	render(<Main testMode />);
+		render(<Main />);
 
-	// SHOULD BE in page /create
-	await waitFor(() => {
-		expect(window.location.pathname).toStrictEqual('/create');
+		// SHOULD BE in page /
+		await waitFor(() => {
+			expect(window.location.pathname).toStrictEqual('/');
+		});
 	});
-});
 
-test('Simulate enter /create with no token', async () => {
-	localStorage.removeItem('access_token');
-	window.history.pushState({}, 'Create page', '/create');
+	test('After success login SHOULD redirect to /create', async () => {
+		// AFTER SUCCESSFUL AUTH
+		window.history.pushState(
+			{},
+			'Landing',
+			`#access_token=${randomBytesJs.randHex(40)}&token_type=Bearer&expires_in=3600`
+		);
 
-	render(<Main testMode />);
+		// RENDER APP
+		render(<Main />);
 
-	// SHOULD BE in page /
-	await waitFor(() => {
-		expect(window.location.pathname).toStrictEqual('/');
+		// SHOULD BE in page /create
+		await waitFor(() => {
+			expect(window.location.pathname).toStrictEqual('/create');
+		});
+	});
+
+	test('If user has localStorage token SHOULD redirect to /create', async () => {
+		localStorage.setItem('access_token', randomBytesJs.randHex(40));
+		window.history.pushState({}, 'Landing', '/');
+
+		// RENDER APP
+		render(<Main />);
+
+		// SHOULD BE in page /create
+		await waitFor(() => {
+			expect(window.location.pathname).toStrictEqual('/create');
+		});
 	});
 });
 

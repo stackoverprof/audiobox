@@ -10,13 +10,9 @@ import { SWRConfig } from 'swr';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-interface MainConfig {
-	testMode?: boolean;
-}
-
-const Main = ({ testMode = false }: MainConfig) => (
+const Main = () => (
 	<React.StrictMode>
-		<Provider store={store({ testMode })}>
+		<Provider store={store}>
 			<SWRConfig>
 				<HelmetProvider>
 					<BrowserRouter>
