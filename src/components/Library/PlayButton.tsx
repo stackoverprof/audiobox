@@ -7,7 +7,7 @@ interface Props {
 	tracks: any[];
 }
 
-const ButtonOptions = ({ tracks }: Props) => {
+const PlayButton = ({ tracks }: Props) => {
 	const dispatch = useDispatch();
 
 	const handlePlayPlaylist = () => {
@@ -26,4 +26,4 @@ const ButtonOptions = ({ tracks }: Props) => {
 	);
 };
 
-export default ButtonOptions;
+export default PlayButton;

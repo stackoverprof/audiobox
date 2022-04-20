@@ -1,6 +1,6 @@
 import React from 'react';
-import ButtonOptions from './ButtonOptions';
 import colors from '@core/style/colors';
+import PlayButton from './PlayButton';
 import TrackCardMini from './TrackCardMini';
 import { FreeMode } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -16,7 +16,7 @@ const SliderTracks = ({ data, hover }: Props) => {
 	const fader = hover ? '#17072f' : colors.base;
 	return (
 		<div className="relative flex-sc w-full h-20">
-			<ButtonOptions tracks={data} />
+			<PlayButton tracks={data} />
 			<Swiper
 				slidesPerView="auto"
 				spaceBetween={16}

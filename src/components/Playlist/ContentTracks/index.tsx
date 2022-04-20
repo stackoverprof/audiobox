@@ -1,5 +1,5 @@
 import React from 'react';
-import ButtonOptions from './ButtonOptions';
+import AddButton from './AddButton';
 import CoverPlaylist from './CoverPlaylist';
 import ResultGrid from './ResultGrid';
 import usePlaylist from '@core/swr/usePlaylist';
@@ -19,7 +19,7 @@ const ContentTracks = ({ data }: Props) => {
 			<div className="flex-sc col px-12 pt-8 w-full max-w-[820px]">
 				<div className="flex-bc mb-6 w-full text-3xl font-semibold">
 					<p className="">Tracks</p>
-					<ButtonOptions />
+					<AddButton />
 				</div>
 				<ResultGrid data={selectedTracks.map((x) => x.data)} />
 			</div>

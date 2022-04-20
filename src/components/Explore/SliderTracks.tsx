@@ -8,9 +8,10 @@ import 'swiper/css/pagination';
 interface Props {
 	data: any[];
 	ordered: boolean;
+	highlighted?: boolean;
 }
 
-const SliderTracks = ({ data, ordered }: Props) => {
+const SliderTracks = ({ data, ordered, highlighted }: Props) => {
 	return (
 		<div>
 			<Swiper
@@ -19,9 +20,9 @@ const SliderTracks = ({ data, ordered }: Props) => {
 				grabCursor
 				freeMode
 				modules={[FreeMode]}
-				className="absolute right-0 h-full w-full"
+				className="absolute right-0 w-full h-full"
 			>
-				<SwiperSlide style={{ width: 460 }} />
+				<SwiperSlide style={{ width: highlighted ? 480 : 540, transition: 'all 0.2s' }} />
 				{data
 					.filter((x) => x)
 					.map((item, i) => (

@@ -4,7 +4,7 @@ import { HiPlus } from 'react-icons/hi';
 import { setEditMode, useEditPlaylist } from '@core/redux/reducer/editPlaylist';
 import { useDispatch } from 'react-redux';
 
-const ButtonOptions = () => {
+const AddButton = () => {
 	const { id } = useEditPlaylist();
 	const { isOwned } = usePlaylist(id);
 
@@ -23,4 +23,4 @@ const ButtonOptions = () => {
 	);
 };
 
-export default ButtonOptions;
+export default AddButton;
