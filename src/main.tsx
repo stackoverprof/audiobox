@@ -12,22 +12,24 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Root = document.getElementById('root');
 
-if (Root) {
-	// INITIALIZE REACT-APP to Root Div
-	ReactDOM.createRoot(Root).render(
-		<React.StrictMode>
-			<Helmet defaultTitle="Audiobox" titleTemplate="%s — Audiobox">
-				<meta charSet="utf-8" />
-			</Helmet>
-			<Provider store={store}>
-				<SWRConfig>
-					<BrowserRouter>
-						<App />
-					</BrowserRouter>
-					<AudioPlayer />
-				</SWRConfig>
-			</Provider>
-			<ToastContainer position="bottom-right" autoClose={5000} pauseOnHover theme="dark" />
-		</React.StrictMode>
-	);
-}
+const Main = () => (
+	<React.StrictMode>
+		<Helmet defaultTitle="Audiobox" titleTemplate="%s — Audiobox">
+			<meta charSet="utf-8" />
+		</Helmet>
+		<Provider store={store}>
+			<SWRConfig>
+				<BrowserRouter>
+					<App />
+				</BrowserRouter>
+				<AudioPlayer />
+			</SWRConfig>
+		</Provider>
+		<ToastContainer position="bottom-right" autoClose={5000} pauseOnHover theme="dark" />
+	</React.StrictMode>
+);
+
+// INITIALIZE REACT-APP to Root Div
+if (Root) ReactDOM.createRoot(Root).render(<Main />);
+
+export default Main;

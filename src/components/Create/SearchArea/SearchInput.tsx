@@ -17,6 +17,7 @@ const SearchInput = ({ value, onChange, handleSearch }: Props) => {
 			>
 				<input
 					type="text"
+					data-testid="input-search-tracks"
 					className="w-[400px] bg-base bg-opacity-0 px-4 py-3"
 					placeholder="Let's find something..."
 					value={value}
@@ -33,6 +34,7 @@ const SearchInput = ({ value, onChange, handleSearch }: Props) => {
 					/>
 				</button>
 				<button
+					data-testid="button-search-tracks"
 					type="submit"
 					className="px-3 h-12 transition hover:bg-theme-pink hover:bg-opacity-25"
 				>

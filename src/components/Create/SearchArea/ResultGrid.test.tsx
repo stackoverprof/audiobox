@@ -1,8 +1,6 @@
 import React from 'react';
-import App from 'src/App';
-import store from '@core/redux/store';
+import Main from 'src/main';
 import userEvent from '@testing-library/user-event';
-import { Provider } from 'react-redux';
 import { render, screen, waitFor } from '@testing-library/react';
 import { rest } from 'msw';
 import { setupServer } from 'msw/node';
@@ -17,7 +15,7 @@ beforeAll(() => server.listen());
 afterEach(() => server.resetHandlers());
 afterAll(() => server.close());
 
-describe('Simulate post-authentication, entering /create, search, should see the track cards', async () => {
+test('Simulate post-authentication, entering /create, search, should see the track cards', async () => {
 	// SUCCESSFUL AUTH
 	window.history.pushState(
 		{},
@@ -25,16 +23,12 @@ describe('Simulate post-authentication, entering /create, search, should see the
 		'#access_token=BQCtgRe2fk_EAYc55JZE8foMnkqMStkDps7fg_wgrvcnR-OFrNU1dsycmSUSQdsX18CnqkOiCweP703_cttZL0AZb5yEbNwJr-FA57f8g-RexiCAP-mCakZOETMBUGzub9sn88SE0lzH7LJXrTF3m3gAqHOuD-yCy__VqLP-YyMA_c5eq4kUnhA3Wtnb05Xs8g8v1YUIVA&token_type=Bearer&expires_in=3600'
 	);
 	// RENDER APP
-	render(
-		<Provider store={store}>
-			<App />
-		</Provider>
-	);
+	render(<Main />);
 
 	expect(window.location.pathname).toStrictEqual('/create');
 
-	const searchInput = await screen.getByRole('search');
-	const button = screen.getByText('Search');
+	const searchInput = screen.getByTestId('input-search-tracks');
+	const button = screen.getByTestId('button-search-tracks');
 
 	userEvent.type(searchInput, 'Intentions');
 	userEvent.click(button);
