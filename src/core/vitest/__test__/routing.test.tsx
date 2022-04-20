@@ -5,11 +5,13 @@ import { render, waitFor } from '@testing-library/react';
 
 describe('Simulate routing screnarios', () => {
 	test('Entering /create without token SHOULD redirect to /', async () => {
+		// VISIT
 		window.history.pushState({}, 'Create', '/create');
 
+		// RENDER APP
 		render(<Main />);
 
-		// SHOULD BE in page /
+		// LATER SHOULD BE in page /
 		await waitFor(() => {
 			expect(window.location.pathname).toStrictEqual('/');
 		});
@@ -26,20 +28,23 @@ describe('Simulate routing screnarios', () => {
 		// RENDER APP
 		render(<Main />);
 
-		// SHOULD BE in page /create
+		// LATER SHOULD BE in page /create
 		await waitFor(() => {
 			expect(window.location.pathname).toStrictEqual('/create');
 		});
 	});
 
 	test('If user has localStorage token SHOULD redirect to /create', async () => {
+		// PREDEFINED localStorage
 		localStorage.setItem('access_token', randomBytesJs.randHex(40));
+
+		// VISIT
 		window.history.pushState({}, 'Landing', '/');
 
 		// RENDER APP
 		render(<Main />);
 
-		// SHOULD BE in page /create
+		// LATER SHOULD BE in page /create
 		await waitFor(() => {
 			expect(window.location.pathname).toStrictEqual('/create');
 		});

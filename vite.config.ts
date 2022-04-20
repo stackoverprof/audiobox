@@ -8,7 +8,7 @@ export default defineConfig({
 	test: {
 		globals: true,
 		environment: 'jsdom',
-		setupFiles: './src/core/vitest/__test__/setupTests.ts',
+		setupFiles: './src/core/vitest/setupTests.ts',
 		exclude: [...configDefaults.exclude, 'src/components/_shared/Lottie/**'],
 	},
 });
