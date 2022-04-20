@@ -28,16 +28,14 @@ const App = () => {
 	if (!ready) return <></>;
 	return (
 		<Routes>
-			<Route path="/">
-				<Route index element={routeblocks.guestOnly(Landing)} />
-				<Route path="create" element={routeblocks.userOnly(Create)} />
-				<Route path="explore" element={routeblocks.userOnly(Explore)} />
-				<Route path="library" element={routeblocks.userOnly(Library)} />
-				<Route path="playlist">
-					<Route index element={<Navigate to="/explore" />} />
-					<Route path=":playlist_id" element={routeblocks.userOnly(Playlist)} />
-				</Route>
-				<Route path="history" element={routeblocks.userOnly(History)} />
+			<Route index element={routeblocks.guestOnly(Landing)} />
+			<Route path="create" element={routeblocks.userOnly(Create)} />
+			<Route path="explore" element={routeblocks.userOnly(Explore)} />
+			<Route path="library" element={routeblocks.userOnly(Library)} />
+			<Route path="history" element={routeblocks.userOnly(History)} />
+			<Route path="playlist">
+				<Route index element={<Navigate to="/explore" />} />
+				<Route path=":playlist_id" element={routeblocks.userOnly(Playlist)} />
 			</Route>
 			<Route path="*" element={<_404 />} />
 		</Routes>
