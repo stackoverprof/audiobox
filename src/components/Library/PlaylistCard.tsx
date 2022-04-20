@@ -7,7 +7,7 @@ import usePlaylist from '@core/swr/usePlaylist';
 interface Props {
 	data: any;
 }
-
+// [TODO] : owned badge
 const PlaylistCard = ({ data }: Props) => {
 	const [hover, setHover] = useState(false);
 	const { playlist } = usePlaylist(data.id);
