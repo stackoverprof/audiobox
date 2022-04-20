@@ -36,7 +36,7 @@ describe('Simulate post-authentication, entering /create, search, should see the
 	const searchInput = await screen.getByRole('search');
 	const button = screen.getByText('Search');
 
-	userEvent.type(searchInput, 'BoyWithUke');
+	userEvent.type(searchInput, 'Intentions');
 	userEvent.click(button);
 
 	await waitFor(() => {
