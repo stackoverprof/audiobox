@@ -21,13 +21,14 @@ test('Simulate post-authentication and redirection to /create', async () => {
 });
 
 test('Simulate enter /create with no token', async () => {
+	localStorage.removeItem('access_token');
 	window.history.pushState({}, 'Create page', '/create');
 
 	render(<Main testMode />);
 
 	// SHOULD BE in page /
 	await waitFor(() => {
-		expect(window.location.pathname).toStrictlyEqual('/');
+		expect(window.location.pathname).toStrictEqual('/');
 	});
 });
 

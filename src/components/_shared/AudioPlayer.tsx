@@ -2,10 +2,10 @@ import React, { useEffect, useRef } from 'react';
 import { setCurrentTrack, setSelectedTracks, usePlayer } from '@core/redux/reducer/player';
 import { useDispatch } from 'react-redux';
 
+// [TODO] : spinner loading song
 const AudioPlayer = () => {
-	const audio = useRef<any>(null);
-
 	const { currentTrack, selectedTracks, paused } = usePlayer();
+	const audio = useRef<any>(null);
 
 	useEffect(() => {
 		if (audio.current) {
