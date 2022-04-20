@@ -2,13 +2,19 @@
 
 import Spotify from '../lib/spotify';
 import SpotifyPublic from '../lib/spotifyPublic';
+import { toast } from 'react-toastify';
 
 export const getUser = () => {
 	return Spotify.get('/me')
 		.then((res) => res.data)
 		.catch((err) => {
 			if (err.response.status === 401) window.location.reload();
-			else {
+			else if (err.response.status === 403) {
+				toast.error('You are not whitelisted yet. Please contact the administrator');
+				setTimeout(() => {
+					toast('mail to : r.bintangbagus@gmail.com');
+				}, 3000);
+			} else {
 				console.error(err.response.data);
 				throw err.response.data.error;
 			}
