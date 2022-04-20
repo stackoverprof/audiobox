@@ -9,7 +9,7 @@ interface Props {
 	data: any;
 }
 
-const TrackCard = ({ data }: Props) => {
+const TrackCardSlim = ({ data }: Props) => {
 	if (!data) return <></>;
 
 	const dispatch = useDispatch();
@@ -71,4 +71,4 @@ const TrackCard = ({ data }: Props) => {
 	);
 };
 
-export default TrackCard;
+export default TrackCardSlim;

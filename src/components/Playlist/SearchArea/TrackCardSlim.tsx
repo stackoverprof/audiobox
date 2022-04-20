@@ -1,6 +1,6 @@
 import React from 'react';
 import msToTime from '@core/utils/ms-to-time';
-import { addTrack, removeTrack } from '@core/redux/actions/editPlaylist';
+import { addTrack, removeTrack } from '@core/redux/actions/createPlaylist';
 import { BsCheckLg } from 'react-icons/bs';
 import { FaPause, FaPlay } from 'react-icons/fa';
 import { HiPlus } from 'react-icons/hi';
@@ -13,7 +13,7 @@ interface Props {
 	selected: boolean;
 }
 
-const TrackCard = ({ data, selected }: Props) => {
+const TrackCardSlim = ({ data, selected }: Props) => {
 	if (!data) return <></>;
 
 	const dispatch = useDispatch();
@@ -101,4 +101,4 @@ const TrackCard = ({ data, selected }: Props) => {
 	);
 };
 
-export default TrackCard;
+export default TrackCardSlim;

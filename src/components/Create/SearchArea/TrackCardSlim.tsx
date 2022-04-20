@@ -13,7 +13,7 @@ interface Props {
 	selected: boolean;
 }
 
-const TrackCard = ({ data, selected }: Props) => {
+const TrackCardSlim = ({ data, selected }: Props) => {
 	if (!data) return <></>;
 
 	const dispatch = useDispatch();
@@ -101,4 +101,4 @@ const TrackCard = ({ data, selected }: Props) => {
 	);
 };
 
-export default TrackCard;
+export default TrackCardSlim;

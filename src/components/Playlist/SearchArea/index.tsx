@@ -21,7 +21,7 @@ const SearchArea = () => {
 	return (
 		<div className="flex-ss col mb-16 w-full">
 			<TracksSelected />
-			<div className="flex-ss col px-12 max-w-[820px] w-3/4">
+			<div className="flex-ss col px-12 max-w-[820px] w-full">
 				<SearchInput
 					value={searchQuery}
 					onChange={(val) => setSearchQuery(val)}

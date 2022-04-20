@@ -10,7 +10,7 @@ const ResultGrid = ({ data }: Props) => {
 	const { selectedTracks } = useEditPlaylist();
 
 	return (
-		<div className="grid grid-cols-2 gap-8 mb-8">
+		<div className="grid grid-cols-2 gap-8 mb-8 w-full -xl:grid-cols-1">
 			{data.map((data) => (
 				<TrackCardSlim
 					data={data}
