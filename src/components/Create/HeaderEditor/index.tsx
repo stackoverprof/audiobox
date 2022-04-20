@@ -61,7 +61,7 @@ const HeaderEditor = () => {
 	return (
 		<>
 			<div
-				className="flex-ss col pt-0 pr-8 pb-4 pl-10 w-full"
+				className="flex-ss col pt-0 pr-8 pb-4 pl-10 w-full -sm:px-4"
 				style={{ background: 'linear-gradient(0deg, #fff1, #fff0)' }}
 			>
 				<form onSubmit={handleSubmit} className="flex-sc w-full -xl:flex-ss -xl:col">
