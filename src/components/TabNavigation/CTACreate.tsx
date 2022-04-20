@@ -14,4 +14,3 @@ const CTACreate = () => {
 };
 
 export default CTACreate;
-
