@@ -11,8 +11,8 @@ interface Props {
 const TabLink = ({ route, text, Icon }: Props) => {
 	return (
 		<Link to={route} className="flex-cc col">
-			<Icon size={24} className="mb-1" />
-			<p className="text-sm">{text}</p>
+			<Icon size={22} className="mb-1" />
+			<p className="text-[11px]">{text}</p>
 		</Link>
 	);
 };

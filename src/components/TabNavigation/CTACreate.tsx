@@ -6,9 +6,9 @@ const CTACreate = () => {
 	return (
 		<Link
 			to="/create"
-			className="flex-cc mb-1 w-16 h-12 bg-opacity-75 rounded-lg bg-theme-pink"
+			className="flex-cc mb-1 w-14 h-10 bg-opacity-75 rounded-lg bg-theme-pink"
 		>
-			<HiPlus size={32} />
+			<HiPlus size={28} />
 		</Link>
 	);
 };
