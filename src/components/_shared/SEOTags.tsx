@@ -1,7 +1,7 @@
 // [README] : Pre configured SEO Optimization
 
 import React from 'react';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import { useLocation } from 'react-router-dom';
 
 interface SEODataType {
@@ -25,7 +25,9 @@ const SEOTags = (props: SEODataType) => {
 	const url = window.location.origin + pathname;
 
 	return (
-		<Helmet>
+		<Helmet defaultTitle="Audiobox" titleTemplate="%s — Audiobox">
+			<meta charSet="utf-8" />
+
 			<title>{data.title}</title>
 
 			<meta name="robots" content="follow, index" />

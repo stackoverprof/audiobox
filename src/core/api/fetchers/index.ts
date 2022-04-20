@@ -6,10 +6,6 @@ import SpotifyPublic from '../lib/spotifyPublic';
 export const getUser = () => {
 	return Spotify.get('/me')
 		.then((res) => res.data)
-		.then((res) => {
-			console.log(res);
-			return res.data;
-		})
 		.catch((err) => {
 			if (err.response.status === 401) window.location.reload();
 			else {

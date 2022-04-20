@@ -10,13 +10,13 @@ import testReducer, { State as TestStateType } from './reducer/test';
 import { configureStore, Reducer } from '@reduxjs/toolkit';
 
 interface Props {
-	testMode: boolean;
+	testMode?: boolean;
 }
 
-const store = ({ testMode }: Props) =>
-	configureStore({
+const store = (props?: Props) => {
+	return configureStore({
 		reducer: {
-			test: testReducer({ testMode }),
+			test: testReducer({ testMode: props?.testMode || false }),
 			auth: authReducer,
 			createPlaylist: createPlaylistReducer,
 			editPlaylist: editPlaylistReducer,
@@ -25,7 +25,7 @@ const store = ({ testMode }: Props) =>
 			player: playerReducer,
 		},
 	});
-
+};
 export default store;
 
 export interface RootStateType {

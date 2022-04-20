@@ -4,7 +4,7 @@ import AudioPlayer from '@components/_shared/AudioPlayer';
 import ReactDOM from 'react-dom/client';
 import store from './core/redux/store';
 import { BrowserRouter } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
+import { HelmetProvider } from 'react-helmet-async';
 import { Provider } from 'react-redux';
 import { SWRConfig } from 'swr';
 import { ToastContainer } from 'react-toastify';
@@ -16,18 +16,22 @@ interface MainConfig {
 
 const Main = ({ testMode = false }: MainConfig) => (
 	<React.StrictMode>
-		<Helmet defaultTitle="Audiobox" titleTemplate="%s — Audiobox">
-			<meta charSet="utf-8" />
-		</Helmet>
 		<Provider store={store({ testMode })}>
 			<SWRConfig>
-				<BrowserRouter>
-					<App />
-				</BrowserRouter>
-				<AudioPlayer />
+				<HelmetProvider>
+					<BrowserRouter>
+						<App />
+					</BrowserRouter>
+					<AudioPlayer />
+					<ToastContainer
+						position="bottom-right"
+						autoClose={5000}
+						pauseOnHover
+						theme="dark"
+					/>
+				</HelmetProvider>
 			</SWRConfig>
 		</Provider>
-		<ToastContainer position="bottom-right" autoClose={5000} pauseOnHover theme="dark" />
 	</React.StrictMode>
 );
 
