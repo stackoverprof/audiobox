@@ -5,7 +5,7 @@ const _Lottie = lazy(() => import('./index.original'));
 const Lottie = (props) => {
 	return (
 		<Suspense fallback={<></>}>
-			<_Lottie {...props} />;
+			<_Lottie {...props} />
 		</Suspense>
 	);
 };
