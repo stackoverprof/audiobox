@@ -9,6 +9,8 @@ interface Props {
 const ResultGrid = ({ data }: Props) => {
 	const { selectedTracks } = useCreatePlaylist();
 
+	console.log('data', data);
+
 	return (
 		<div className="grid grid-cols-2 gap-8 mb-8 w-full">
 			{data.map((data) => (
