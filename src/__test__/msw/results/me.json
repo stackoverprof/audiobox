@@ -1,0 +1,22 @@
+{
+	"country": "ID",
+	"display_name": "Angkasa",
+	"email": "mail.errbint@gmail.com",
+	"explicit_content": {
+		"filter_enabled": false,
+		"filter_locked": false
+	},
+	"external_urls": {
+		"spotify": "https://open.spotify.com/user/317sioklivg7acv4lew64ewao2bq"
+	},
+	"followers": {
+		"href": null,
+		"total": 0
+	},
+	"href": "https://api.spotify.com/v1/users/317sioklivg7acv4lew64ewao2bq",
+	"id": "317sioklivg7acv4lew64ewao2bq",
+	"images": [],
+	"product": "premium",
+	"type": "user",
+	"uri": "spotify:user:317sioklivg7acv4lew64ewao2bq"
+}

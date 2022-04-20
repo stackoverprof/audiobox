@@ -6,6 +6,10 @@ import SpotifyPublic from '../lib/spotifyPublic';
 export const getUser = () => {
 	return Spotify.get('/me')
 		.then((res) => res.data)
+		.then((res) => {
+			console.log(res);
+			return res.data;
+		})
 		.catch((err) => {
 			if (err.response.status === 401) window.location.reload();
 			else {
@@ -43,7 +47,7 @@ export const getRecommendations = () => {
 };
 
 export const getFeaturedPlaylists = ({ limit = 12 }: { limit: number }) => {
-	return Spotify.get('https://api.spotify.com/v1/browse/featured-playlists', {
+	return Spotify.get('/browse/featured-playlists', {
 		params: { limit },
 	})
 		.then((res) => res.data.playlists.items)
@@ -63,7 +67,7 @@ export const getRecentlyPlayed = ({ limit = 6 }: { limit: number }) => {
 };
 
 export const followPlaylist = ({ playlist_id }: { playlist_id: string }) => {
-	return Spotify.put(`https://api.spotify.com/v1/playlists/${playlist_id}/followers`)
+	return Spotify.put(`/playlists/${playlist_id}/followers`)
 		.then((res) => res.data)
 		.catch((err) => {
 			console.error(err.response.data);
@@ -72,7 +76,7 @@ export const followPlaylist = ({ playlist_id }: { playlist_id: string }) => {
 };
 
 export const unfollowPlaylist = ({ playlist_id }: { playlist_id: string }) => {
-	return Spotify.delete(`https://api.spotify.com/v1/playlists/${playlist_id}/followers`)
+	return Spotify.delete(`/playlists/${playlist_id}/followers`)
 		.then((res) => res.data)
 		.catch((err) => {
 			console.error(err.response.data);
