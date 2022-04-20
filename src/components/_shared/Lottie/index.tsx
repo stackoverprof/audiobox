@@ -1,12 +1,17 @@
-import Lottie from './components/Lottie';
-import LottiePlayer from 'lottie-web';
-import useLottie from './hooks/useLottie';
-import useLottieInteractivity from './hooks/useLottieInteractivity';
+import React, { lazy } from 'react';
+import { useTest } from '@core/redux/reducer/test';
 
-export const Animator: typeof Lottie = Lottie;
-export const useAnimator: typeof useLottie = useLottie;
+const _Lottie = lazy(() => import('./index.original'));
 
-export { LottiePlayer, useLottie, useLottieInteractivity };
+const Lottie = (props) => {
+	const { testMode } = useTest();
+	console.log('testMode', testMode);
+
+	if (testMode) return <></>;
+	else {
+		return <_Lottie {...props} />;
+	}
+};
 
 export default Lottie;
-export * from './types';
+

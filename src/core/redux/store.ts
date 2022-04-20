@@ -6,18 +6,25 @@ import editPlaylistReducer, { State as EditPlaylistStateType } from './reducer/e
 import exploreReducer, { State as ExploreStateType } from './reducer/explore';
 import libraryReducer, { State as LibraryStateType } from './reducer/library';
 import playerReducer, { State as PlayerStateType } from './reducer/player';
+import testReducer, { State as TestStateType } from './reducer/test';
 import { configureStore, Reducer } from '@reduxjs/toolkit';
 
-const store = configureStore({
-	reducer: {
-		auth: authReducer,
-		createPlaylist: createPlaylistReducer,
-		editPlaylist: editPlaylistReducer,
-		explore: exploreReducer,
-		library: libraryReducer,
-		player: playerReducer,
-	},
-});
+interface Props {
+	testMode: boolean;
+}
+
+const store = ({ testMode }: Props) =>
+	configureStore({
+		reducer: {
+			test: testReducer({ testMode }),
+			auth: authReducer,
+			createPlaylist: createPlaylistReducer,
+			editPlaylist: editPlaylistReducer,
+			explore: exploreReducer,
+			library: libraryReducer,
+			player: playerReducer,
+		},
+	});
 
 export default store;
 
@@ -28,4 +35,5 @@ export interface RootStateType {
 	explore: Reducer<ExploreStateType>;
 	library: Reducer<LibraryStateType>;
 	player: Reducer<PlayerStateType>;
+	test: Reducer<TestStateType>;
 }

@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
-import { LottieComponentProps } from '../types';
 import useLottie from '../hooks/useLottie';
 import useLottieInteractivity from '../hooks/useLottieInteractivity';
+import { LottieComponentProps } from '../types';
 
 const Lottie = (props: LottieComponentProps) => {
 	const { style, interactivity, ...lottieProps } = props;
