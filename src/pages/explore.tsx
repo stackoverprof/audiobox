@@ -7,7 +7,7 @@ import MainLayout from '@components/_layouts/MainLayout';
 
 const Explore = () => {
 	return (
-		<MainLayout title="Explore" className="flex-sc col w-full">
+		<MainLayout title="Explore" className="flex-sc col overflow-hidden w-full">
 			<HeaderExplore />
 			<EtalaseMapper />
 		</MainLayout>

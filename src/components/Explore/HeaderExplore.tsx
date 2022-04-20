@@ -12,12 +12,12 @@ const HeaderExplore = () => {
 	// [TODO] : lottie bug ciut on safari
 
 	return (
-		<div className="relative w-full h-72">
+		<div className="relative w-full h-72 ">
 			<div
-				className="absolute flex-bc z-30 pr-12 pl-16 bg-white pointer-events-none full"
+				className="absolute flex-bc z-30 pr-12 pl-16 bg-white pointer-events-none -lg:flex-cc -lg:col -lg:pl-10 full"
 				style={{ background: 'linear-gradient(0deg, #fff0, #fff1, #fff3)' }}
 			>
-				<h1 className="flex-cc mb-12 text-5xl font-semibold">
+				<h1 className="flex-cc mb-12 text-5xl font-semibold -md:text-4xl -lg:mb-6">
 					<FaGlobeAmericas className="mr-4" size={52} /> Explore
 				</h1>
 				<div className="relative flex-cc mb-12 h-12 p-1.5 text-lg rounded-full border pointer-events-auto">

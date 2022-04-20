@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import DisplaySection from './DisplaySection';
 import useFeaturedPlaylist from '@core/swr/featuredPlaylists';
+import useScroll from '@core/hooks/useScroll';
 import { setSelectedTab, useExplore } from '@core/redux/reducer/explore';
 import { useDispatch } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
@@ -31,10 +32,17 @@ const EtalaseMapper = () => {
 		history.pushState(null, '', newRelativePathQuery);
 	}, [selectedTab]);
 
+	const scroll = useScroll();
+
 	return (
-		<div className="flex-sc col -mt-14 w-full">
-			{sets[selectedTab].map((id) => (
-				<DisplaySection playlist_id={id} ordered={selectedTab === 'charts'} key={id} />
+		<div className="flex-sc col -mt-14 mb-40 w-full">
+			{sets[selectedTab].map((id, i) => (
+				<DisplaySection
+					playlist_id={id}
+					ordered={selectedTab === 'charts'}
+					highlighted={scroll > i * 360}
+					key={id}
+				/>
 			))}
 		</div>
 	);

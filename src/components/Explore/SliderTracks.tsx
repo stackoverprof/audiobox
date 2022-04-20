@@ -1,5 +1,6 @@
 import React from 'react';
 import TrackCardDisplay from './TrackCardDisplay';
+import useResize from '@core/hooks/useResize';
 import { FreeMode } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -8,9 +9,17 @@ import 'swiper/css/pagination';
 interface Props {
 	data: any[];
 	ordered: boolean;
+	highlighted?: boolean;
 }
 
-const SliderTracks = ({ data, ordered }: Props) => {
+const SliderTracks = ({ data, ordered, highlighted }: Props) => {
+	const screen = useResize();
+	const width = (() => {
+		if (screen.xl) return highlighted ? 480 : 540;
+		else if (screen.lg) return highlighted ? 240 : 270;
+		else return 12;
+	})();
+
 	return (
 		<div>
 			<Swiper
@@ -19,9 +28,14 @@ const SliderTracks = ({ data, ordered }: Props) => {
 				grabCursor
 				freeMode
 				modules={[FreeMode]}
-				className="absolute right-0 h-full w-full"
+				className="absolute right-0 w-full h-full"
 			>
-				<SwiperSlide style={{ width: 460 }} />
+				<SwiperSlide
+					style={{
+						width: width,
+						transition: 'all 0.2s',
+					}}
+				/>
 				{data
 					.filter((x) => x)
 					.map((item, i) => (

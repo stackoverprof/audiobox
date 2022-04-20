@@ -1,11 +1,11 @@
-import React, { lazy, Suspense } from 'react';
+import React, { Suspense } from 'react';
 
-const _Lottie = lazy(() => import('./index.original'));
+const _Lottie = React.lazy(() => import('./index.original'));
 
 const Lottie = (props) => {
 	return (
 		<Suspense fallback={<></>}>
-			<_Lottie {...props} />;
+			<_Lottie {...props} />
 		</Suspense>
 	);
 };

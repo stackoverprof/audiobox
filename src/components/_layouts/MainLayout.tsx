@@ -3,6 +3,7 @@
 import React from 'react';
 import SEOTags from '@components/_shared/SEOTags';
 import Sidebar from '@components/Sidebar';
+import TabNavigation from '@components/TabNavigation';
 
 interface Props {
 	children: React.ReactNode;
@@ -18,11 +19,14 @@ const MainLayout = ({ children, style, className, title }: Props) => {
 			<aside className="w-72 h-screen -md:hidden">
 				<Sidebar />
 			</aside>
-			<div className="flex-sc col flex-1">
-				<main style={style} className={className}>
+			<main className="flex-sc col flex-1">
+				<div style={style} className={className}>
 					{children}
-				</main>
-			</div>
+				</div>
+			</main>
+			<footer className="fixed flex-cc bottom-0 left-0 z-50 w-full md:hidden">
+				<TabNavigation />
+			</footer>
 		</div>
 	);
 };

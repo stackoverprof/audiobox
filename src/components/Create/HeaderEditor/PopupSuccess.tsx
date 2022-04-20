@@ -7,19 +7,21 @@ interface Props {
 	handleClose(): void;
 }
 
+// [TODO] : Loading spinner in every action
+
 const PopupSuccess = ({ playlistID, handleClose }: Props) => {
 	const { playlist } = usePlaylist(playlistID);
 	if (!playlist) return <></>;
 
 	return (
-		<div className="fixed flex-cc top-0 left-0 z-40 pl-72 bg-black bg-opacity-80 pointer-events-none full">
-			<div className="w-[600px] flex-sc rounded-md bg-white bg-opacity-10 backdrop-blur-sm p-4 pointer-events-auto">
-				<div className="overflow-hidden mr-8 w-48 h-48 bg-white bg-opacity-10 rounded-md">
+		<div className="fixed flex-cc top-0 left-0 z-40 pl-72 bg-black bg-opacity-80 -md:pb-20 -md:pl-0 full">
+			<div className="w-[600px] -md:w-auto flex-s -md:p-8 -md:col -md:flex-cc rounded-md bg-white bg-opacity-10 backdrop-blur-sm p-4">
+				<div className="overflow-hidden mr-8 w-48 h-48 bg-white bg-opacity-10 rounded-md -md:mr-0 -md:mb-8">
 					{playlist.images?.length > 0 && (
 						<img src={playlist.images[0].url} alt="" className="" />
 					)}
 				</div>
-				<div className="flex-cs col">
+				<div className="flex-cs col -md:flex-cc">
 					<p className="mb-4 text-3xl font-semibold">Playlist Created!</p>
 					<div className="flex-cc">
 						<Link

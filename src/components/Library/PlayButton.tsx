@@ -7,7 +7,7 @@ interface Props {
 	tracks: any[];
 }
 
-const ButtonOptions = ({ tracks }: Props) => {
+const PlayButton = ({ tracks }: Props) => {
 	const dispatch = useDispatch();
 
 	const handlePlayPlaylist = () => {
@@ -15,7 +15,7 @@ const ButtonOptions = ({ tracks }: Props) => {
 	};
 
 	return (
-		<div className="flex-sc ">
+		<div className="flex-sc -xl:hidden">
 			<button
 				onClick={handlePlayPlaylist}
 				className="flex-cc w-14 h-14 bg-white bg-opacity-10 rounded-full transition-all hover:text-theme-green hover:bg-opacity-30 hover:bg-theme-green"
@@ -26,4 +26,4 @@ const ButtonOptions = ({ tracks }: Props) => {
 	);
 };
 
-export default ButtonOptions;
+export default PlayButton;

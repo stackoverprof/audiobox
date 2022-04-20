@@ -26,7 +26,7 @@ const TrackCard = ({ data, index }: Props) => {
 	return (
 		<div className="flex-ss col overflow-hidden p-4 bg-white bg-opacity-10 rounded-lg backdrop-blur">
 			<div className="flex-cs col mb-4">
-				<div className="relative overflow-hidden mb-4 w-40 h-40 bg-white bg-opacity-10 rounded-lg group">
+				<div className="relative overflow-hidden mb-4 w-40 h-40 bg-white bg-opacity-10 rounded-lg -sm:w-32 -sm:h-32 group">
 					{data.album?.images?.length > 0 && (
 						<img
 							src={data.album?.images[0].url}
@@ -51,10 +51,10 @@ const TrackCard = ({ data, index }: Props) => {
 					</button>
 				</div>
 				<div className="flex-ss col w-40 -sm:w-32">
-					<h3 className="overflow-hidden mb-3 w-full font-semibold text-left line-clamp-2">
+					<h3 className="overflow-hidden mb-3 w-full font-semibold text-left -sm:text-sm line-clamp-2">
 						<span className="text-theme-pink">#{index + 1}</span>&ensp;{data.name}
 					</h3>
-					<p className="mb-1 w-full text-sm line-clamp-1">
+					<p className="mb-1 w-full text-sm -md:text-xs line-clamp-1">
 						{data.artists?.map((artist, i, arr) => (
 							<span key={i}>
 								{artist.name}
