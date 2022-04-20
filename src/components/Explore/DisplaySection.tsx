@@ -27,7 +27,7 @@ const DisplaySection = ({ playlist_id, highlighted, ordered = false }: Props) =>
 			onMouseLeave={() => setHover(false)}
 		>
 			<div
-				className="absolute z-10 full lg:hidden"
+				className="absolute z-10 pointer-events-none full lg:hidden"
 				style={{
 					background: `linear-gradient(60deg, ${colors.base}ff 15%, ${colors.base}00 45%)`,
 				}}
