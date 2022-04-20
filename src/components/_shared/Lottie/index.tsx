@@ -11,4 +11,3 @@ const Lottie = (props) => {
 };
 
 export default Lottie;
-

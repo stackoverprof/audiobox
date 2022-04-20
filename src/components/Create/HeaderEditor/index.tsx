@@ -61,22 +61,23 @@ const HeaderEditor = () => {
 	return (
 		<>
 			<div
-				className="flex-bs col w-full h-[260px]"
+				className="flex-ss col pt-0 pr-8 pb-4 pl-10 w-full"
 				style={{ background: 'linear-gradient(0deg, #fff1, #fff0)' }}
 			>
-				<form onSubmit={handleSubmit} className="flex-sc w-full">
-					<div className="flex-cs col flex-1 w-full max-w-[820px] pr-8">
+				<form onSubmit={handleSubmit} className="flex-sc w-full -xl:flex-ss -xl:col">
+					<div className="flex-cs col w-full max-w-[780px] pr-8 -lg:pr-4">
 						<TitleInput value={title} onChange={(val) => dispatch(setTitle(val))} />
 						<DescriptionInput
 							value={description}
 							onChange={(val) => dispatch(setDescription(val))}
 						/>
 					</div>
-					<div className="flex-ss col w-60 h-20">
+					<div className="flex-ss col mt-8 w-72 -lg:flex-cs -lg:col -xl:mt-4 -xl:pl-2 -xl:mb-2 -xl:w-auto -xl:flex-row -xl:flex-cc">
 						<SubmissionButtons />
 						<BadgesInfo />
 					</div>
 				</form>
+
 				<TracksSelected />
 			</div>
 			{showPopup && <PopupSuccess playlistID={playlistID} handleClose={resetPage} />}

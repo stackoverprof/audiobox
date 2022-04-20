@@ -18,8 +18,8 @@ const SearchArea = () => {
 	};
 
 	return (
-		<div className="flex-ss mb-16 w-full">
-			<div className="flex-ss col px-12 max-w-[820px]">
+		<div className="flex-ss col mb-16 w-full">
+			<div className="flex-ss col px-12 max-w-[820px] w-full">
 				<SearchInput
 					value={searchQuery}
 					onChange={(val) => setSearchQuery(val)}
@@ -33,3 +33,4 @@ const SearchArea = () => {
 };
 
 export default SearchArea;
+// [TODO] : fix the 3/4 820 problem

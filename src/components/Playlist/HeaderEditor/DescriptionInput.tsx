@@ -3,10 +3,10 @@ import React from 'react';
 interface Props {
 	value: string;
 	onChange(value: string): void;
-	disabled: boolean;
+	disabled?: boolean;
 }
 
-const TitleInput = ({ value, onChange, disabled }: Props) => {
+const DescriptionInput = ({ value, onChange, disabled }: Props) => {
 	return (
 		<div className="flex-cc w-full">
 			<textarea
@@ -22,4 +22,4 @@ const TitleInput = ({ value, onChange, disabled }: Props) => {
 	);
 };
 
-export default TitleInput;
+export default DescriptionInput;

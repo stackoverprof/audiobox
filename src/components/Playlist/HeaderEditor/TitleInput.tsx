@@ -5,7 +5,7 @@ import { useEditPlaylist } from '@core/redux/reducer/editPlaylist';
 interface Props {
 	value: string;
 	onChange(value: string): void;
-	disabled: boolean;
+	disabled?: boolean;
 }
 
 const TitleInput = ({ value, onChange, disabled }: Props) => {
@@ -27,17 +27,15 @@ const TitleInput = ({ value, onChange, disabled }: Props) => {
 				onBlur={() => setFocus(false)}
 			/>
 			<div className="absolute flex-sc pl-7 pointer-events-none full">
-				<div className="flex-ce text-5xl font-semibold">
-					<div className="flex-ce text-5xl font-semibold">
-						{value ? (
-							<span className="opacity-0">{value}</span>
-						) : (
-							<span className="opacity-30">Untitled </span>
-						)}
-						{!focus && !disabled && (
-							<FiEdit3 size={32} className="mb-0.5 ml-3 opacity-40" />
-						)}
-					</div>
+				<div className="flex-ce text-5xl font-semibold -lg:text-4xl">
+					{value ? (
+						<span className="opacity-0">{value}</span>
+					) : (
+						<span className="opacity-30">Untitled </span>
+					)}
+					{!focus && !disabled && (
+						<FiEdit3 size={32} className="mb-0.5 ml-3 opacity-40" />
+					)}
 				</div>
 			</div>
 

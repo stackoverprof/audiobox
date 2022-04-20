@@ -4,16 +4,18 @@ import { FiEdit3 } from 'react-icons/fi';
 interface Props {
 	value: string;
 	onChange(value: string): void;
+	disabled?: boolean;
 }
 
-const TitleInput = ({ value, onChange }: Props) => {
+const TitleInput = ({ value, onChange, disabled }: Props) => {
 	const [focus, setFocus] = useState(false);
 
 	return (
-		<div className="relative flex-cc pl-10 mt-8 w-full">
+		<div className="relative flex-cc mt-8 w-full">
 			<input
 				type="text"
-				className="px-2 py-2 w-full text-5xl font-semibold bg-black bg-opacity-0 rounded-md focus:bg-opacity-100 placeholder:text-white"
+				disabled={disabled}
+				className="px-2 py-2 w-full text-5xl font-semibold bg-black bg-opacity-0 rounded-md -lg:text-4xl focus:bg-opacity-100 placeholder:text-white"
 				value={value}
 				onChange={(e) => onChange(e.target.value)}
 				name=""
@@ -21,13 +23,17 @@ const TitleInput = ({ value, onChange }: Props) => {
 				onFocus={() => setFocus(true)}
 				onBlur={() => setFocus(false)}
 			/>
-			<div className="absolute flex-sc pl-7 pointer-events-none full">
-				{!value && (
-					<div className="flex-ce text-5xl font-semibold">
-						<p className="opacity-40">New Playlist </p>
-						{!focus && <FiEdit3 size={32} className="mb-0.5 ml-3 opacity-60" />}
-					</div>
-				)}
+			<div className="absolute flex-sc pl-2 pointer-events-none full">
+				<div className="flex-ce text-5xl font-semibold -lg:text-4xl">
+					{value ? (
+						<span className="opacity-0">{value}</span>
+					) : (
+						<span className="opacity-30">New Playlist </span>
+					)}
+					{!focus && !disabled && (
+						<FiEdit3 size={32} className="mb-0.5 ml-3 opacity-60" />
+					)}
+				</div>
 			</div>
 
 			<div

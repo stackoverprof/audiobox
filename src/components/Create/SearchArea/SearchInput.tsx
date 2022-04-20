@@ -10,15 +10,15 @@ interface Props {
 
 const SearchInput = ({ value, onChange, handleSearch }: Props) => {
 	return (
-		<div className="flex-cs col py-6 mb-2">
+		<div className="flex-cs col py-6 mb-2 w-full">
 			<form
 				onSubmit={handleSearch}
-				className="flex-cc bg-black border-b border-white border-opacity-20"
+				className="flex-cc bg-black border-b w-full max-w-[480px] border-white border-opacity-20"
 			>
 				<input
 					type="text"
 					data-testid="input-search-tracks"
-					className="w-[400px] bg-base bg-opacity-0 px-4 py-3"
+					className="px-4 py-3 w-full bg-opacity-0 bg-base"
 					placeholder="Let's find something..."
 					value={value}
 					onChange={(e) => onChange(e.target.value)}
