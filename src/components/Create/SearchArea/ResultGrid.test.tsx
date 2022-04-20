@@ -1,32 +1,50 @@
 import React from 'react';
-import ResultGrid from './ResultGrid';
+import App from 'src/App';
 import store from '@core/redux/store';
+import userEvent from '@testing-library/user-event';
 import { Provider } from 'react-redux';
-import { render } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
+import { rest } from 'msw';
+import { setupServer } from 'msw/node';
 
-describe('Track card component mapping', () => {
-	test('Tracks cards should exist at least one', () => {
-		render(
-			<Provider store={store}>
-				<ResultGrid data={DATA_TRACKS} />
-			</Provider>
-		);
+const server = setupServer(
+	rest.get('https://api.spotify.com/v1/search', (req, res, ctx) =>
+		res(ctx.json(API_SEARCH_RESULT))
+	)
+);
 
-		expect(document.querySelectorAll('#track-card').length).toBeGreaterThan(0);
-	});
+beforeAll(() => server.listen());
+afterEach(() => server.resetHandlers());
+afterAll(() => server.close());
 
-	test('Tracks cards should not exist', () => {
-		render(
-			<Provider store={store}>
-				<ResultGrid data={[]} />
-			</Provider>
-		);
+describe('Simulate post-authentication, entering /create, search, should see the track cards', async () => {
+	// SUCCESSFUL AUTH
+	window.history.pushState(
+		{},
+		'Home Page',
+		'#access_token=BQCtgRe2fk_EAYc55JZE8foMnkqMStkDps7fg_wgrvcnR-OFrNU1dsycmSUSQdsX18CnqkOiCweP703_cttZL0AZb5yEbNwJr-FA57f8g-RexiCAP-mCakZOETMBUGzub9sn88SE0lzH7LJXrTF3m3gAqHOuD-yCy__VqLP-YyMA_c5eq4kUnhA3Wtnb05Xs8g8v1YUIVA&token_type=Bearer&expires_in=3600'
+	);
+	// RENDER APP
+	render(
+		<Provider store={store}>
+			<App />
+		</Provider>
+	);
 
-		expect(document.querySelectorAll('#track-card').length).toEqual(0);
+	expect(window.location.pathname).toStrictEqual('/create');
+
+	const searchInput = await screen.getByRole('search');
+	const button = screen.getByText('Search');
+
+	userEvent.type(searchInput, 'BoyWithUke');
+	userEvent.click(button);
+
+	await waitFor(() => {
+		screen.getAllByText('Select').forEach((el) => expect(el).toBeInTheDocument());
 	});
 });
 
-const DATA_TRACKS = [
+const API_SEARCH_RESULT = [
 	{
 		album: {
 			album_type: 'single',
@@ -37,7 +55,7 @@ const DATA_TRACKS = [
 					},
 					href: 'https://api.spotify.com/v1/artists/2jnIB6XdLvnJUeNTy5A0J2',
 					id: '2jnIB6XdLvnJUeNTy5A0J2',
-					name: 'Why Don\'t We',
+					name: "Why Don't We",
 					type: 'artist',
 					uri: 'spotify:artist:2jnIB6XdLvnJUeNTy5A0J2',
 				},
@@ -262,7 +280,7 @@ const DATA_TRACKS = [
 				},
 				href: 'https://api.spotify.com/v1/artists/2jnIB6XdLvnJUeNTy5A0J2',
 				id: '2jnIB6XdLvnJUeNTy5A0J2',
-				name: 'Why Don\'t We',
+				name: "Why Don't We",
 				type: 'artist',
 				uri: 'spotify:artist:2jnIB6XdLvnJUeNTy5A0J2',
 			},
