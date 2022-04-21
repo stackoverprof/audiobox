@@ -95,7 +95,31 @@ describe('Simulate creating playlist', async () => {
 	});
 
 	test('SHOULD always require title (>10) and description (>0)', async () => {
-		//
+		setTimeout(async () => {
+			await waitFor(async () => {
+				screen.getAllByTestId('button-to-select-track').forEach((el) => {
+					fireEvent.click(el);
+				});
+
+				const inputTitle = screen.getByTestId('input-title-playlist');
+				const inputDescription = screen.getByTestId('input-description-playlist');
+				const buttonSubmit = screen.getByTestId('button-submit-playlist');
+
+				// Not reaching requirement and should fail
+				await userEvent.type(inputTitle, '12345');
+				await userEvent.type(inputDescription, '');
+				await userEvent.click(buttonSubmit);
+
+				expect(screen.getByTestId('popup-success')).not.toBeInTheDocument();
+
+				// Reaching requirement and should pass
+				await userEvent.type(inputTitle, '123451234512345');
+				await userEvent.type(inputDescription, '1');
+				await userEvent.click(buttonSubmit);
+
+				expect(screen.getByTestId('popup-success')).toBeInTheDocument();
+			});
+		}, 0);
 	});
 
 	test('SHOULD see success confirmation after created', async () => {

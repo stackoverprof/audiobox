@@ -18,10 +18,9 @@ const TitleInput = ({ value, onChange, disabled }: Props) => {
 				className="px-2 py-2 w-full text-5xl font-semibold bg-black bg-opacity-0 rounded-md -lg:text-4xl focus:bg-opacity-100 placeholder:text-white"
 				value={value}
 				onChange={(e) => onChange(e.target.value)}
-				name=""
-				id=""
 				onFocus={() => setFocus(true)}
 				onBlur={() => setFocus(false)}
+				data-testid="input-title-playlist"
 			/>
 			<div className="absolute flex-sc pl-2 pointer-events-none full">
 				<div className="flex-ce text-5xl font-semibold -lg:text-4xl">
