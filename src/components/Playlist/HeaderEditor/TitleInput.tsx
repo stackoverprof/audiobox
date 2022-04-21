@@ -26,7 +26,7 @@ const TitleInput = ({ value, onChange, disabled }: Props) => {
 				onFocus={() => setFocus(true)}
 				onBlur={() => setFocus(false)}
 			/>
-			<div className="absolute flex-sc pl-7 pointer-events-none full">
+			<div className="absolute flex-sc pl-2 pointer-events-none full">
 				<div className="flex-ce text-5xl font-semibold -lg:text-4xl">
 					{value ? (
 						<span className="opacity-0">{value}</span>
