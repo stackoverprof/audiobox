@@ -69,7 +69,12 @@ const DisplaySection = ({ playlist_id, highlighted, ordered = false }: Props) =>
 				</Link>
 			</div>
 			<div className="absolute top-0 left-0 full">
-				<SliderTracks data={data} ordered={ordered} highlighted={highlighted} />
+				<SliderTracks
+					data={data}
+					ordered={ordered}
+					playlist_id={playlist_id}
+					highlighted={highlighted}
+				/>
 			</div>
 			<div
 				className="absolute top-0 right-0 z-20 w-40 h-full pointer-events-none -xl:hidden"
