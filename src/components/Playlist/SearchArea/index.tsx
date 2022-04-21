@@ -4,6 +4,7 @@ import RecentlyGrid from './RecentlyGrid';
 import ResultGrid from './ResultGrid';
 import SearchInput from './SearchInput';
 import TracksSelected from './TracksSelected';
+import { toast } from 'react-toastify';
 
 const SearchArea = () => {
 	const [searchQuery, setSearchQuery] = useState('');
@@ -14,7 +15,8 @@ const SearchArea = () => {
 
 		if (!searchQuery) return;
 
-		const result = await fetchers.searchTracks(searchQuery);
+		const result = await fetchers.searchTracks(searchQuery).catch(() => null);
+		if (!result) return toast.error('Failed retrieving tracks results');
 		setSearchResult(result);
 	};
 

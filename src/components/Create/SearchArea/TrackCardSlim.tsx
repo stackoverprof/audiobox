@@ -36,7 +36,10 @@ const TrackCardSlim = ({ data, selected }: Props) => {
 	const isPlaying = currentTrack.id ? currentTrack.id === data.id : false;
 
 	return (
-		<div className="flex-bc overflow-hidden pl-4 h-28 bg-white bg-opacity-10 rounded-lg backdrop-blur group">
+		<div
+			data-testid="track-cards-result"
+			className="flex-bc overflow-hidden pl-4 h-28 bg-white bg-opacity-10 rounded-lg backdrop-blur group"
+		>
 			<div className="flex-cs mr-4">
 				<div className="relative overflow-hidden mr-4 w-20 h-20 min-w-[80px] rounded-md">
 					{data.album?.images?.length > 0 && (

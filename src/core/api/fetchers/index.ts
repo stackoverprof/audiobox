@@ -5,6 +5,7 @@ import SpotifyPublic from '../lib/spotifyPublic';
 import { toast } from 'react-toastify';
 
 export const getUser = () => {
+	// console.log('APIFETCH', '/me');
 	return Spotify.get('/me')
 		.then((res) => res.data)
 		.catch((err) => {
@@ -22,6 +23,7 @@ export const getUser = () => {
 };
 
 export const getUserPlaylist = () => {
+	// console.log('APIFETCH', '/me/playlists');
 	return Spotify.get('/me/playlists?limit=50')
 		.then((res) => res.data.items)
 		.catch((err) => {
@@ -31,6 +33,7 @@ export const getUserPlaylist = () => {
 };
 
 export const getPlaylist = (playlist_id: string) => {
+	// console.log('APIFETCH', `/playlists/${playlist_id}`);
 	return Spotify.get(`/playlists/${playlist_id}`)
 		.then((res) => res.data)
 		.catch((err) => {
@@ -40,6 +43,7 @@ export const getPlaylist = (playlist_id: string) => {
 };
 
 export const getRecommendations = () => {
+	// console.log('APIFETCH', '/playlists/37i9dQZEVXbMDoHDwVN2tF');
 	return SpotifyPublic.get('/playlists/37i9dQZEVXbMDoHDwVN2tF')
 		.then((res) => res.data)
 		.catch((err) => {
@@ -49,6 +53,7 @@ export const getRecommendations = () => {
 };
 
 export const getFeaturedPlaylists = ({ limit = 12 }: { limit: number }) => {
+	// console.log('APIFETCH', '/browse/featured-playlists');
 	return Spotify.get('/browse/featured-playlists', {
 		params: { limit },
 	})
@@ -60,6 +65,7 @@ export const getFeaturedPlaylists = ({ limit = 12 }: { limit: number }) => {
 };
 
 export const getRecentlyPlayed = ({ limit = 6 }: { limit: number }) => {
+	// console.log('APIFETCH', '/me/player/recently-played');
 	return Spotify.get('/me/player/recently-played', { params: { limit } })
 		.then((res) => res.data.items.map((item) => item.track))
 		.catch((err) => {
@@ -69,6 +75,7 @@ export const getRecentlyPlayed = ({ limit = 6 }: { limit: number }) => {
 };
 
 export const followPlaylist = ({ playlist_id }: { playlist_id: string }) => {
+	// console.log('APIFETCH', `/playlists/${playlist_id}/followers`);
 	return Spotify.put(`/playlists/${playlist_id}/followers`)
 		.then((res) => res.data)
 		.catch((err) => {
@@ -78,6 +85,7 @@ export const followPlaylist = ({ playlist_id }: { playlist_id: string }) => {
 };
 
 export const unfollowPlaylist = ({ playlist_id }: { playlist_id: string }) => {
+	// console.log('APIFETCH', `/playlists/${playlist_id}/followers`);
 	return Spotify.delete(`/playlists/${playlist_id}/followers`)
 		.then((res) => res.data)
 		.catch((err) => {
@@ -87,7 +95,7 @@ export const unfollowPlaylist = ({ playlist_id }: { playlist_id: string }) => {
 };
 
 export const searchTracks = (query) => {
-	if (!query) return [];
+	// console.log('APIFETCH', '/search');
 	return Spotify.get('/search', {
 		params: {
 			type: 'track',
@@ -116,6 +124,7 @@ export const createPlaylist = async ({
 	uris,
 }: CreatePlaylistParams) => {
 	// create a new playlist
+	// console.log('APIFETCH', `/users/${user_id}/playlists`);
 	const playlist_id = await Spotify.post(`/users/${user_id}/playlists`, {
 		name: title,
 		description: description,
@@ -127,6 +136,7 @@ export const createPlaylist = async ({
 	if (!playlist_id) return { success: false };
 
 	// add the selected tracks to the playlist
+	// console.log('APIFETCH', `/playlists/${playlist_id}/tracks`);
 	const result = await Spotify.post(`/playlists/${playlist_id}/tracks`, {
 		uris,
 	})
@@ -154,6 +164,7 @@ export const editPlaylist = async ({
 	uris,
 }: EditPlaylistParams) => {
 	// update title desc
+	// console.log('APIFETCH', `/playlists/${playlist_id}`);
 	const { success } = await Spotify.put(`/playlists/${playlist_id}`, {
 		name: title,
 		description,
@@ -166,6 +177,7 @@ export const editPlaylist = async ({
 	if (!success) return { success: false };
 
 	// update the selected tracks to the playlist
+	// console.log('APIFETCH', `/playlists/${playlist_id}/tracks`);
 	const result2 = await Spotify.put(`/playlists/${playlist_id}/tracks`, {
 		uris,
 	})

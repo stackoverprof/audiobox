@@ -14,34 +14,59 @@
 import React from 'react';
 import Main from 'src/main';
 import randomBytesJs from 'random-bytes-js';
-import { render, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import { render, screen, waitFor } from '@testing-library/react';
 
 describe('Simulate creating playlist', () => {
-	test('SHOULD retrieve search results as cards', () => {
+	test('SHOULD retrieve search results as cards', async () => {
+		window.history.pushState(
+			{},
+			'Landing',
+			`#access_token=${randomBytesJs.randHex(40)}&token_type=Bearer&expires_in=3600`
+		);
+
+		render(<Main />);
+
+		await waitFor(() => {
+			expect(window.location.pathname).toStrictEqual('/create');
+		});
+
+		const searchInput = screen.getByTestId('input-search-tracks');
+		const button = screen.getByTestId('button-search-tracks');
+
+		await userEvent.type(searchInput, 'Intentions');
+		await userEvent.click(button);
+
+		setTimeout(async () => {
+			await waitFor(() => {
+				screen
+					.getAllByTestId('track-cards-result')
+					.forEach((el) => expect(el).toBeInTheDocument());
+			});
+		}, 0);
+	});
+
+	test('SHOULD see cover, title, artist, and duration', async () => {
 		//
 	});
 
-	test('SHOULD see cover, title, artist, and duration', () => {
+	test('Track SHOULD be selected only once', async () => {
 		//
 	});
 
-	test('Track SHOULD be selected only once', () => {
+	test('SHOULD be able to unselect', async () => {
 		//
 	});
 
-	test('SHOULD be able to unselect', () => {
+	test('SHOULD always require title (>10) and description (>0)', async () => {
 		//
 	});
 
-	test('SHOULD always require title (>10) and description (>0)', () => {
+	test('SHOULD see success confirmation after created', async () => {
 		//
 	});
 
-	test('SHOULD see success confirmation after created', () => {
-		//
-	});
-
-	test('Result SHOULD be non-public and non-collaborative', () => {
+	test('Result SHOULD be non-public and non-collaborative', async () => {
 		//
 	});
 });

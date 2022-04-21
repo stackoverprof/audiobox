@@ -9,7 +9,7 @@ import randomBytesJs from 'random-bytes-js';
 import { render, waitFor } from '@testing-library/react';
 
 describe('Simulate routing screnarios', () => {
-	test('Entering /create without token SHOULD redirect to /', async () => {
+	test('SHOULD redirect to / if no token', async () => {
 		// VISIT
 		window.history.pushState({}, 'Create', '/create');
 
@@ -22,7 +22,7 @@ describe('Simulate routing screnarios', () => {
 		});
 	});
 
-	test('After success login SHOULD redirect to /create', async () => {
+	test('SHOULD redirect to /create, after success login', async () => {
 		// AFTER SUCCESSFUL AUTH
 		window.history.pushState(
 			{},
@@ -39,7 +39,7 @@ describe('Simulate routing screnarios', () => {
 		});
 	});
 
-	test('If user has localStorage token SHOULD redirect to /create', async () => {
+	test('SHOULD redirect to /create, if token found', async () => {
 		// PREDEFINED localStorage
 		localStorage.setItem('access_token', randomBytesJs.randHex(40));
 
