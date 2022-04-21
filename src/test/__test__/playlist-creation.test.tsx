@@ -78,7 +78,20 @@ describe('Simulate creating playlist', async () => {
 	});
 
 	test('SHOULD be able to unselect', async () => {
-		//
+		setTimeout(async () => {
+			await waitFor(() => {
+				screen.getAllByTestId('button-to-select-track').forEach((el) => {
+					fireEvent.click(el);
+				});
+				screen
+					.getAllByTestId('button-to-unselect-track')
+					.forEach((el) => expect(el).toBeInTheDocument());
+				screen.getAllByTestId('button-to-unselect-track').forEach((el) => {
+					fireEvent.click(el);
+				});
+				expect(screen.getByTestId('button-to-unselect-track')).length.toEqual(0);
+			});
+		}, 0);
 	});
 
 	test('SHOULD always require title (>10) and description (>0)', async () => {
