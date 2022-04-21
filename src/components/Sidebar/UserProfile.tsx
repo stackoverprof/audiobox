@@ -13,6 +13,8 @@ const UserProfile = () => {
 		dispatch(logout());
 	};
 
+	// [TODO] : user prifle pict
+
 	return (
 		<div className="flex-bc px-6 w-full">
 			<div className="flex-cc">
