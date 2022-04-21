@@ -38,4 +38,3 @@ const PlaylistCard = ({ data }: Props) => {
 };
 
 export default PlaylistCard;
-// [TODO] : implement one last see more card

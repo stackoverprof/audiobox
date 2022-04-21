@@ -10,7 +10,7 @@ import UserProfile from './UserProfile';
 const Sidebar = () => {
 	return (
 		<div
-			className="fixed flex-bs col top-0 left-0 pt-8 w-72 h-full z-50 bg-black bg-opacity-40"
+			className="fixed flex-ss col top-0 left-0 z-50 pt-8 w-72 h-full bg-black bg-opacity-40"
 			style={{ boxShadow: `0 0 40px -8px ${colors.theme.pink}55` }}
 		>
 			<div className="w-full">
@@ -19,8 +19,7 @@ const Sidebar = () => {
 				<TabLinks />
 				<PlaylistsPeek />
 			</div>
-			<div className="w-full "></div>
-			<div className="w-full">
+			<div className="absolute bottom-0 w-full bg-[#070215]">
 				<UserProfile />
 				<MiniPlayer />
 			</div>
