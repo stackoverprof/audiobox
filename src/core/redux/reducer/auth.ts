@@ -36,10 +36,6 @@ const ReduxSlice = createSlice({
 
 export const { makeReady, setToken, reset, removeToken } = ReduxSlice.actions;
 
-// [TODO] : rethink to utilize the hook for automation
-export const useAuth = (): State => {
-	const state = useSelector((RootState: { auth: State }) => RootState.auth);
-	return state;
-};
+export const useAuth = (): State => useSelector((RootState: { auth: State }) => RootState.auth);
 
 export default ReduxSlice.reducer;

@@ -40,9 +40,8 @@ const App = () => {
 			<Route path="*" element={<_404 />} />
 		</Routes>
 	);
+	// [README] : ALL PROVIDERS and ROOT LEVEL WRAPPER is at `./main.tsx`
 };
-
-// [README] : ALL PROVIDERS and ROOT LEVEL WRAPPER is at `main.tsx`
 
 export default App;
 

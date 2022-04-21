@@ -27,4 +27,3 @@ const PlayButton = ({ tracks }: Props) => {
 };
 
 export default PlayButton;
-// [TODO] : see more button

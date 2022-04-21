@@ -1,4 +1,5 @@
 import React from 'react';
+import SeeMoreCard from './SeeMoreCard';
 import TrackCardDisplay from './TrackCardDisplay';
 import useResize from '@core/hooks/useResize';
 import { FreeMode } from 'swiper';
@@ -10,9 +11,10 @@ interface Props {
 	data: any[];
 	ordered: boolean;
 	highlighted?: boolean;
+	playlist_id: string;
 }
 
-const SliderTracks = ({ data, ordered, highlighted }: Props) => {
+const SliderTracks = ({ data, ordered, highlighted, playlist_id }: Props) => {
 	const screen = useResize();
 	const width = (() => {
 		if (screen.xl) return highlighted ? 480 : 540;
@@ -43,6 +45,11 @@ const SliderTracks = ({ data, ordered, highlighted }: Props) => {
 							<TrackCardDisplay data={item} index={i} ordered={ordered} />
 						</SwiperSlide>
 					))}
+				{data.length > 0 && (
+					<SwiperSlide style={{ width: 192 }}>
+						<SeeMoreCard playlist_id={playlist_id} />
+					</SwiperSlide>
+				)}
 				<SwiperSlide style={{ width: 230 }} />
 			</Swiper>
 		</div>

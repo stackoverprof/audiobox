@@ -11,7 +11,6 @@ const JumboTron = () => {
 					Audiobox
 				</h1>
 			</div>
-			{/* [TODO]: add sounb bar lottie here */}
 			<h2 className="text-[40px] -sm:text-[32px] font-semibold w-[500px] -sm:w-full -md:text-center mb-10">
 				Find Tracks and create the <span className="text-grad"> Playlist</span> you love.
 			</h2>

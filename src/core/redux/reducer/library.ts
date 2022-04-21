@@ -24,9 +24,7 @@ const ReduxSlice = createSlice({
 
 export const { setSelectedFilter, reset } = ReduxSlice.actions;
 
-export const useLibrary = (): State => {
-	const state = useSelector((RootState: { library: State }) => RootState.library);
-	return state;
-};
+export const useLibrary = (): State =>
+	useSelector((RootState: { library: State }) => RootState.library);
 
 export default ReduxSlice.reducer;

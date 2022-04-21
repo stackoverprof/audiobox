@@ -9,8 +9,6 @@ const HeaderExplore = () => {
 	const { selectedTab } = useExplore();
 	const dispatch = useDispatch();
 
-	// [TODO] : lottie bug ciut on safari
-
 	return (
 		<div className="relative w-full h-72 ">
 			<div
@@ -49,7 +47,7 @@ const HeaderExplore = () => {
 				<Lottie
 					animationData={worldMap}
 					loop
-					className="absolute top-0 z-0 -right-32 h-[440px]"
+					className="relative z-0 -right-32 h-[440px] w-[742px]"
 				/>
 			</div>
 		</div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import colors from '@core/style/colors';
 import PlayButton from './PlayButton';
+import SeeMoreCardMini from './SeeMoreCardMini';
 import TrackCardMini from './TrackCardMini';
 import useResize from '@core/hooks/useResize';
 import { FreeMode } from 'swiper';
@@ -11,9 +12,10 @@ import 'swiper/css/pagination';
 interface Props {
 	data: any[];
 	hover: boolean;
+	playlist_id: string;
 }
 
-const SliderTracks = ({ data, hover }: Props) => {
+const SliderTracks = ({ data, hover, playlist_id }: Props) => {
 	const fader = hover ? '#17072f' : colors.base;
 	const screen = useResize();
 
@@ -34,6 +36,11 @@ const SliderTracks = ({ data, hover }: Props) => {
 						<TrackCardMini data={item} />
 					</SwiperSlide>
 				))}
+				{data.length > 0 && (
+					<SwiperSlide style={{ width: 240 }}>
+						<SeeMoreCardMini playlist_id={playlist_id} />
+					</SwiperSlide>
+				)}
 				<SwiperSlide style={{ width: 240 }} />
 			</Swiper>
 			<div
@@ -45,8 +52,5 @@ const SliderTracks = ({ data, hover }: Props) => {
 		</div>
 	);
 };
-
-// [TODO] : limit peek slider tracks to 10 and see more card
-// [TODO] : shift + scroll, scroll horizontally, swiper?
 
 export default SliderTracks;

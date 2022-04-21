@@ -7,10 +7,10 @@ import usePlaylist from '@core/swr/usePlaylist';
 interface Props {
 	data: any;
 }
-// [TODO] : owned badge
+
 const PlaylistCard = ({ data }: Props) => {
 	const [hover, setHover] = useState(false);
-	const { playlist } = usePlaylist(data.id);
+	const { playlist, isOwned } = usePlaylist(data.id);
 	if (!playlist) return <></>;
 
 	const tracks = playlist.tracks?.items?.map((x) => x.track).slice(0, 15) || [];
@@ -23,12 +23,18 @@ const PlaylistCard = ({ data }: Props) => {
 		>
 			<CoverPlaylist tracks={tracks} images={data.images} />
 			<div className="flex-bs col w-full h-40">
-				<HeaderPlaylist data={data} tracks={tracks} hover={hover} />
-				{tracks.length > 0 && <SliderTracks hover={hover} data={tracks} />}
+				<HeaderPlaylist
+					data={data}
+					tracks={tracks}
+					badges={isOwned ? ['owned'] : []}
+					hover={hover}
+				/>
+				{tracks.length > 0 && (
+					<SliderTracks hover={hover} data={tracks} playlist_id={data.id} />
+				)}
 			</div>
 		</div>
 	);
 };
 
 export default PlaylistCard;
-// [TODO] : implement one last see more card

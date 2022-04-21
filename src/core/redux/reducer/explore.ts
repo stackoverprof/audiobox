@@ -24,9 +24,7 @@ const ReduxSlice = createSlice({
 
 export const { setSelectedTab, reset } = ReduxSlice.actions;
 
-export const useExplore = (): State => {
-	const state = useSelector((RootState: { explore: State }) => RootState.explore);
-	return state;
-};
+export const useExplore = (): State =>
+	useSelector((RootState: { explore: State }) => RootState.explore);
 
 export default ReduxSlice.reducer;
