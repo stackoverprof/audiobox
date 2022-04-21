@@ -4,6 +4,7 @@ import { BsCheckLg } from 'react-icons/bs';
 const SubmissionButtons = () => {
 	return (
 		<button
+			data-testid="button-submit-playlist"
 			type="submit"
 			className="flex-cc py-2 pr-3 pl-4 mb-3 text-base bg-white rounded-md hover:bg-theme-green"
 		>

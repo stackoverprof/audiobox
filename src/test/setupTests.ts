@@ -4,7 +4,5 @@ import '@testing-library/jest-dom/extend-expect';
 
 // SERVER MOCKING
 beforeAll(() => server.listen());
-
 afterEach(() => server.resetHandlers());
-
 afterAll(() => server.close());

@@ -36,9 +36,15 @@ const TrackCardSlim = ({ data, selected }: Props) => {
 	const isPlaying = currentTrack.id ? currentTrack.id === data.id : false;
 
 	return (
-		<div className="flex-bc overflow-hidden pl-4 h-28 bg-white bg-opacity-10 rounded-lg backdrop-blur group">
+		<div
+			data-testid="track-cards-result"
+			className="flex-bc overflow-hidden pl-4 h-28 bg-white bg-opacity-10 rounded-lg backdrop-blur group"
+		>
 			<div className="flex-cs mr-4">
-				<div className="relative overflow-hidden mr-4 w-20 h-20 min-w-[80px] rounded-md">
+				<div
+					className="relative overflow-hidden mr-4 w-20 h-20 min-w-[80px] rounded-md"
+					data-id="cover-track-cards-result"
+				>
 					{data.album?.images?.length > 0 && (
 						<img
 							src={data.album?.images[0].url}
@@ -63,10 +69,16 @@ const TrackCardSlim = ({ data, selected }: Props) => {
 					</button>
 				</div>
 				<div className="flex-ss col w-full">
-					<h3 className="overflow-hidden mb-3 w-full font-semibold text-left line-clamp-1">
+					<h3
+						className="overflow-hidden mb-3 w-full font-semibold text-left line-clamp-1"
+						data-id="title-track-cards-result"
+					>
 						{data.name}
 					</h3>
-					<p className="mb-1 w-full text-sm line-clamp-1">
+					<p
+						className="mb-1 w-full text-sm line-clamp-1"
+						data-id="description-track-cards-result"
+					>
 						{data.artists?.map((artist, i, arr) => (
 							<span key={i}>
 								{artist.name}
@@ -74,29 +86,34 @@ const TrackCardSlim = ({ data, selected }: Props) => {
 							</span>
 						))}
 					</p>
-					<p className="w-full text-xs opacity-40 line-clamp-1 -sm:y-32">
+					<p
+						className="w-full text-xs opacity-40 line-clamp-1 -sm:y-32"
+						data-id="duration-track-cards-result"
+					>
 						{msToTime(data.duration_ms)} - {data.album?.name}
 					</p>
 				</div>
 			</div>
-			<button
-				onClick={selected ? handleUnSelect : handleSelect}
-				className={[
-					'flex-cc w-12 min-w-[48px] h-full bg-opacity-5 transition ',
-					selected
-						? 'bg-theme-blue bg-opacity-50 hover:bg-opacity-30'
-						: 'bg-white  hover:bg-theme-green hover:bg-opacity-30',
-				].join(' ')}
-			>
-				{selected ? (
+			{selected ? (
+				<button
+					data-testid="button-to-unselect-track"
+					onClick={handleUnSelect}
+					className="flex-cc w-12 min-w-[48px] h-full bg-opacity-30 transition bg-theme-blue hover:bg-opacity-30"
+				>
 					<BsCheckLg size={20} className="transition-all transform text-theme-blue" />
-				) : (
+				</button>
+			) : (
+				<button
+					data-testid="button-to-select-track"
+					onClick={handleSelect}
+					className="flex-cc w-12 min-w-[48px] h-full bg-opacity-5 transition bg-white  hover:bg-theme-green hover:bg-opacity-30"
+				>
 					<HiPlus
 						size={28}
 						className="text-white opacity-40 transition-all transform group-hover:opacity-100 group-hover:text-theme-green group-hover:scale-125"
 					/>
-				)}
-			</button>
+				</button>
+			)}
 		</div>
 	);
 };
