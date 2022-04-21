@@ -7,7 +7,7 @@ import usePlaylist from '@core/swr/usePlaylist';
 interface Props {
 	data: any;
 }
-// [TODO] : owned badge
+
 const PlaylistCard = ({ data }: Props) => {
 	const [hover, setHover] = useState(false);
 	const { playlist, isOwned } = usePlaylist(data.id);
@@ -29,7 +29,9 @@ const PlaylistCard = ({ data }: Props) => {
 					badges={isOwned ? ['owned'] : []}
 					hover={hover}
 				/>
-				{tracks.length > 0 && <SliderTracks hover={hover} data={tracks} />}
+				{tracks.length > 0 && (
+					<SliderTracks hover={hover} data={tracks} playlist_id={data.id} />
+				)}
 			</div>
 		</div>
 	);

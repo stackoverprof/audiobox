@@ -45,9 +45,11 @@ const SliderTracks = ({ data, ordered, highlighted, playlist_id }: Props) => {
 							<TrackCardDisplay data={item} index={i} ordered={ordered} />
 						</SwiperSlide>
 					))}
-				<SwiperSlide style={{ width: 192 }}>
-					<SeeMoreCard playlist_id={playlist_id} />
-				</SwiperSlide>
+				{data.length > 0 && (
+					<SwiperSlide style={{ width: 192 }}>
+						<SeeMoreCard playlist_id={playlist_id} />
+					</SwiperSlide>
+				)}
 				<SwiperSlide style={{ width: 230 }} />
 			</Swiper>
 		</div>
