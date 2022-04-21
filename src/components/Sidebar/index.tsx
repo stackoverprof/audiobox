@@ -26,5 +26,5 @@ const Sidebar = () => {
 		</div>
 	);
 };
-// [TODO] : responsivness scorll?
+
 export default Sidebar;

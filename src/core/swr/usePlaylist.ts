@@ -12,8 +12,6 @@ const usePlaylist = (playlist_id) => {
 		fetchers.getPlaylist(playlist_id)
 	);
 
-	// [TODO] : how to handle pagination? load more? > 100 tracks data
-
 	return {
 		loading: !data && !error,
 		error: error && error.status === 403,

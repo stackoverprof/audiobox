@@ -35,9 +35,7 @@ const ReduxSlice = createSlice({
 
 export const { setCurrentTrack, setSelectedTracks, setPaused, reset } = ReduxSlice.actions;
 
-export const usePlayer = (): State => {
-	const state = useSelector((RootState: { player: State }) => RootState.player);
-	return state;
-};
+export const usePlayer = (): State =>
+	useSelector((RootState: { player: State }) => RootState.player);
 
 export default ReduxSlice.reducer;
