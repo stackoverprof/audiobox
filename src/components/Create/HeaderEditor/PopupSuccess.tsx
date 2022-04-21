@@ -18,7 +18,7 @@ const PopupSuccess = ({ playlistID, handleClose }: Props) => {
 			data-testid="popup-success"
 			className="fixed flex-cc top-0 left-0 z-40 pl-72 bg-black bg-opacity-80 -md:pb-20 -md:pl-0 full"
 		>
-			<div className="w-[600px] -md:w-auto flex-s -md:p-8 -md:col -md:flex-cc rounded-md bg-white bg-opacity-10 backdrop-blur-sm p-4">
+			<div className="w-[600px] -md:w-auto flex-sc -md:p-8 -md:col -md:flex-cc rounded-md bg-white bg-opacity-10 backdrop-blur-sm p-4">
 				<div className="overflow-hidden mr-8 w-48 h-48 bg-white bg-opacity-10 rounded-md -md:mr-0 -md:mb-8">
 					{playlist.images?.length > 0 && (
 						<img src={playlist.images[0].url} alt="" className="" />
