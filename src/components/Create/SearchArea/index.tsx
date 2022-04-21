@@ -35,4 +35,3 @@ const SearchArea = () => {
 };
 
 export default SearchArea;
-// [TODO] : fix the 3/4 820 problem

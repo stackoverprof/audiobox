@@ -12,14 +12,14 @@ const FeaturedTracks = ({ size }: Props) => {
 	const { featuredTracks } = useFeaturedTracks();
 
 	const loadMore = () => setIndex(index + 1);
-	// [TODO] : Skeleton loading
+
 	return (
 		<div className="flex-cs col mb-16 -md:flex-cc">
 			<h3 className="mb-8 text-lg">
 				Featured Daily Global&nbsp;
 				<span className="font-medium text-theme-blue">#TopCharts</span>
 			</h3>
-			<div className="grid grid-cols-3 gap-8 -sm:gap-4 -xl:grid-cols-2 -lg:grid-cols-3 -md:grid-cols-2 ">
+			<div className="grid min-h-[400px] grid-cols-3 gap-8 -sm:gap-4 -xl:grid-cols-2 -lg:grid-cols-3 -md:grid-cols-2 ">
 				{featuredTracks.slice(0, size * index).map((data, i) => (
 					<TrackCard data={data} index={i} key={data.uri} />
 				))}
