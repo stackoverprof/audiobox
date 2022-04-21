@@ -111,6 +111,20 @@ describe('Simulate creating playlist', async () => {
 				await userEvent.click(buttonSubmit);
 
 				expect(screen.getByTestId('popup-success')).not.toBeInTheDocument();
+			});
+		}, 0);
+	});
+
+	test('SHOULD see success confirmation after created', async () => {
+		setTimeout(async () => {
+			await waitFor(async () => {
+				screen.getAllByTestId('button-to-select-track').forEach((el) => {
+					fireEvent.click(el);
+				});
+
+				const inputTitle = screen.getByTestId('input-title-playlist');
+				const inputDescription = screen.getByTestId('input-description-playlist');
+				const buttonSubmit = screen.getByTestId('button-submit-playlist');
 
 				// Reaching requirement and should pass
 				await userEvent.type(inputTitle, '123451234512345');
@@ -120,10 +134,6 @@ describe('Simulate creating playlist', async () => {
 				expect(screen.getByTestId('popup-success')).toBeInTheDocument();
 			});
 		}, 0);
-	});
-
-	test('SHOULD see success confirmation after created', async () => {
-		//
 	});
 
 	test('Result SHOULD be non-public and non-collaborative', async () => {
