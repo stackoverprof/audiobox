@@ -1,3 +1,8 @@
+// [README] : Di aplikasi tersebut, Gigih ingin agar aplikasi tersebut hanya dapat diakses
+// oleh orang yang sudah log-in terlebih dahulu. Jika Gigih belum log-in, maka Gigih tidak dapat
+// mengakses halaman untuk membuat playlist tersebut, dan akan di-redirect ke halaman login.
+// Ketika selesai login, maka Gigih ingin melihat halaman untuk membuat playlist.
+
 import React from 'react';
 import Main from 'src/main';
 import randomBytesJs from 'random-bytes-js';
