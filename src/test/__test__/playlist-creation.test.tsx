@@ -18,15 +18,15 @@ import userEvent from '@testing-library/user-event';
 import { render, screen, waitFor } from '@testing-library/react';
 
 describe('Simulate creating playlist', () => {
+	window.history.pushState(
+		{},
+		'Landing',
+		`#access_token=${randomBytesJs.randHex(40)}&token_type=Bearer&expires_in=3600`
+	);
+
+	render(<Main />);
+
 	test('SHOULD retrieve search results as cards', async () => {
-		window.history.pushState(
-			{},
-			'Landing',
-			`#access_token=${randomBytesJs.randHex(40)}&token_type=Bearer&expires_in=3600`
-		);
-
-		render(<Main />);
-
 		await waitFor(() => {
 			expect(window.location.pathname).toStrictEqual('/create');
 		});
@@ -47,7 +47,22 @@ describe('Simulate creating playlist', () => {
 	});
 
 	test('SHOULD see cover, title, artist, and duration', async () => {
-		//
+		setTimeout(async () => {
+			await waitFor(() => {
+				screen
+					.getAllByTestId('cover-track-cards-result')
+					.forEach((el) => expect(el).toBeInTheDocument());
+				screen
+					.getAllByTestId('title-track-cards-result')
+					.forEach((el) => expect(el).toBeInTheDocument());
+				screen
+					.getAllByTestId('description-track-cards-result')
+					.forEach((el) => expect(el).toBeInTheDocument());
+				screen
+					.getAllByTestId('duration-track-cards-result')
+					.forEach((el) => expect(el).toBeInTheDocument());
+			});
+		}, 0);
 	});
 
 	test('Track SHOULD be selected only once', async () => {

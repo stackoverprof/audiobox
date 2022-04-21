@@ -41,7 +41,10 @@ const TrackCardSlim = ({ data, selected }: Props) => {
 			className="flex-bc overflow-hidden pl-4 h-28 bg-white bg-opacity-10 rounded-lg backdrop-blur group"
 		>
 			<div className="flex-cs mr-4">
-				<div className="relative overflow-hidden mr-4 w-20 h-20 min-w-[80px] rounded-md">
+				<div
+					className="relative overflow-hidden mr-4 w-20 h-20 min-w-[80px] rounded-md"
+					data-id="cover-track-cards-result"
+				>
 					{data.album?.images?.length > 0 && (
 						<img
 							src={data.album?.images[0].url}
@@ -66,10 +69,16 @@ const TrackCardSlim = ({ data, selected }: Props) => {
 					</button>
 				</div>
 				<div className="flex-ss col w-full">
-					<h3 className="overflow-hidden mb-3 w-full font-semibold text-left line-clamp-1">
+					<h3
+						className="overflow-hidden mb-3 w-full font-semibold text-left line-clamp-1"
+						data-id="title-track-cards-result"
+					>
 						{data.name}
 					</h3>
-					<p className="mb-1 w-full text-sm line-clamp-1">
+					<p
+						className="mb-1 w-full text-sm line-clamp-1"
+						data-id="description-track-cards-result"
+					>
 						{data.artists?.map((artist, i, arr) => (
 							<span key={i}>
 								{artist.name}
@@ -77,7 +86,10 @@ const TrackCardSlim = ({ data, selected }: Props) => {
 							</span>
 						))}
 					</p>
-					<p className="w-full text-xs opacity-40 line-clamp-1 -sm:y-32">
+					<p
+						className="w-full text-xs opacity-40 line-clamp-1 -sm:y-32"
+						data-id="duration-track-cards-result"
+					>
 						{msToTime(data.duration_ms)} - {data.album?.name}
 					</p>
 				</div>
