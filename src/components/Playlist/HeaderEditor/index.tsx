@@ -77,10 +77,6 @@ const HeaderEditor = () => {
 		toast.success('Added to library!');
 	};
 
-	// [TODO] : code split the business logic above
-
-	// [TODO] : _id to ID
-
 	return (
 		<div
 			className="flex-ss col pt-0 pr-8 pb-4 pl-10 w-full -sm:px-4"
