@@ -94,24 +94,26 @@ const TrackCardSlim = ({ data, selected }: Props) => {
 					</p>
 				</div>
 			</div>
-			<button
-				onClick={selected ? handleUnSelect : handleSelect}
-				className={[
-					'flex-cc w-12 min-w-[48px] h-full bg-opacity-5 transition ',
-					selected
-						? 'bg-theme-blue bg-opacity-50 hover:bg-opacity-30'
-						: 'bg-white  hover:bg-theme-green hover:bg-opacity-30',
-				].join(' ')}
-			>
-				{selected ? (
+			{selected ? (
+				<button
+					data-testid="button-to-unselect-track"
+					onClick={handleUnSelect}
+					className="flex-cc w-12 min-w-[48px] h-full bg-opacity-30 transition bg-theme-blue hover:bg-opacity-30"
+				>
 					<BsCheckLg size={20} className="transition-all transform text-theme-blue" />
-				) : (
+				</button>
+			) : (
+				<button
+					data-testid="button-to-select-track"
+					onClick={handleSelect}
+					className="flex-cc w-12 min-w-[48px] h-full bg-opacity-5 transition bg-white  hover:bg-theme-green hover:bg-opacity-30"
+				>
 					<HiPlus
 						size={28}
 						className="text-white opacity-40 transition-all transform group-hover:opacity-100 group-hover:text-theme-green group-hover:scale-125"
 					/>
-				)}
-			</button>
+				</button>
+			)}
 		</div>
 	);
 };

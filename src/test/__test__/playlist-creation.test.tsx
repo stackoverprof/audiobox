@@ -15,9 +15,9 @@ import React from 'react';
 import Main from 'src/main';
 import randomBytesJs from 'random-bytes-js';
 import userEvent from '@testing-library/user-event';
-import { render, screen, waitFor } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 
-describe('Simulate creating playlist', () => {
+describe('Simulate creating playlist', async () => {
 	window.history.pushState(
 		{},
 		'Landing',
@@ -26,11 +26,11 @@ describe('Simulate creating playlist', () => {
 
 	render(<Main />);
 
-	test('SHOULD retrieve search results as cards', async () => {
-		await waitFor(() => {
-			expect(window.location.pathname).toStrictEqual('/create');
-		});
+	await waitFor(() => {
+		expect(window.location.pathname).toStrictEqual('/create');
+	});
 
+	test('SHOULD retrieve search results as cards', async () => {
 		const searchInput = screen.getByTestId('input-search-tracks');
 		const button = screen.getByTestId('button-search-tracks');
 
@@ -65,8 +65,16 @@ describe('Simulate creating playlist', () => {
 		}, 0);
 	});
 
-	test('Track SHOULD be selected only once', async () => {
-		//
+	test('Unique Track SHOULD can only be selected once', async () => {
+		setTimeout(async () => {
+			await waitFor(() => {
+				screen.getAllByTestId('button-to-select-track').forEach((el) => {
+					fireEvent.click(el);
+				});
+
+				expect(screen.getByTestId('button-to-select-track')).length.toEqual(0);
+			});
+		}, 0);
 	});
 
 	test('SHOULD be able to unselect', async () => {
