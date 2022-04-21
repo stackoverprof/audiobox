@@ -18,19 +18,19 @@ import userEvent from '@testing-library/user-event';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 
 describe('Simulate creating playlist', async () => {
-	window.history.pushState(
-		{},
-		'Landing',
-		`#access_token=${randomBytesJs.randHex(40)}&token_type=Bearer&expires_in=3600`
-	);
-
-	render(<Main />);
-
-	await waitFor(() => {
-		expect(window.location.pathname).toStrictEqual('/create');
-	});
-
 	test('SHOULD retrieve search results as cards', async () => {
+		window.history.pushState(
+			{},
+			'Landing',
+			`#access_token=${randomBytesJs.randHex(40)}&token_type=Bearer&expires_in=3600`
+		);
+
+		render(<Main />);
+
+		await waitFor(() => {
+			expect(window.location.pathname).toStrictEqual('/create');
+		});
+
 		const searchInput = screen.getByTestId('input-search-tracks');
 		const button = screen.getByTestId('button-search-tracks');
 
@@ -134,10 +134,6 @@ describe('Simulate creating playlist', async () => {
 				expect(screen.getByTestId('popup-success')).toBeInTheDocument();
 			});
 		}, 0);
-	});
-
-	test('Result SHOULD be non-public and non-collaborative', async () => {
-		//
 	});
 });
 
