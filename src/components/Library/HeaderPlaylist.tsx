@@ -18,11 +18,13 @@ const HeaderPlaylist = ({ data, tracks, hover, badges = [] }: Props) => {
 				<div className="flex-ss col w-full max-w-[500px]">
 					<div
 						className={[
-							'mb-1 -xl:text-2xl -md:text-xl text-3xl flex-cc font-medium line-clamp-1 transition group-hover:text-theme-blue',
+							'mb-1 -xl:text-2xl -md:text-xl text-3xl flex-cc font-medium  transition group-hover:text-theme-blue',
 							hover && '',
 						].join(' ')}
 					>
-						{data.name || <span className="opacity-20">Untitled Playlist</span>}
+						<p className="line-clamp-1">
+							{data.name || <span className="opacity-20">Untitled Playlist</span>}
+						</p>
 						{badges.length > 0 && (
 							<div className="flex-cc ml-4">
 								{badges.map((item, i) => (
