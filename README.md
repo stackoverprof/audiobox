@@ -1,4 +1,4 @@
-### Generasi GIGIH — Final Project 
+### Generasi GIGIH — Final Project
 
 # [![](./public/favicon.svg)]() Audiobox - Find tracks and create the Playlist you love
 
@@ -40,13 +40,13 @@ After you used the Music Player feature, all the tracks you've listened to will 
 
 ## Tech-stack Breakdown
 
-[![](https://img.shields.io/badge/TYPESCRIPT%20-%233178C6.svg?&style=flat&logo=typescript&logoColor=white)](https://typescriptlang.org) 
-[![](https://img.shields.io/badge/REACT%20-%2356BDDA.svg?&style=flat&logo=react&logoColor=white)](https://reactjs.org) 
-[![](https://img.shields.io/badge/VITE%20-%23646CFF.svg?&style=flat&logo=vite&logoColor=white)](https://vitejs.dev) 
+[![](https://img.shields.io/badge/TYPESCRIPT%20-%233178C6.svg?&style=flat&logo=typescript&logoColor=white)](https://typescriptlang.org)
+[![](https://img.shields.io/badge/REACT%20-%2356BDDA.svg?&style=flat&logo=react&logoColor=white)](https://reactjs.org)
+[![](https://img.shields.io/badge/VITE%20-%23646CFF.svg?&style=flat&logo=vite&logoColor=white)](https://vitejs.dev)
 [![](https://img.shields.io/badge/TAILWIND%20-%2338B2AC.svg?&style=flat&logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
 [![](https://img.shields.io/badge/REDUX%20-%23764ABC.svg?&style=flat&logo=redux&logoColor=white)](https://redux.js.org)
 [![](https://img.shields.io/badge/SWR%20-%23000000.svg?&style=flat&logo=vercel&logoColor=white)](https://swr.vercel.app)
-[![](https://img.shields.io/badge/VITEST%20-%23dbab1f.svg?&style=flat&logo=vite&logoColor=white)](https://vitest.dev) 
+[![](https://img.shields.io/badge/VITEST%20-%23dbab1f.svg?&style=flat&logo=vite&logoColor=white)](https://vitest.dev)
 [![](https://img.shields.io/badge/TESTING%20LIBRARY%20-%23E33332.svg?&style=flat&logo=testing-library&logoColor=white)](https://testing-library.com)
 [![](https://img.shields.io/badge/MSW%20-%23ff6933.svg?&style=flat&logo=dynatrace&logoColor=white)](https://mswjs.io)
 [![](https://img.shields.io/badge/VERCEL%20-%23000000.svg?&style=flat&logo=vercel&logoColor=white)](https://vercel.com)
@@ -67,7 +67,6 @@ Still about performance, built on top of the vite technologies. Vitest syntaxes 
 
 You can visit it at `audiobox.errbint.net`, this project is deployed on Vercel with just Hobby Plan and I set up my own domain errbint.net and later set Audiobox to be the subdomain. The development branch can also be visited at `dev.audiobox.errbint.net`
 
-
 ## Run it Locally
 
 Make sure you've set the `.env.local` file with a value of
@@ -79,6 +78,7 @@ and then
 `npm start`
 
 ## Available scripts
+
 `start` : run local dev server
 
 `dev` : run local dev server

@@ -13,4 +13,3 @@ const HeaderHistory = () => {
 };
 
 export default HeaderHistory;
-

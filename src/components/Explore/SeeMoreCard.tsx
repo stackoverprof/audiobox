@@ -24,4 +24,3 @@ const SeeMoreCard = ({ playlist_id }: Props) => {
 };
 
 export default SeeMoreCard;
-
