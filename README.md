@@ -1,5 +1,6 @@
 ### Generasi GIGIH — Final Project 
-# Audiobox: Find tracks and create the Playlist you love
+
+# [![](./public/favicon.svg)]() Audiobox - Find tracks and create the Playlist you love
 
 _Live Production: [audiobox.errbint.net](https://audiobox.errbint.net)_
 
