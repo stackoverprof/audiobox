@@ -1,4 +1,6 @@
 import React from 'react';
+import Lottie from '@components/_shared/Lottie';
+import spinner from '@public/lottie/spinner.json';
 import { FaPause, FaPlay } from 'react-icons/fa';
 import { FiArrowUpRight } from 'react-icons/fi';
 import { setPaused, usePlayer } from '@core/redux/reducer/player';
@@ -8,7 +10,7 @@ const MiniPlayer = () => {
 	const dispatch = useDispatch();
 
 	// PLAYER CONTROLS
-	const { currentTrack, paused } = usePlayer();
+	const { currentTrack, paused, buffering } = usePlayer();
 
 	const handlePlayer = () => {
 		dispatch(setPaused(!paused));
@@ -39,16 +41,20 @@ const MiniPlayer = () => {
 						onClick={handlePlayer}
 						className={[
 							'absolute flex-cc top-0 hover:opacity-100 left-0 bg-black bg-opacity-60 transition hover:bg-opacity-75 group-hover:opacity-100 full',
-							paused ? 'opacity-100' : 'opacity-0',
+							paused || buffering ? 'opacity-100' : 'opacity-0',
 						].join(' ')}
 					>
-						<div className="flex-cc w-8 h-8 rounded-full border-2">
-							{!paused ? (
-								<FaPause size={16} className="" />
-							) : (
+						{paused ? (
+							<div className="flex-cc w-8 h-8 rounded-full border-2">
 								<FaPlay size={16} className="ml-1" />
-							)}
-						</div>
+							</div>
+						) : buffering ? (
+							<Lottie animationData={spinner} loop className="w-10 h-10" />
+						) : (
+							<div className="flex-cc w-8 h-8 rounded-full border-2">
+								<FaPause size={16} className="" />
+							</div>
+						)}
 					</button>
 				</div>
 				<div className="flex-bc py-2 w-full h-full">

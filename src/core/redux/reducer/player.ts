@@ -6,13 +6,17 @@ import { useSelector } from 'react-redux';
 export interface State {
 	currentTrack: any;
 	selectedTracks: any[];
+	history: any[];
 	paused: boolean;
+	buffering: boolean;
 }
 
 const initialState = <State>{
 	currentTrack: {},
 	selectedTracks: [],
+	history: [],
 	paused: false,
+	buffering: false,
 };
 
 const ReduxSlice = createSlice({
@@ -29,11 +33,18 @@ const ReduxSlice = createSlice({
 		setPaused: (state, action) => {
 			state.paused = action.payload;
 		},
+		setHistory: (state, action) => {
+			state.history = action.payload;
+		},
+		setBuffering: (state, action) => {
+			state.buffering = action.payload;
+		},
 		reset: () => initialState,
 	},
 });
 
-export const { setCurrentTrack, setSelectedTracks, setPaused, reset } = ReduxSlice.actions;
+export const { setCurrentTrack, setSelectedTracks, setPaused, setHistory, setBuffering, reset } =
+	ReduxSlice.actions;
 
 export const usePlayer = (): State =>
 	useSelector((RootState: { player: State }) => RootState.player);

@@ -7,15 +7,16 @@ interface Props {
 	text: string;
 	Icon: IconType;
 	badge?: string | number;
+	active?: boolean;
 }
 
-const TabLink = ({ route, text, Icon, badge = '' }: Props) => {
+const TabLink = ({ active, route, text, Icon, badge = '' }: Props) => {
 	return (
 		<Link
 			to={route}
 			className="flex-bc px-3 w-full h-12 bg-white bg-opacity-0 rounded-md hover:bg-opacity-20"
 		>
-			<div className="flex-sc">
+			<div className={['flex-sc', active ? '' : 'text-white'].join(' ')}>
 				<Icon size={24} className="mr-4" />
 				<p className="">{text}</p>
 			</div>

@@ -1,8 +1,14 @@
 import React, { useEffect, useRef } from 'react';
-import { setCurrentTrack, setSelectedTracks, usePlayer } from '@core/redux/reducer/player';
+import { pushHistory } from '@core/redux/actions/player';
 import { useDispatch } from 'react-redux';
+import {
+	setBuffering,
+	setCurrentTrack,
+	setHistory,
+	setSelectedTracks,
+	usePlayer,
+} from '@core/redux/reducer/player';
 
-// [TODO] : spinner loading song
 const AudioPlayer = () => {
 	const { currentTrack, selectedTracks, paused } = usePlayer();
 	const audio = useRef<any>(null);
@@ -19,6 +25,7 @@ const AudioPlayer = () => {
 
 	const handleEnded = () => {
 		dispatch(setCurrentTrack({}));
+		dispatch(pushHistory(currentTrack));
 	};
 
 	const dispatch = useDispatch();
@@ -30,6 +37,11 @@ const AudioPlayer = () => {
 		}
 	}, [selectedTracks, currentTrack]);
 
+	useEffect(() => {
+		const savedHistory = JSON.parse(localStorage.getItem('player_history') || '[]');
+		dispatch(setHistory(savedHistory));
+	}, []);
+
 	if (!currentTrack.preview_url || !currentTrack.id) return <></>;
 	return (
 		<audio
@@ -39,6 +51,8 @@ const AudioPlayer = () => {
 			key={currentTrack.id}
 			className="hidden pointer-events-none"
 			onEnded={handleEnded}
+			onWaiting={() => setBuffering(true)}
+			onLoadedData={() => setBuffering(false)}
 		>
 			<source src={currentTrack.preview_url} type="audio/mpeg" />
 		</audio>
