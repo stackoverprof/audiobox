@@ -44,12 +44,12 @@ const MiniPlayer = () => {
 							paused || buffering ? 'opacity-100' : 'opacity-0',
 						].join(' ')}
 					>
-						{buffering ? (
-							<Lottie animationData={spinner} loop className="w-10 h-10" />
-						) : paused ? (
+						{paused ? (
 							<div className="flex-cc w-8 h-8 rounded-full border-2">
 								<FaPlay size={16} className="ml-1" />
 							</div>
+						) : buffering ? (
+							<Lottie animationData={spinner} loop className="w-10 h-10" />
 						) : (
 							<div className="flex-cc w-8 h-8 rounded-full border-2">
 								<FaPause size={16} className="" />
