@@ -9,8 +9,10 @@ export const play = (tracks: any[]) => (dispatch) => {
 };
 
 export const pushHistory = (track: any) => (dispatch) => {
+	const timestamp = new Date().getTime();
+	const timestamped = { ...track, timestamp };
 	const { history } = store.getState().player;
-	const next = [...history, track];
+	const next = [...history, timestamped];
 
 	localStorage.setItem('player_history', JSON.stringify(next));
 	dispatch(setHistory(next));
