@@ -25,7 +25,7 @@ export const handlers = [
 		return res(ctx.json(recently_played));
 	}),
 
-	rest.get('/https://api.spotify.com/v1/search', (req, res, ctx) => {
+	rest.get('/https://api.spotify.com/v1/search', (_, res, ctx) => {
 		return res(ctx.json(intentions));
 	}),
 ];

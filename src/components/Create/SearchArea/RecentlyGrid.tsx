@@ -13,9 +13,11 @@ const RecentlyGrid = ({ showLabel }: Props) => {
 			{showLabel ? (
 				<p className="mb-6 text-3xl font-semibold">Recently played</p>
 			) : (
-				<p className="text-lg mb-3 mt-8 opacity-40">Recently played</p>
+				<p className="mt-8 mb-3 text-lg opacity-40">Recently played</p>
 			)}
-			<ResultGrid data={data} />
+			<div data-testid="result-tracks">
+				<ResultGrid data={data} />
+			</div>
 		</div>
 	);
 };
