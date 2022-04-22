@@ -15,9 +15,12 @@ const SearchArea = () => {
 		if (!searchQuery) return;
 
 		const result = await fetchers.searchTracks(searchQuery).catch(() => null);
+		console.log('whrbfjrbfj', result);
+
 		if (!result) return toast.error('Failed retrieving tracks results');
 		setSearchResult(result);
 	};
+	// console.log('hdbfjd', searchResult);
 
 	return (
 		<div className="flex-ss col mb-16 w-full">
@@ -27,7 +30,11 @@ const SearchArea = () => {
 					onChange={(val) => setSearchQuery(val)}
 					handleSearch={handleSearch}
 				/>
-				{searchResult.length > 0 && <ResultGrid data={searchResult} />}
+				{searchResult.length > 0 && (
+					<div data-testid="result-tracks">
+						<ResultGrid data={searchResult} />
+					</div>
+				)}
 				<RecentlyGrid showLabel={searchResult.length > 0} />
 			</div>
 		</div>
