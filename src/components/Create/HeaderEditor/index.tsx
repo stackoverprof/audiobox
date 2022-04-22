@@ -80,7 +80,7 @@ const HeaderEditor = () => {
 						<BadgesInfo />
 					</div>
 				</form>
-				<div className="pl-10 w-full">
+				<div className="pl-10 w-full -sm:pl-4">
 					<TracksSelected />
 				</div>
 			</div>
