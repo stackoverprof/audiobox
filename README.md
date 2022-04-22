@@ -9,21 +9,21 @@ A React based web application that utilizes Spotify Web-API at its finest. You c
 
 ### Creating Playlist
 
-You can create playlist at `/create` after logging in, finding tracks, seeing their details and add/remove them to the cart, then you will be filling up the title (>10), description, and click submit. Should you successfully created your playlist, you will see a pop up that will redirect you to the `/playlist/:playlist_id` page to see the result.
+You can create playlist at `/create` after logging in. First, you should search tracks, seeing their details and add/remove them to the cart, then you should fill up the title (minimal 10 char), description, and click submit. Should you successfully created your playlist, you will see a pop up that will redirect you to the `/playlist/:playlist_id` page to see the result.
 
 ## Extra Feature
 
 ### Library
 
-You can see all the playlist you have, be it your own or the public playlist you've followed in the `/library`. You can edit the playlist (if you owned them) by changing the title, description and tracks. You can also remove any playlist from your library.
+You can see all the playlist you have in the `/library`, be it your own or the public playlist you've followed. You can edit the playlist (if you owned them) by changing the title, description and tracks. You can also remove any playlist from your library.
 
 ### Playlist Manager
 
-Open any playlist in the library and you'll see their own page at `playlist/:playlist_id` where you can do some actions like editing them and modifying the tracks.
+Open any playlist in the library and you'll see their dedicated page at `playlist/:playlist_id` where you can do some actions like editing them and reselecting the tracks.
 
 ### Explore
 
-Spotify provides you a highly curated playlist that is featured in the `/explore` page. You can eventually meet a playlists that match you taste and add them to your library. You can find a nice-looking carousel of track cards in this page to help you discover better.
+Spotify provides you a highly curated playlist that is featured in the `/explore` page. You can eventually meet a playlists that match your taste and add them to your library. You can find a nice-looking carousel of track cards in this page to help you discover better.
 
 ### Charts
 
@@ -31,11 +31,11 @@ There's also a sub page of `/explore?tab=charts` where you can see the daily/wee
 
 ### Music Player
 
-Yes! it's a feature to let you listen to the preview of the tracks you love, you can click the play button in the track or even a to play the whole playlist continously. If you wan't to listen the full version, there's also a link provided in the mini player (bottom-left) that will redirect you to the Spotify App.
+Yes! it's a feature to let you listen to the preview of the tracks you love, you can click the play button in the track or even to play the whole playlist continously in their order. If you wan't to listen the full version, there's also a link provided in the mini player (bottom-left) that will redirect you to the Spotify App.
 
 ### History
 
-After you used the Music Player feature, all the tracks you've listened to will be listed under the `/history` page. You can also see the information about how long ago was the track played and then you can also Re-play them all.
+After you used the Music Player feature, all the tracks you've listened to will be listed under the `/history` page. You can also see the information about how long ago was the track played and then you can also re-play them all.
 
 ## Tech-stack Breakdown
 
@@ -52,7 +52,7 @@ After you used the Music Player feature, all the tracks you've listened to will 
 
 #### The decision to change bundler from Webpack to Vite
 
-All about performance. Vite bundler is blazing fast utilizing native ESM and esbuild which is written in Go and pre-bundled dependencies 10-100x faster than JavaScript-based bundlers.
+All about performance. Vite bundler is blazing fast utilizing native ESM and esbuild which is written in Go and Vite can pre-bundles dependencies 10-100x faster than JavaScript-based bundlers.
 
 #### Data Fetching with SWR
 
@@ -68,11 +68,7 @@ You can visit it at `audiobox.errbint.net`, this project is deployed on Vercel w
 
 ## Run it Locally
 
-Execute `vite` with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/)
-
-Or simply short:
-
-Make sure you've set the `.env.local` file with values
+Make sure you've set the `.env.local` file with a value of
 `VITE_SPOTIFY_CLIENT_ID = `
 
 Just do
