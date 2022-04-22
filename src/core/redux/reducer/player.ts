@@ -8,6 +8,7 @@ export interface State {
 	selectedTracks: any[];
 	history: any[];
 	paused: boolean;
+	buffering: boolean;
 }
 
 const initialState = <State>{
@@ -15,6 +16,7 @@ const initialState = <State>{
 	selectedTracks: [],
 	history: [],
 	paused: false,
+	buffering: false,
 };
 
 const ReduxSlice = createSlice({
@@ -34,11 +36,14 @@ const ReduxSlice = createSlice({
 		setHistory: (state, action) => {
 			state.history = action.payload;
 		},
+		setBuffering: (state, action) => {
+			state.buffering = action.payload;
+		},
 		reset: () => initialState,
 	},
 });
 
-export const { setCurrentTrack, setSelectedTracks, setPaused, setHistory, reset } =
+export const { setCurrentTrack, setSelectedTracks, setPaused, setHistory, setBuffering, reset } =
 	ReduxSlice.actions;
 
 export const usePlayer = (): State =>

@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { pushHistory } from '@core/redux/actions/player';
 import { useDispatch } from 'react-redux';
 import {
+	setBuffering,
 	setCurrentTrack,
 	setHistory,
 	setSelectedTracks,
@@ -51,6 +52,8 @@ const AudioPlayer = () => {
 			key={currentTrack.id}
 			className="hidden pointer-events-none"
 			onEnded={handleEnded}
+			onWaiting={() => setBuffering(true)}
+			onLoadedData={() => setBuffering(false)}
 		>
 			<source src={currentTrack.preview_url} type="audio/mpeg" />
 		</audio>
