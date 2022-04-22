@@ -25,4 +25,3 @@ const SeeMoreCardMini = ({ playlist_id }: Props) => {
 };
 
 export default SeeMoreCardMini;
-

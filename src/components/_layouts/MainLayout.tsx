@@ -19,7 +19,7 @@ const MainLayout = ({ children, style, className, title }: Props) => {
 			<aside className="w-72 h-screen -md:hidden">
 				<Sidebar />
 			</aside>
-			<main className="flex-sc col flex-1">
+			<main className="flex-sc col flex-1 -md:pb-32">
 				<div style={style} className={className}>
 					{children}
 				</div>

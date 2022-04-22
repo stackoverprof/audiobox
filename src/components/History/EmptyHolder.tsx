@@ -6,9 +6,9 @@ import { Link } from 'react-router-dom';
 const EmptyHolder = () => {
 	return (
 		<div className="flex-sc col w-full">
-			<Lottie animationData={historyDraft} loop className="mb-8 w-[320px]" />
-			<p className="mb-12 text-center opacity-30">No history recorded.</p>
-			<p className="text-center lg:text-xl sm:text-xl">
+			<Lottie animationData={historyDraft} loop className="mb-8 w-[320px] max-w-[60%]" />
+			<p className="mx-4 mb-12 text-center opacity-30">No history recorded.</p>
+			<p className="mx-4 leading-loose text-center lg:text-xl sm:text-xl">
 				Let&apos;s{' '}
 				<Link
 					to="/explore"
@@ -23,4 +23,3 @@ const EmptyHolder = () => {
 };
 
 export default EmptyHolder;
-
