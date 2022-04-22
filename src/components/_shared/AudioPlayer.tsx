@@ -24,8 +24,8 @@ const AudioPlayer = () => {
 	}, [paused, audio]);
 
 	const handleEnded = () => {
-		dispatch(setCurrentTrack({}));
 		dispatch(pushHistory(currentTrack));
+		dispatch(setCurrentTrack({}));
 	};
 
 	const dispatch = useDispatch();
