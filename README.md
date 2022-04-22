@@ -4,19 +4,19 @@
 
 _Live Production: [audiobox.errbint.net](https://audiobox.errbint.net)_
 
-A React based web application that utilizes Spotify Web-API at its finest. You can create, edit and manage playlist in your library, explore featured playlists and follow them. There's also a built-in mini player to listen a preview of the tracks. and it's all integrated to Spotify!
+A React-based web application that utilizes Spotify Web-API at its finest. You can create, edit and manage playlists in your library, explore featured playlists and follow them. There's also a built-in mini-player to listen to a preview of the tracks. And it's all integrated into Spotify!
 
 ## Core Feature (as per the Requirements)
 
 ### Creating Playlist
 
-You can create playlist at `/create` after logging in. First, you should search tracks, seeing their details and add/remove them to the cart, then you should fill up the title (minimal 10 char), description, and click submit. Should you successfully created your playlist, you will see a pop up that will redirect you to the `/playlist/:playlist_id` page to see the result.
+You can create a playlist at `/create` after logging in. First, you should search tracks, see their details and add/remove them to the cart, then you should fill up the title (minimal 10 char), description and click submit. Should you successfully create your playlist, you will see a pop-up that will redirect you to the `/playlist/:playlist_id` page to see the result.
 
 ## Extra Feature
 
 ### Library
 
-You can see all the playlist you have in the `/library`, be it your own or the public playlist you've followed. You can edit the playlist (if you owned them) by changing the title, description and tracks. You can also remove any playlist from your library.
+You can see all the playlists you have in the `/library`, be it your own or the public playlist you've followed. You can edit the playlist (if you owned them) by changing the title, description, and tracks. You can also remove any playlist from your library.
 
 ### Playlist Manager
 
@@ -24,15 +24,15 @@ Open any playlist in the library and you'll see their dedicated page at `playlis
 
 ### Explore
 
-Spotify provides you a highly curated playlist that is featured in the `/explore` page. You can eventually meet a playlists that match your taste and add them to your library. You can find a nice-looking carousel of track cards in this page to help you discover better.
+Spotify provides you with a highly curated playlist that is featured on the `/explore` page. You can eventually meet playlists that match your taste and add them to your library. You can find a nice-looking carousel of track cards on this page to help you discover better.
 
 ### Charts
 
-There's also a sub page of `/explore?tab=charts` where you can see the daily/weekly global/local track ranking that will keep you updated!
+There's also a sub-page of `/explore?tab=charts` where you can see the daily or weekly global/local track ranking that will keep you updated!
 
 ### Music Player
 
-Yes! it's a feature to let you listen to the preview of the tracks you love, you can click the play button in the track or even to play the whole playlist continously in their order. If you wan't to listen the full version, there's also a link provided in the mini player (bottom-left) that will redirect you to the Spotify App.
+Yes! it's a feature to let you listen to the preview of the tracks you love, you can click the play button on the track or even play the whole playlist continuously in their order. If you want to listen to the full version, there's also a link provided in the mini-player (bottom-left) that will redirect you to the Spotify App.
 
 ### History
 
@@ -53,19 +53,20 @@ After you used the Music Player feature, all the tracks you've listened to will 
 
 #### The decision to change bundler from Webpack to Vite
 
-All about performance. Vite bundler is blazing fast utilizing native ESM and esbuild which is written in Go and Vite can pre-bundles dependencies 10-100x faster than JavaScript-based bundlers.
+All about performance. Vite bundler is blazing fast utilizing native ESM and ESbuild which is written in Go and Vite can pre-bundle dependencies 10-100x faster than JavaScript-based bundlers. This project is built with a Create-react-app set up on top of a new bundler, Vite.
 
 #### Data Fetching with SWR
 
-Managing data fetching is uneasy with all the manual process of data passing-updating. SWR handled it all out of the box with a realtime experience and better performance, leading to a fast and nice user experience. SWR created a server-caching which gives us a better networking efficiency. SWR can also be a custom Hook that acts almost like a global state management.
+Managing data fetching is uneasy with all the manual processes of data passing-updating. SWR handled it all out of the box with a real-time experience and better performance, leading to a fast and nice user experience. SWR created a server-caching which gives us a better networking efficiency. SWR can also be a custom Hook that acts almost like global state management.
 
 #### Vitest as Jest replacement
 
-Still about perfomance, built on top of the vite technologies. Vitest syntaxes is as same as Jest, but the performance is greatly different. Vitest can be integrated easily with the other testing library such as React Testing Library and MSW
+Still about performance, built on top of the vite technologies. Vitest syntaxes are as same as Jest, but the performance is greatly different. Vitest can be integrated easily with the other testing library such as React Testing Library and MSW
 
 #### Deployed on Vercel with Custom Domain
 
-You can visit it at `audiobox.errbint.net`, this project is deployed on Vercel with just Hobby Plan and I setup my own domain errbint.net and later set audiobox to be the subdomain. The development branch can also be visited at `dev.audiobox.errbint.net`
+You can visit it at `audiobox.errbint.net`, this project is deployed on Vercel with just Hobby Plan and I set up my own domain errbint.net and later set Audiobox to be the subdomain. The development branch can also be visited at `dev.audiobox.errbint.net`
+
 
 ## Run it Locally
 
