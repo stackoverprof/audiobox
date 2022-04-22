@@ -9,7 +9,6 @@ import {
 	usePlayer,
 } from '@core/redux/reducer/player';
 
-// [TODO] : spinner loading song
 const AudioPlayer = () => {
 	const { currentTrack, selectedTracks, paused } = usePlayer();
 	const audio = useRef<any>(null);
