@@ -74,7 +74,7 @@ Make sure you've set the `.env.local` file with a value of
 Just do
 `npm install`
 and then
-`npm run dev`
+`npm start`
 
 ## Available scripts
 `start` : run local dev server
