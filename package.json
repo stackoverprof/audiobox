@@ -18,6 +18,7 @@
 		"axios": "^0.26.1",
 		"html-to-text": "^8.2.0",
 		"lottie-web": "^5.9.2",
+		"moment": "^2.29.3",
 		"random-bytes-js": "^1.0.0",
 		"react": "^18.0.0",
 		"react-dom": "^18.0.0",
