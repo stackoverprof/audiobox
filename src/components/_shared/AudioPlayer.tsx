@@ -1,6 +1,12 @@
 import React, { useEffect, useRef } from 'react';
-import { setCurrentTrack, setSelectedTracks, usePlayer } from '@core/redux/reducer/player';
+import { pushHistory } from '@core/redux/actions/player';
 import { useDispatch } from 'react-redux';
+import {
+	setCurrentTrack,
+	setHistory,
+	setSelectedTracks,
+	usePlayer,
+} from '@core/redux/reducer/player';
 
 // [TODO] : spinner loading song
 const AudioPlayer = () => {
@@ -19,6 +25,7 @@ const AudioPlayer = () => {
 
 	const handleEnded = () => {
 		dispatch(setCurrentTrack({}));
+		dispatch(pushHistory(currentTrack));
 	};
 
 	const dispatch = useDispatch();
@@ -29,6 +36,11 @@ const AudioPlayer = () => {
 			dispatch(setSelectedTracks([...selectedTracks].slice(1, selectedTracks.length)));
 		}
 	}, [selectedTracks, currentTrack]);
+
+	useEffect(() => {
+		const savedHistory = JSON.parse(localStorage.getItem('player_history') || '[]');
+		dispatch(setHistory(savedHistory));
+	}, []);
 
 	if (!currentTrack.preview_url || !currentTrack.id) return <></>;
 	return (

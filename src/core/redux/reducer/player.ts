@@ -6,12 +6,14 @@ import { useSelector } from 'react-redux';
 export interface State {
 	currentTrack: any;
 	selectedTracks: any[];
+	history: any[];
 	paused: boolean;
 }
 
 const initialState = <State>{
 	currentTrack: {},
 	selectedTracks: [],
+	history: [],
 	paused: false,
 };
 
@@ -29,11 +31,15 @@ const ReduxSlice = createSlice({
 		setPaused: (state, action) => {
 			state.paused = action.payload;
 		},
+		setHistory: (state, action) => {
+			state.history = action.payload;
+		},
 		reset: () => initialState,
 	},
 });
 
-export const { setCurrentTrack, setSelectedTracks, setPaused, reset } = ReduxSlice.actions;
+export const { setCurrentTrack, setSelectedTracks, setPaused, setHistory, reset } =
+	ReduxSlice.actions;
 
 export const usePlayer = (): State =>
 	useSelector((RootState: { player: State }) => RootState.player);
